@@ -101,7 +101,12 @@ namespace MCForge
                                     catch { Server.s.Log("error " + item + " switch"); }
                                     break;
                                 case "titlep":
-                                    try { int temp = Convert.ToInt32(obj); Server.itemprices.Add(temp); }
+                                    try
+                                    {
+                                        int temp = Convert.ToInt32(obj);
+                                        if (Server.buyableitems.Contains("title"))
+                                            Server.itemprices.Add(temp);
+                                    }
                                     catch { Server.s.Log("invalid title price"); Server.itemprices.Add(400); }
                                     break;
                                 //------------------------------------------------------------------------------------
@@ -110,7 +115,12 @@ namespace MCForge
                                     catch { Server.s.Log("error " + item + " switch"); }
                                     break;
                                 case "tcolorp":
-                                    try { int temp = Convert.ToInt32(obj); Server.itemprices.Add(temp); }
+                                    try
+                                    {
+                                        int temp = Convert.ToInt32(obj);
+                                        if (Server.buyableitems.Contains("tcolor"))
+                                            Server.itemprices.Add(temp);
+                                    }
                                     catch { Server.s.Log("invalid tcolor price"); Server.itemprices.Add(200); }
                                     break;
                                 //------------------------------------------------------------------------------------
@@ -119,7 +129,12 @@ namespace MCForge
                                     catch { Server.s.Log("error " + item + " switch"); }
                                     break;
                                 case "revivep":
-                                    try { int temp = Convert.ToInt32(obj); Server.itemprices.Add(temp); }
+                                    try
+                                    {
+                                        int temp = Convert.ToInt32(obj);
+                                        if (Server.buyableitems.Contains("revive"))
+                                            Server.itemprices.Add(temp);
+                                    }
                                     catch { Server.s.Log("invalid revive price"); Server.itemprices.Add(7); }
                                     break;
                                 //------------------------------------------------------------------------------------
@@ -128,7 +143,12 @@ namespace MCForge
                                     catch { Server.s.Log("error " + item + " switch"); }
                                     break;
                                 case "10blocksp":
-                                    try { int temp = Convert.ToInt32(obj); Server.itemprices.Add(temp); }
+                                    try
+                                    {
+                                        int temp = Convert.ToInt32(obj);
+                                        if (Server.buyableitems.Contains("10blocks"))
+                                            Server.itemprices.Add(temp);
+                                    }
                                     catch { Server.s.Log("invalid blocks price"); Server.itemprices.Add(1); }
                                     break;
                                 //------------------------------------------------------------------------------------
@@ -137,7 +157,12 @@ namespace MCForge
                                     catch { Server.s.Log("error " + item + " switch"); }
                                     break;
                                 case "rankupp":
-                                    try { int temp = Convert.ToInt32(obj); Server.itemprices.Add(temp); }
+                                    try
+                                    {
+                                        int temp = Convert.ToInt32(obj);
+                                        if (Server.buyableitems.Contains("rankup"))
+                                        Server.itemprices.Add(temp);
+                                    }
                                     catch { Server.s.Log("invalid rankup price"); Server.itemprices.Add(300); }
                                     break;
                                 case "buyableranks":
@@ -160,7 +185,12 @@ namespace MCForge
                                     catch { Server.s.Log("error " + item + " switch"); }
                                     break;
                                 case "loginmsgp":
-                                    try { int temp = Convert.ToInt32(obj); Server.itemprices.Add(temp); }
+                                    try
+                                    {
+                                        int temp = Convert.ToInt32(obj);
+                                        if (Server.buyableitems.Contains("loginmsg"))
+                                            Server.itemprices.Add(temp);
+                                    }
                                     catch { Server.s.Log("invalid loginmsg price"); Server.itemprices.Add(300); }
                                     break;
                                 //------------------------------------------------------------------------------------
@@ -169,26 +199,40 @@ namespace MCForge
                                     catch { Server.s.Log("error " + item + " switch"); }
                                     break;
                                 case "logoutmsgp":
-                                    try { int temp = Convert.ToInt32(obj); Server.itemprices.Add(temp); }
+                                    try
+                                    {
+                                        int temp = Convert.ToInt32(obj);
+                                        if (Server.buyableitems.Contains("logoutmsg"))
+                                            Server.itemprices.Add(temp);
+                                    }
                                     catch { Server.s.Log("invalid logoutmsg price"); Server.itemprices.Add(300); }
                                     break;
                                 //------------------------------------------------------------------------------------
-                                /*case "invisibility":
+                                case "invisibility":
                                     try { if (obj.ToLower() == "true") Server.buyableitems.Add("invisibility"); }
                                     catch { Server.s.Log("error " + item + " switch"); }
                                     break;
                                 case "invisibilityp":
-                                    try { int temp = Convert.ToInt32(obj); Server.itemprices.Add(temp); }
+                                    try
+                                    {
+                                        int temp = Convert.ToInt32(obj);
+                                        if (Server.buyableitems.Contains("invisibility"))
+                                            Server.itemprices.Add(temp);
+                                    }
                                     catch { Server.s.Log("invalid invisibility price"); Server.itemprices.Add(3); }
                                     break;
-                                 * */
                                 //------------------------------------------------------------------------------------
                                 case "queuelevel":
                                     try { if (obj.ToLower() == "true") Server.buyableitems.Add("queuelevel"); }
                                     catch { Server.s.Log("error " + item + " switch"); }
                                     break;
                                 case "queuelevelp":
-                                    try { int temp = Convert.ToInt32(obj); Server.itemprices.Add(temp); }
+                                    try
+                                    {
+                                        int temp = Convert.ToInt32(obj);
+                                        if (Server.buyableitems.Contains("queuelevel"))
+                                        Server.itemprices.Add(temp);
+                                    }
                                     catch { Server.s.Log("invalid invisibility price"); Server.itemprices.Add(200); }
                                     break;
                                 //------------------------------------------------------------------------------------
@@ -270,41 +314,41 @@ namespace MCForge
                         w.WriteLine("");
                         //------------------------------------------------------------------------------------------------
                         w.WriteLine("title = " + (Server.buyableitems.Contains("title") ? true : false));
-                        try { w.WriteLine("titlep = " + Server.itemprices[0]); }
+                        try { w.WriteLine("titlep = " + Server.itemprices[Server.buyableitems.IndexOf("title")]); }
                         catch { w.WriteLine("titlep = 100"); }
                         //------------------------------------------------------------------------------------------------
                         w.WriteLine("tcolor = " + (Server.buyableitems.Contains("tcolor") ? true : false));
-                        try{w.WriteLine("tcolorp = " + Server.itemprices[1]);}
+                        try { w.WriteLine("tcolorp = " + Server.itemprices[Server.buyableitems.IndexOf("tcolor")]); }
                         catch { w.WriteLine("tcolorp = 100"); }
                         //------------------------------------------------------------------------------------------------
                         w.WriteLine("revive = " + (Server.buyableitems.Contains("revive") ? true : false));
-                        try{w.WriteLine("revivep = " + Server.itemprices[2]);}
+                        try { w.WriteLine("revivep = " + Server.itemprices[Server.buyableitems.IndexOf("revive")]); }
                         catch { w.WriteLine("revivep = 7"); }
                         //------------------------------------------------------------------------------------------------
                         w.WriteLine("10blocks = " + (Server.buyableitems.Contains("10blocks") ? true : false));
-                        try{w.WriteLine("10blocksp = " + Server.itemprices[3]);}
+                        try { w.WriteLine("10blocksp = " + Server.itemprices[Server.buyableitems.IndexOf("10blocks")]); }
                         catch { w.WriteLine("blocksp= 1"); }
                         //------------------------------------------------------------------------------------------------
                         w.WriteLine("rankup = " + (Server.buyableitems.Contains("rankup") ? true : false));
-                        try { w.WriteLine("rankupp = " + Server.itemprices[4]); }
+                        try { w.WriteLine("rankupp = " + Server.itemprices[Server.buyableitems.IndexOf("rankup")]); }
                         catch { w.WriteLine("rankupp = 100"); }
                         string buyableranks = string.Join(",", Server.buyableranks.ToArray());
                         w.WriteLine("buyableranks = " + buyableranks + "#must be comma seperated and no spaces");
                         //------------------------------------------------------------------------------------------------
                         w.WriteLine("loginmsg = " + (Server.buyableitems.Contains("loginmsg") ? true : false));
-                        try{w.WriteLine("loginmsgp = " + Server.itemprices[5]);}
+                        try { w.WriteLine("loginmsgp = " + Server.itemprices[Server.buyableitems.IndexOf("loginmsg")]); }
                         catch { w.WriteLine("loginnmsgp = 100"); }
                         //------------------------------------------------------------------------------------------------
                         w.WriteLine("logoutmsg = " + (Server.buyableitems.Contains("logoutmsg") ? true : false));
-                        try{w.WriteLine("logoutmsgp = " + Server.itemprices[6]);}
+                        try { w.WriteLine("logoutmsgp = " + Server.itemprices[Server.buyableitems.IndexOf("logoutmsg")]); }
                         catch { w.WriteLine("logoutmsgp = 100"); }
                         //------------------------------------------------------------------------------------------------
-                        /*w.WriteLine("invisibility = " + (Server.buyableitems.Contains("invisibility") ? true : false));
-                        try { w.WriteLine("invisibilityp = " + Server.itemprices[7]); }
-                        catch { w.WriteLine("invisibilityp = 3"); }*/
+                        w.WriteLine("invisibility = " + (Server.buyableitems.Contains("invisibility") ? true : false));
+                        try { w.WriteLine("invisibilityp = " + Server.itemprices[Server.buyableitems.IndexOf("invisibility")]); }
+                        catch { w.WriteLine("invisibilityp = 3"); }
                         //------------------------------------------------------------------------------------------------
                         w.WriteLine("queuelevel = " + (Server.buyableitems.Contains("queuelevel") ? true : false));
-                        try { w.WriteLine("queuelevelp = " + Server.itemprices[7]); }
+                        try { w.WriteLine("queuelevelp = " + Server.itemprices[Server.buyableitems.IndexOf("queuelevel")]); }
                         catch { w.WriteLine("queuelevelp = 200"); }
                     //}
                 }

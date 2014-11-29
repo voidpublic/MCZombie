@@ -42,7 +42,7 @@ namespace MCForge.Commands
                 item = message.Split(' ')[0];
                 if (item == "revive" && Server.buyableitems.Contains(item))
                 {
-                    price = Server.itemprices[2];
+                    price = Server.itemprices[Server.buyableitems.IndexOf(item)];
                     if (p.referee) { Player.SendMessage(p,c.red + "Referees cant do that"); return; }
                     else if (!Server.zombie.GameInProgess()) { Player.SendMessage(p, c.red + "No zombie game running at the moment"); return; }
                     else if (!p.infected) { Player.SendMessage(p, c.red + "You are a human already"); return; }
@@ -90,7 +90,7 @@ namespace MCForge.Commands
                 //------------------------------------------rankup-----------------------------------------------------
                 else if (item == "rankup" && Server.buyableitems.Contains(item))
                 {
-                    price = Server.itemprices[4];
+                    price = Server.itemprices[Server.buyableitems.IndexOf(item)];
                     if (!p.EnoughMoney(price)) { Player.SendMessage(p, c.red + "You havent got " + price + " " + Server.moneys + " to buy " + item); return; }
                     else if (Server.buyableranks.Contains(p.group.name))
                     {
@@ -100,10 +100,9 @@ namespace MCForge.Commands
                     }
                     else { Player.SendMessage(p, c.red + "You cant buy a higher rank"); Player.SendMessage(p, c.aqua + "Please visit %b$website in order to get a higher rank"); return; }
                 }
-                /*
                 else if (item == "invisibility" && Server.buyableitems.Contains(item))
                 {
-                    price = Server.itemprices[7];
+                    price = Server.itemprices[Server.buyableitems.IndexOf(item)];
                     if (p.referee) { Player.SendMessage(p,c.red + "Referees cant do that"); return; }
                     else if (!Server.zombie.GameInProgess()) { Player.SendMessage(p,c.red + "No zombie game running at the moment"); return; }
                     else if (p.infected) { Player.SendMessage(p,c.red + "Zombies cant use that item"); return; }
@@ -157,7 +156,7 @@ namespace MCForge.Commands
                     }
 
                 }
-                else { Help(p); return; }*/
+                else { Help(p); return; }
             }
             item = message.Split(' ')[0];
 
@@ -166,7 +165,7 @@ namespace MCForge.Commands
             //------------------------------------------title-----------------------------------------------------------
             if (item == "title" && Server.buyableitems.Contains(item))
             {
-                price = Server.itemprices[0];
+                price = Server.itemprices[Server.buyableitems.IndexOf(item)];
                 if (!p.EnoughMoney(price)) { Player.SendMessage(p,"%cYou havent got " + price + " " + Server.moneys + " to buy " + item); return; }
                 else if (wanted.Length > 13) { Player.SendMessage(p,"%cToo long titlename, maximum is 13"); return; }
                 else if (wanted.Contains("%") || wanted.Contains("&") || wanted.Contains("$")) { Player.SendMessage(p,"%cUnallowed chars like % or & or $ in title name"); return; }
@@ -182,7 +181,7 @@ namespace MCForge.Commands
             //------------------------------------------tcolor--------------------------------------------------------
             else if (item == "tcolor" && Server.buyableitems.Contains(item))
             {
-                price = Server.itemprices[1];
+                price = Server.itemprices[Server.buyableitems.IndexOf(item)];
                 string color = c.Parse(wanted);
                 if (!p.EnoughMoney(price)) { Player.SendMessage(p,"%cYou havent got " + price + " " + Server.moneys + " to buy " + item); return; }
                 else if (p.title == "") { Player.SendMessage(p,"%cYou havnt got a title yet"); return; }
@@ -199,7 +198,7 @@ namespace MCForge.Commands
             //-------------------------------------------Blocks--------------------------------------------------
             else if (item == "10blocks" && Server.buyableitems.Contains(item))
             {
-                price = Server.itemprices[3];
+                price = Server.itemprices[Server.buyableitems.IndexOf(item)];
                 int amount = 0;
                 try { amount = Convert.ToInt32(wanted); }
                 catch { Player.SendMessage(p,"%cNo valid amount"); return; }
@@ -220,7 +219,7 @@ namespace MCForge.Commands
             //--------------------------------------------loginmsg--------------------------------------------------------------
             else if (item == "loginmsg" && Server.buyableitems.Contains(item))
             {
-                price = Server.itemprices[5];
+                price = Server.itemprices[Server.buyableitems.IndexOf(item)];
                 //int pos = message.IndexOf(' ');
                 //wanted = message.Substring(pos + 1);
                 if (wanted.Length > 25) { Player.SendMessage(p,"%cThe loginmessage is too long"); return; }
@@ -238,7 +237,7 @@ namespace MCForge.Commands
             //--------------------------------------------logoutmsg-----------------------------------------------------
             else if (item == "logoutmsg" && Server.buyableitems.Contains(item))
             {
-                price = Server.itemprices[6];
+                price = Server.itemprices[Server.buyableitems.IndexOf(item)];
                 //int pos = message.IndexOf(' ');
                 //wanted = message.Substring(pos + 1);
                 if (wanted.Length > 25) { Player.SendMessage(p,"%cThe logoutmessage is too long"); return; }
@@ -256,7 +255,7 @@ namespace MCForge.Commands
             //--------------------------------------------queuelevel-----------------------------------------------------
             else if (item == "queuelevel" && Server.buyableitems.Contains(item))
             {
-                price = Server.itemprices[7];
+                price = Server.itemprices[Server.buyableitems.IndexOf(item)];
                 //int pos = message.IndexOf(' ');
                 //wanted = message.Substring(pos + 1);
                 if (Server.queLevel)
