@@ -39,7 +39,9 @@ namespace MCForge.Commands
                 ushort x = (ushort)((p.pos[0]));
                 ushort y = (ushort)((p.pos[1]));
                 ushort z = (ushort)((p.pos[2]));
+                p.SendMap();
                 p.SendUserMOTD();
+                p.SendMap();
                 Player.GlobalDie(p, false);
                 Player.GlobalSpawn(p, x, y, z, p.level.rotx, p.level.roty, true);
                 //--------------------------------------------------------------------
@@ -76,7 +78,9 @@ namespace MCForge.Commands
                 ushort x = (ushort)((p.pos[0]));
                 ushort y = (ushort)((p.pos[1]));
                 ushort z = (ushort)((p.pos[2]));
+                p.SendMap();
                 p.SendUserMOTD();
+                p.SendMap();
                 Player.GlobalDie(p, false);
                 Player.GlobalSpawn(p, x, y, z, p.level.rotx, p.level.roty, true);
                 //-------------------------------------------------------------------------
