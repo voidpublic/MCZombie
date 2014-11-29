@@ -82,7 +82,7 @@ namespace MCForge.Commands
                         {
                             Player.GlobalMessage(p.name + c.red + " tried to revive himself, but the potion was not effective");
                             Player.SendMessage(p, c.red + "The revive potion had no effect....");
-                            Player.SendMessage(p, "for a price of: %a" + price + "%e " + Server.moneys);
+                            Player.SendMessage(p, "for a price of: " + c.lime + price + " " + Server.DefaultColor + Server.moneys);
                             return;
                         }
                     }
@@ -173,8 +173,8 @@ namespace MCForge.Commands
                 {
                     Command.all.Find("title").Use(null, p.name + " " + wanted);
                     p.money -= price;
-                    Player.SendMessage(p,"%aCongratulations, you have just purchased the title: " +c.aqua + wanted);
-                    Player.SendMessage(p,"for a price of: %a" + price + "%e " + Server.moneys);
+                    Player.SendMessage(p,"Congratulations, you have just purchased the title: " +c.aqua + wanted);
+                    Player.SendMessage(p,"for a price of: " + c.green + price + " " + Server.DefaultColor + Server.moneys);
                     return;
                 }
             }
@@ -190,8 +190,8 @@ namespace MCForge.Commands
                 {
                     Command.all.Find("tcolor").Use(null, p.name + " " + wanted);
                     p.money -= price;
-                    Player.SendMessage(p,"%aCongratulations, you have just purchased the title color: " + c.aqua + wanted);
-                    Player.SendMessage(p,"for a price of: %a" + price + "%e " + Server.moneys);
+                    Player.SendMessage(p,"Congratulations, you have just purchased the title color: " + c.aqua + wanted);
+                    Player.SendMessage(p,"for a price of: " + c.lime + price + " " + Server.DefaultColor + Server.moneys);
                     return;
                 }
             }
@@ -210,9 +210,9 @@ namespace MCForge.Commands
                 {
                     p.blockCount += (amount * 10);
                     p.money -= amount * price;
-                    Player.SendMessage(p,"%aCongratulations, you have just purchased: " + c.aqua + amount * 10 + "%e extra blocks");
-                    Player.SendMessage(p,"%afor a price of:%a " + (amount * price) + "%e " + Server.moneys);
-                    Player.SendMessage(p,"%aYour total blocks left are now: "+ c.aqua + p.blockCount);
+                    Player.SendMessage(p,"Congratulations, you have just purchased: " + c.aqua + amount * 10 + "%e extra blocks");
+                    Player.SendMessage(p,"for a price of: " + c.lime + (amount * price) + " " Server.DefaultColor + Server.moneys);
+                    Player.SendMessage(p,"Your total blocks left are now: "+ c.aqua + p.blockCount);
                     return;
                 }
             }
@@ -229,8 +229,8 @@ namespace MCForge.Commands
                 {
                     p.money -= price;
                     Command.all.Find("loginmessage").Use(null, p.name + " " + wanted);
-                    Player.SendMessage(p,"%aCongratulations, you have just purchased the loginmsg: "+ c.aqua + wanted);
-                    Player.SendMessage(p,"%afor a price of:%a " + price + "%e " + Server.moneys);
+                    Player.SendMessage(p,"Congratulations, you have just purchased the loginmsg: "+ c.aqua + wanted);
+                    Player.SendMessage(p,"for a price of: " +c.lime + price + " " + Server.DefaultColor + Server.moneys);
                     return;
                 }
             }
@@ -247,8 +247,8 @@ namespace MCForge.Commands
                 {
                     p.money -= price;
                     Command.all.Find("logoutmessage").Use(null, p.name + " " + wanted);
-                    Player.SendMessage(p,"%aCongratulations, you have just purchased the logoutmsg:" + c.aqua + wanted);
-                    Player.SendMessage(p,"%afor a price of:%a " + price + "%e " + Server.moneys);
+                    Player.SendMessage(p,"Congratulations, you have just purchased the logoutmsg:" + c.aqua + wanted);
+                    Player.SendMessage(p,"for a price of: " + c.lime + price + " " + Server.DefaultColor + Server.moneys);
                     return;
                 }
             }
@@ -290,7 +290,7 @@ namespace MCForge.Commands
                     }
                     else
                     {
-                        Player.SendMessage(p, "%cLevel " + wanted + " does not exist.");
+                        Player.SendMessage(p, c.red + "Level " + wanted + " does not exist.");
                         return;
                     }
                 }

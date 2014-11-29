@@ -18,29 +18,26 @@ Features:
 	[*] Working Zombie Surival Script
 	[*] /aka to see the players real name
 	[*] Anti pillar protection
-	[*] Anti team spleef 
-	[*] Referee function
+	[*] Anti team spleef
+	[*] Referee function with hacks
 	[*] Rounds survived and players infected stored to database
 	[*] Killstreaks and rewards
-	[*] Level restore after round has ended
+	[*] Achievements
+	[*] Automtic level restore after round has ended
 	[*] /t gives back the actual round time
-	[*] Players that log in while the game is on get infected
 	[*] Map voting after round
 	[*] Automatically voice status to trusted persons
 	[*] Anti cheat protection. Operators can only fly, teleport and summon when referee mode is on
 	[*] Teamchat for zombies and humans
 	[*] /top command showing the best players (roundssurvived, humans infected, most login..)
 	[*] Smart design so important messages (like round is over) are recognized immediately
-	[*] Clan function (clanchat, invite, kick...) also a prefix for each player: <clanname> Playername
+	[*] Team functions (teamchat, invite, kick, internal rank system) as well as prefix: <teamname> Playername
 	[*] People using glitches are detected (a bit glitchy when server lags)
 	[*] Store system (rankup, loginmsg, logoutmsg, revive, title, titlecolor, blocks, invisibility)
 	[*] Blocklimit for zombies and humans
-	[*] Queue zombies or levels
 	[*] Properties file to set several things. (round time, zombie name, zombie prefix, enable shop items, shop prizes....)
 	[*] Working update function to keep your zombie survival up to date, with the newest features.
 	[*] Mapvotes to /like and /dislike maps.
-	[*] Achievements
 
 Note: That this list does not cover every single feature.
-Note2: The Zombiesurvival is based on MCForge which has premade some functions. Some of these
-functions were bugged and fixed, or edited to fit to Zombiesurvival. 
+Note2: The Zombiesurvival is based on MCForge which has premade some functions. Some of these functions were bugged and fixed, or edited to fit to Zombiesurvival. 

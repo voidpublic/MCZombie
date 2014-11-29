@@ -1,6 +1,7 @@
 todo:
 Synch /realname <mojang account> for both servers.
 Add achievements for whowas	
+Make paths variable for /level
 Error: #025
 
 2.0.1.8

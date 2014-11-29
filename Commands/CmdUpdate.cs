@@ -35,8 +35,9 @@ namespace MCForge.Commands
         {
             if (message.ToLower() != "force" && message.ToLower() != "help")
             {
-                if (p == null || p.group.Permission > defaultRank) MCForge_.Gui.Program.UpdateCheck(false, p);
-                else Player.SendMessage(p, "Ask an " + Group.findPerm(defaultRank).name + "+ to do it!");
+                if (p != null)
+                    p.SendMessage("Update is only possible via console");
+                else MCForge_.Gui.Program.UpdateCheck(false, p);
             }
             else if (message.ToLower() == "help")
             {
@@ -45,8 +46,8 @@ namespace MCForge.Commands
             }
             else
             {
-                if (p == null || p.group.Permission > defaultRank) MCForge_.Gui.Program.PerformUpdate();
-                else Player.SendMessage(p, "Ask an " + Group.findPerm(defaultRank).name + "+ to do it!");
+                if (p == null) MCForge_.Gui.Program.PerformUpdate();
+                else p.SendMessage("Update is only possible via console");
             }
         }
         public override void Help(Player p)
