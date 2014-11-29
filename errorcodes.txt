@@ -1,0 +1,23 @@
+#001 - Error at humans won section
+#002 - Error at cleaning stats after round
+#003 - Error cleaning alive list
+#004 - Error cleaning infected list
+#005 - Error at going automatically to new map
+#006 - Error at round beginning using goto
+#007 - Too less players
+#008 - Error for player loading at goto
+#009 - Error for player spawning at goto
+#010 - Error at /whowas getting time spend
+#011 - Error at level loading
+#012 - Error at zombies win round
+#013 - Error at restart
+#014 - Error at restart #2
+#016 - Error at maingame Loop
+#017 - Error at getting best zombie
+#018 - Error clearing lottery
+#020 - Error lottery getting winner
+#021 - Prevented Data Loss
+#022 - Error at getting roundtime 
+#023 - Error at recording levels played
+#024 - Error at loading achievement ID 
+#025 - Error at loading achievement name

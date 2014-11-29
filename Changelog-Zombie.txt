@@ -1,0 +1,874 @@
+todo:
+Synch /realname <mojang account> for both servers.
+Add achievements for whowas	
+
+Error: #025
+2.0.1.7
+Referees can now build on non-buildable maps, but are not able to break adminium. In case a map has a bug they can fix it on the fly.
+All levels added are now in lower case to prevent permission problems.
+Removed mesage giving out the IP of an ip-banned player. Instead only OP+ are informed about the actual IP.
+
+2.0.1.6
+Bufix for /eat where the timer sometimes wouldn't work.
+
+2.0.1.5
+Fixed /kick kicking operators that hide (kick failed message)
+Finally fixed /help players showing invisibility (this was a bug)
+Fixed pillaring warnings when placing blocks that allowed walkthrough (such as saplings, flowers, shrooms..)
+Removed some code for countdowngame to improve server performance furhter. (no hitbox changes)
+Fix version number.
+Fixed /help levelcreator (vetop+)
+Referees are invincible now.
+Added code so that players that die (killer blocks) respawn automatically
+Removed messages from player dieing by killer blocks.
+Removed death message.
+No more afk messages for hidden player
+Added command: /team leader <name> - Promotes a player to the teamlead (and yourself to TCaptain).
+Added command: /team demote <name> - demotes a certain player within the team.
+Removed /team list as it is rarely used, also not necessary + only causing chat to be messy (+ we really really really need space for the help).
+Altered /team promote in /help team to fit the demote as well.
+Added code to prevent false timing (or atleast attempting it)
+Added a timer for /eat so that you can only eat a cookie every 10 seconds.
+Fixed a bug where players had hacks enabled after doing /xhide.
+
+2.0.1.4
+Added /Afk /Rules /Rule to /help player
+Spelling mistakes.
+/rules more <number> is replaced by /rule <number>
+Changed help of /rules to fit the changes.
+Fixed /help players showing invisbility
+/top 5 changed - showing maximum survived top list (top kicked was removed)
+/top 6 added - showing maximum infected top list
+
+2.0.1.3
+Added code for showing on forums how many players are online
+
+2.0.1.2
+Added Classicube Heartbeat - this means users with classicube will be able to log in and will have a "+" sign at the end of their username
+
+2.0.1.1
+Win chance for Achievement Impossible is now 10% rather than 5%
+Fixed /shop displaying wrong prices. 
+
+2.0.1.0
+Smaller fix for /shop queuelevel
+Added back /stars (HEADOP+)
+Attempting to make lag less by refreshing the connection more often, this means that rubberbanding for bad internet connection should be less common.
+Removed Portal handle.
+Removed Joker from Commands + handle.
+Removed TNT handle.
+Removed more McForge responisbilities
+Removed TNT responsibilities to recognize block changes faster.
+
+2.0.0.9
+Spelling mistake in /eat
+Fixed /buy queuelevel
+New achievements:
+Unlucky - Get killed in the last 5 seconds of the round
+Wishes - Buy a queuelevel 
+(note that people who previously had the awards Ghost + The Sixth Senth, will receive these awards automatically)
+
+2.0.0.8
+Added ability to kick team members that are offline. Please mind EXACT spelling.
+Fixed a bug where /shop showed queuelevel at a low price.
+Removed invisibility achievements.
+Fixed issue with /whois where it would not display golden profile when all achievements are gained.
+Extra blocks purchases are now named "10blocks" to clarify that it is 10 blocks. 
+Fixed description of /ban (now correctly says: and kicks player)
+Fixed a bug where /clones displayed black color (banned) even tho the player was not.
+Removed /banedit (/notes replaced this long time ago)
+Removed /baninfo (/notes replaced this long time ago)
+Remove other unecessary unused commands
+
+
+2.0.0.7
+Fixed a bug where the name was black in /clones when the player has been previously banned.
+Spelling mistakes.
+Removed invisibility responsibilities, achievements will be dealt later with.
+
+
+2.0.0.6 
+Fixed a bug where, when the teamname did not exist, the title was not displayed.
+Fixed a bug where /alts gave all members black even tho they were not banned. 
+Changed value that is required to get the achievement "Ghost" to 5 invisibilities. 
+Maximum of invisibility potions that can be used adjusted to 7. You will receive a warning when you have used your last one.
+Duration of invisibility reduced to 6 seconds. We feel like invisibility is too strong with its duration right now. 
+
+2.0.0.5
+Fixed a bug where one could xmute themselves. 
+Added a fix where hidden people could be detected by using /rules and /news
+Fixed a bug where /tempban did not display the correct message. 
+Team titles are temporary back !
+/spawn is now a referee only command
+Improved the overall "only a referee" command, being the same message for all commands, rather than saying "cannot use fly", also added red color. 
+Fixed a bug where /hide gave a slightly different disconnect message and could be recognized.
+
+
+2.0.0.4
+Trying some new kind of hitbox thingy. (Server should be faster + hitbox the same)
+Fixed a bug where going into referee mode gave a wrong message. 
+Disabled IRC, for various reason, such as: bugs, not rly usefull, not rly used. 
+Fixed a bug where you could xmute for a negative time. 
+
+2.0.0.3
+reverted all changes from 2.0.0.2 expect of spelling and random map vote
+
+2.0.0.2
+Fixed spelling mistake.
+Fixed /a causing random map vote result
+Added fix for referee infecting people. 
+Respected's now get auto voiced.
+Fixed a bug where the round was suddenly ending with humans won. 
+
+2.0.0.1
+Another fix for all players disconnecting when a certain vote result is announced.
+Fix: Eat messages now included.
+
+2.0.0.0
+Fixed spelling mistakes
+Added security so people don't stay infected at start of round.
+10 brand new and phantastic eat messages:
+(Name) ate Fido's dog biscuit!
+(Name) is on a diet, No cookie was eaten!
+(Name)'s cookie was sugar free :(
+(Name) typed /eat
+(Name) was slain by the cookie army 
+(Name) thought that brains were overrated and ate a cookie instead
+(Name) joyfully ate a cookie in the middle of a zombie apocalypse
+(Name) just ate a Scooby Snack!
+(Name) had a rainbow cookie
+(Name) tried to eat the cookie monster
+When being in the lottery and using /lottery again, then it will show how many people are in.
+Shortcut for lottery is: /luck
+Fixed a bug where all players were disconnected after a vote. 
+Fixed a bug where someone that was on /buy invisibility was visable after using /aka.
+Fixed a bug where the reward "Lucky Number 7" was not given out when a player that joined the lottery disconnected.
+New command: /stars <name> <value> - sets the stars of a player (headop+)
+New command: /irc ignore - turns off/on IRC chat for this session.
+People are getting immune to the cure ... we can see dropoffs of around 10% chance that the potion is effective.
+Zombies can only try to revive when there are 2 other infected person (so total of 3) - humans will not try to find a cure when there is only a few zombies
+
+
+1.9.9.9
+Fixed spelling mistakes.
+Fixed time for invisibility in /shop
+Recording maximum amount of rounds won in a row and maximum killstreak as a zombie. 
+Added maximum winstreak and maximum killstreak to /whois, /whowas.
+IRC implementation.
+Removed IRC title.
+Caps protection for IRC messages. 
+Prevented message from IRC, which is causing players to get disconnected.
+Fixed Database structure, removed unessesary tables. 
+Added message that appears in chat for new players. 
+Changed the auto-afk detection to 3minutes, kick is at 4minutes now.  
+Added protection so there are not 2 zombies starting. 
+Achievments are being added to the game, these achievements can be gained:
+"Can't touch this" - Be the only human which won the round. (1)
+"Finisher" - Finish off the last human. (2)
+"The Sixth Sense" - Kill a human while they are invisible. (3)
+"Deja Vu" - Kill the same player twice in one round. (4)
+"Second Chance" - Survive a round after using revive. (5)
+"Bear Grylls" - Survive 5 rounds in a row. (6)
+"Lucky Number 7" - Win the lottery when exactly 7 people joined. (7)
+"Impossible" - Survive on a map with a win chance smaller than 5%. (8)
+"Dream Destroyer" - Kill a human with a golden star. (9)
+"Ghost" - Use invisibility 10 times in a round. (10)
+"Assassin" - Lick the brain of an auto-afk human (11)
+"Chuck Norris" - Kill 10 humans in a row. (12)
+Gain all achievements -> Gold profile in /whois.
+
+
+1.9.9.8
+Fixing notes that got removed even tho they were earlier than 150 days. (no worries we got backups ;))
+When a notes file is corrupt an automtic report is set up for controls to fix the notes (no need to report /notes not removing old notes when getting a message, we are informed about it)
+Fixing notes problem that was not removing all old notes at once.
+Fixed a bug where people can build in op_blocks as non-referees.
+Set permission for /mode to operator since this has only use for placing op_blocks.
+
+1.9.9.7
+Fixed a problem where humans can be infected after the round already ended.
+Fixed a problem which caused maps to have infinite blocks when the name was in upper case. Levels will be added in lower case now automatically.
+Caps detection is only applied for messages bigger than 5 letters.
+Referees can now place op_blocks and destroy them such as /adminium, /op_water, /op_glass. Also they can build in op_air (only when a /mode is active)
+Referees can now use /replace <red> <adminium> - for example to secure parkours. (cannot replace adminium for security reasons)
+Shortcut for /myreferences - /myrefs
+Fixed a bug where referees became visible when being summoned.
+Possibly and hopefully fixed the hitbox detection.
+Using /me now as a referee, when the round has not started, shows that you are referee. 
+Using /me while round is going on, shows you that you are referee and gives you the time back (in blue ;) )
+Using /t gives you back a blue colored time now. 
+Referee's colors changed to blue instead of aqua, changing some messages with it. 
+Fixed some spelling mistakes.
+Offensenotes against the rules now get deleted when using /mynotes, /notes <player>, if they are older than 150 days. Please be aware that tempbans/bans
+will stay in the notes without exceptions. We want players to be honored for playing fair and staying on the server and forget about old rules that were broken.
+Improved double-warn protection to 10 seconds and with a different method which uses less memory.
+Enchantment: /wom no longer unfreezes the player if he is already frozen.	
+Added freeze protection, so a player cannot be unfrozen if frozen within the last 6 seconds.
+Auto mute was completely removed, since its buggy and not usefull, also confusing people.
+Improved some colors in messages (errors = red)
+Removed message for ops when someone tried to use a invalid color code. 
+Changed the method of the infect timer (revive timer) -> should use less memory now and cause less errors. 
+
+
+
+1.9.9.6
+Fixed a bug where it did not wait 10 seconds when humans won. 
+Fixed a bug where a player with a dash (-) could not be banned as long as he was online.
+Added /team del  to the help.
+Changed hitbox detection back to where it was.
+Referees can now place adminium/op_water etc in order to secure paths or fix bugs live. 
+
+
+1.9.9.5
+Fixed hitbox detection again, should now work as usual. 
+Fixed a bug where someone could be muted for an endless time using /xmute and relogging.
+/vote can no longer be done during the level votes.
+No longer giving error code when only one joins the lottery and he disconnects.
+Adminchat and OpChat now show the rank color rather than the actual infection status color.
+Improved code for /summon, should no longer create ghosts/spawn people randomly.
+New command /lastlevels - shows the last levels that have been played - shortcut: ll
+Fixed a problem where people could rejoin even when being banned.
+There is only 1 star displayed now (red/silver/gold) and if winning more than 3 matches, there is a number instead of a star.
+Visual improvements to /queue command.
+Visual improvements to /info, removed MCForge website, since it no longer exists.
+Disabled /inbox command, since it is not needed/used.
+Removed unnecessary database tables.
+Infection jumping around and infecting multiple people bug fixed. 
+Vote results will be announced at the end of a vote. 
+Short delay (10sec) after the round ended, so people can talk before the new vote comes up.
+Reduced waiting time to automatically get transferred to a map to 10 seconds (was: 20sec)
+Color change of zombies won, to fit better. 
+Changes for /t - If you are zombie the time appears in red, if you are human the time appears in lime.
+Rework of /me - If human everything is green and gives you the time left. If zombie everything is red and gives you time left and your kills this round.
+Lottery now announced in gold instead of aqua.
+Fixed a bug where console was unable to use /restart.
+/buy title is now working properly, spaces can now be used.
+Increasing title length to 13 at maximum (from 10).
+Updated /shop title to fit the changes.
+Removed command /report since its not needed.
+/buy loginmsg/logoutmsg has now a maximum length of 25 (from 15)
+Updated /shop loginmsg/logoutmsg to fit the changes.
+Removing recording of what maps have been up for choice.
+Fixed minor spelling mistakes.
+Shortcut for /freeze - /f
+When you get infected it shows you a red message now. 
+
+1.9.9.4
+Reverted polling rate for hitbox detection -> hitbox should be normal again.
+Global announcement for when a zombie is queued.
+
+1.9.9.3
+Glitch detection for height decreased so people that fall dont get into glitch detection.
+
+1.9.9.2
+Fixed bug in version number (/info).
+Fixed spelling mistake in /shop invisiblity.
+Changed "must be nobody to build here" to "this map is not buildable - please do not break/place blocks"
+Fixed a bug where "." and "t" still send the message instead of just doing /me.
+Shortcut for /showqueue, /sq.
+/queue level <name> does now give a global announcement.
+Improved the design of /vote, results also showing the % of the votes.
+Price reduction for /buy queuelevel  from 150 cookies to 100 cookies.
+Trusted can now use /rules <playername> to send rules to a player.
+Trusted can no longer be ignored using /ignore <name>.
+Maps cannot be queued now if the map has been played within the last 20 rounds (instead of 7)
+Changed the help of /me.
+Fixed double space in /me.
+Moved unban and unbanip in the right category of /help vetop
+Trusted can now use /notes.
+Maximum round time changed to 12min for 95%+ winchance maps.
+Changed "gave himself a revive potion" to "used a revive potion - it was very effective"
+Fixed a bug where console cannot restart the server.
+Trusted can now use /notes
+Added security that players that are offline can no longer win the round.
+Added security that a level can only be played if it has not in the last 20 rounds.
+Improved sensitivity of glitch detection. Players will not longer be able to get up to high places with glitching.
+Players that still glitch to get up to a higher place get teleported back + message to ops will be send.
+Changed help of /team a bit to make it more compact.
+Some new kill messages.
+Increased polling rate -> human / zombie collision will be detected bettter now.
+
+1.9.9.1
+Minimum roundtime increased to 5min. (from 4min)
+Typing in single letter ("." or "t") makes you do /me automatically.
+Headops+ can now force restarts, no matter if the round is going on or not.
+The mutation got stronger, better hurry giving yourself a revive potion (must be within 1 minute after getting infected)
+There aren't many revive potions left in the world, there is only 1 per round available.
+Potions are very hard to get nowadays, this means the price for invsibility increased by 2 each time it is used instead of 1.
+(-> 10 invs old = 95 cookies, 10 invs new = 150 cookies)
+(-> 6 invs old = 45 cookies, 6 invs new = 66 cookies)
+Fixed some spelling mistakes.
+Fixed a bug where leaving a team and then relogging caused an error.
+Fixed a bug where a player could not be kicked out of a team. 
+Fixed a bug where using /unhide after being in /hide still let you use hacks.
+When a level has been played within the last 7 rounds it cannot be queued (instead of 3 rounds)
+Short cut for /mapinfo - /mi
+/mapinfo works for all maps now, player can now check the statistics of their favorite maps ingame.
+rearanged the order of the statistics in /mapinfo
+/mapinfo works for console now as well
+Disabled tracking peoples location in /whois and /whowas for headop+
+Recording information about what maps were in the level choice.
+
+1.9.9.0
+Disabled queueing the level that is currently being played on.
+Included lottery winners in the logs.
+Added new function to teams:
+   /team promote <Playername> - promotes a player within a team. 
+Added ranks to team: 
+  TLeader - can invite, promote, color, kick and delete the team.
+  TCaptain - can invite, promote, color and kick players within a team.
+  THelper - can invite players to the team.
+  TMember - no special functions.
+Added more colors to teams, so its easier to see when your actions failed. 
+Improved viewing teammembers.
+Referee now are tagged "-ref" in /who (/players)
+Fixed a bug where /mapinfo showed the wrong statistics of rounds played.
+Independend round times, depending on how much the winrate is:
+ 96-100% : 11min
+ 91-95% : 10min
+ 86-90% : 9min
+ 76-85% : 8min
+ 31-75% : 7min
+ 26-30% : 6min
+ 16-25% : 5min
+ 0 -15% : 4min
+Fixed a bug where names with a "-" sign in them (mojang accounts) could not be banned.
+Fixed a bug where a queued person that reffed got the game stuck (no zombie)
+Added a protection, so a map cannot be queued when it has been played within the last 10 games.
+
+1.9.8.9
+/ref now enables xWom hacks immediately / turn them off when /unreffing.
+Changed $name, $ip, $rank, $money to something else. Only control+ knows how to do it now.
+
+1.9.8.8
+Fixing the actual position most of the times.
+Reducing the price of /buy queuelevel to 150 cookies.
+Added new command /showqueue - shows the level that is queued.
+Fixed the command type of /level from control to vetop.
+Moving teamname to /whois instead of the prefix before the name.
+Fixed /tempban security leak.
+Fixed a bug in /tempban which caused an error when having no reason in there.
+Made /restart only work when a round is going on - this might save crashes.
+Fixed (possibly) the bug where the stats resetted - made a protection for it.
+
+1.9.8.7
+Fixing /level again.
+Improving announcements colors.
+Player get a speical message now when they are frozen.
+For headop+ the /whois /whoip and /whowas command now shows the actual position of the IP adress. This is however not 100% reliable.
+Fixed /banip security leak.
+Fixed /clones security leak.
+Fixed /color security leak.
+Fixed /inbox security leak.
+Fixed /opstats security leak.
+Fixed /seen security leak.
+Fixed /send security leak.
+Fixed /tcolor security leak.
+Fixed /title security leak.
+Fixed /unbanip security leak.
+Fixed /whoip security leak.
+Fixed /whowas security leak.
+
+1.9.8.6
+Fixed lottery crashing the server.
+Fixed a bug with /level which caused an error msg.
+Made an complete ipban for a guy that keeps flooding our servers.
+
+1.9.8.5
+Decreasing the time that invisibility lasts to 8 sec (from 10sec)
+Completely removing gamble from commands.
+New command /lottery - joins the lottery for 10 cookies. At the end of the round a winner is chosen which gets everything.
+If anyone disconnects their money is be lost and cannot be refunded. But the money they insert stays in the lottery.
+Fixed a bug where queuelevel didnt cost any money.
+Fixed a bug where queuelevel caused some to have negative money.
+
+1.9.8.4
+Fixed a bug where using zombie/human chat was shown wrong for referees. (only visual glitch)
+Added shortcut for /buy revive (/revive or /y).
+Added new $´s called $survived, $i	nfected.
+Added a log, when someone could not join when the server was full.
+Fixed a bug where a hidden person could unref.
+Using /hide /xhide a second time now automatically unrefs you without players noticing.
+/xmute can only be used now if the player is not muted already.
+Maximum time for /xmute is now 5 minutes (300sec).
+Queueing levels now only works when currently playing on a map (not during vote / countdown).
+Fixed spelling mistakes.
+Tempban now automatically tempbans the ip for the same time.
+Finally completely fixing /level <add/fix>
+Added new option in /level: /level remove <mapname> now removes the map.
+Added security to /level add - so if the level already exists it doesnt do anything ( to prevent overwrite)
+/level summary:
+/level add <mapnameonbuild> <mapnameonzombie> - adds a level from build to zombie.
+/level fix <mapnameonbuild> <mapnameonzombie> - fixes a level from build to zombie.
+/level delete <mapnameonzombie> - deletes a level from zombie.
+Slightely increasing the chances of /gamble to win (+5% win chance of 2x, -5% lose chance of 50%).
+Fixed a bug where, when someone had a wrong warn rulereason was protected of being warned without being warned.
+
+1.9.8.3
+Fixed a bug where a mojang account, when having a too long name, caused an database error.
+Fixed /level <add/fix> not working.
+Added new shop item: /buy queuelevel <mapname> -> queues a level for next round - 200 cookies.
+Players that are frozen are now shown at /who (/players) with a -frozen tag.
+Fixed the chances of /gamble, so you are more likely to loose now.
+All level statistics are now saved in the database.
+Fixed (possible) a memory leak which caused the server to be extremely laggy. (could not reproduce it).
+Removing some tables at the database that were useless for zombie (portals, msgblocks, blockhistory)
+
+1.9.8.2
+Fixed a bug where mojang accounts couldnt log in with a long name.
+Fixed a bug where a person that was newly invited to a team didnt get the right teamcolor.
+Fixed a some minor errors.
+Fixed a bug where /summon unreffed referees.
+Fixed a bug where /buy invisiblity caused a player to have negative money.
+
+1.9.8.1
+Fixing some spelling mistakes.
+Fixed a bug where the last 5 seconds of a round were announced twice.
+Fixed a bug where the wrong color of the rank was displayed (at /references).
+Fixed a bug where tempbanning an offline person caused an error.
+Fixed a bug where /gamble could be used even when having 1 money too less.
+Fixed a bug where the teamcolor was wrong after they joined.
+Fixed a bug where the round ended 2 times, when the last human got eaten within the last 5 seconds.
+Fixed (possible) the summon bug where people disappeared and appeared somewhere else(could not reproduce it)
+Frozen people can no longer be summoned, if summoning a frozen person a message will show up that the person is frozen.
+Increasing the price of invisibly each time its used in a single round.
+Ranks are now saved in the database as well. Note that the rank is saved AFTER the person logs out.
+Redone the anti pillar system, to avoid people getting automatically warned for it, because they were building a tower. Now instead of just checking the blocks that the player places, it also checks the players position.
+Disabled restart on error and auto restart, this might fix the long offline times we are having frequently. 
+
+1.9.8.0
+Added new command: "/level (add/fix) <levelname>" to add or fix a level from the build server. (for control+)
+Note that the level needs to be saved on build server and in order to fix a level it MUST NOT be loaded.
+Fixed a bug where everyone had the same teamcolor. Teamcolors purchased before will work as intented.
+Maps that are added newly dont need to be set with /perbuild, unless they have permission of nobody.
+Fixed a bug when someone that was /xmute´d logged off and in, was muted totally after the time the mute ran off.
+Fixed a lot of commands that gave an error message, when being used with console.
+Changed p.SendMessage("hello world") to Player.SendMessage(p, "hello world") method.
+Fixed a bug where team color couldnt be overwritten.
+Fixed a bug where the level.properties file was not saved correctely. 
+Fixed a (possible) bug where the server crashed (could not reproduce to test it)
+Added new command: "/gamble <moneyamount>" gambles with your money.
+	Chances are (for the moneyamount entered):
+	8% to loose all the money
+	21% to loose 0.5x of the money
+	45% that nothing happens
+	21% that you win 2x the amount
+	4% that you win 3x the amount
+	1% that you win 10x the amount
+	Also there is a amount of 1 cookie charged for playing gamble everytime you type.
+	This means, that the more you insert, the better chance you will have to win.
+Fixed a bug with mojang username limit (hypereddie10)
+Fixed a bug where a mojang username could not contain "-" sign. (QuantumHive)
+Every minute the time left is now announced announced.
+Added an addition to rule command: "/rule more <rulenumber>" - shows more information about a rule.
+Fixed a (possible) bug where the server did not restart correctely (could not reproduce to test it)
+Fixed a (possible) bug where the data of a player was lost (could not reproduce to test it)
+When there are too less players online, server checks if player can connect. If not it restarts. That should keep downtime to a minimum	
+Removing money now, if the player gets an offensenote (only for online notes):
+	Warn : -5cookies
+	Kick: -10cookies
+	Tempban: -30cookies
+	If the player has less cookies than that should be removed, it gets set to 0.
+Made an offensenote if the player is warn kicked.
+Added a counter, which counts the times that humans / zombies have won on the map this is acessable at start of round and with /mapinfo.
+Removed a lot unnecessary stuff that was saved in the level.properties file.
+Added cookie costs of team functions to the /help.
+Instead of disableling messages with too much caps, it will all be put to lower case.
+
+1.9.7.9
+Fixed a bug where the reference pointed to respected instead of trusted.
+You can only give out your reference for a LOWER rank now.
+Redesigned the shop.
+Teams can now have colors, buyable for 150 cookies with /team color <colorname>
+Fixed a bug where the server crashed when queuing a new map for the first time.
+
+1.9.7.8
+Fixed a bug where /reference wrote the wrong rank name.
+People can only get references once from a person (once per rank).
+People can remove their reference with /reference remove <player>.
+Cannot give a reference to yourself now.
+
+1.9.7.7
+Adding the time you got banned to notes, when using /tempban.
+Fixing the percentage value of the map liked, when starting the new round.
+People can now summon people with a higher rank (when being /ref)
+Fixed a bug where /fly needed to be typed twice after unreferring while flying.
+Added new command: "/reference" to reference a player. (operator+)
+Added new command: "/references" to check out the references of a player. (operator+)
+Added new command: "/myreferences" to check out your own references. (player+)
+If a player is /demoted, /promoted, or /setrank (/rank), the references file will be deleted automatically.
+
+1.9.7.6
+People can now /like or /dislike a map, whenever they play on it.
+Included /like and /dislike to /mapinfo and at start of new round.
+Fixing an error where /ban caused some trouble when the player was offline.
+
+1.9.7.5
+Stopped saving undos - not needed for zombiesurvival, takes away disk space.
+Fixed a bug where using /money on an offline person did not work.
+Fixed a bug where /whowas failed when totaltime was 0.
+Made /queue level/zombie work with console.
+Made /notes work with console.
+Made /mapinfo work with console
+Fixing an error when console used /disinfect
+Fixing a bug where using /me, /afk, /team, /whisper was causing a MySQL error, when there was !"§$/%=(/ sings in it.
+Stopped saving Commands to Database unless they are used by operators.
+Adding a cookie bonus when having stars, for surviving. (15/17/20/24)
+
+1.9.7.4
+/mynotes - showing players their own notes. Can be used with /mynotes all.
+Marking winstreaks with * in front of the name, in the colors maroon (bronze), grey (silver), gold (gold). The winstreak will get interuppted when getting infected (so buying /revive doesnt get you stack the *´s) also getting referee stops the winning streak.
+
+1.9.7.3
+Updated /pcount to make it look prettier and added a percentage number of how many have been banned.
+Fixing the message when successfully editing the level creator.
+Cannot overqueue a level now. Once a level or zombie is queued, everyone else trying to queue a level / zombie will get a message that there is already a level / zombie queued.
+Fixed a bug where using /hide 2 times in a row made you invisible, even if you were ref.
+Making a message when someone is /summoned successfully
+
+1.9.7.2
+Making ban on build case insensetive.
+Made a difference between bans and ipbans at banned message.
+
+1.9.7.1
+Fixing offline tempban not working.
+Fixing offline warn not working.
+Fixing the restart bug where players couldnt join again when the server restart fail.
+
+1.9.7.0
+Adding colors to the offensenotes, to make them more readable
+Added ipban on zombie, when ipbanned on build.
+Changing /help to fit new ranks, also added all commands needed.
+Improved the design of mapvoting.
+Mojang accounts can now join the server.
+Fixed a bug where /whowas errored, when the user never existed in the database.
+Warning now works for people that are offline, the name needs to be typed EXACTELY.
+Added a security that checks the name for offline tempban, if the player ever existed.
+Added a security timer, that prevents people from getting warned twice in 10 seconds.
+Added a message, when sucessfully editing the level creator.
+
+1.9.6.9
+Fixed a bug where zombies acccidentely got cookies for killing even when humans won.
+Fixed a MineManiacs ban message which didnt show the complete banmessage.
+
+1.9.6.8
+Added ban on zombie, when banned on build.
+Changed "global zombie bans" to "global bans"
+Fixing a bug where referees got visible when using /aka
+
+1.9.6.7
+Fixed the auto afk kick, now it works how its supposed to.
+
+1.9.6.6
+Zombies now get rewarded if they help to win the round.
+
+1.9.6.5
+Fixed a bug where roundsplayed on a map were not saved correctely.
+
+1.9.6.4
+Made it so instead of random there is a third map choice.
+Added a new command called /levelcreater <name> , to set the creator of the current map. This is meant to honor the creators of maps. The creators name will show up at /mapinfo, as well as when his maps gets chosen.
+changed /mapinfo, removed some unnecessary things, also added an information about how many times a maps was chosen to be played.
+Fixed afk so muted persons cannot abuse it to talk.
+Rules can now be sent to players with /rules <playername>.
+
+1.9.6.3
+Fixed a bug where the new /whois only showed the money of the player using the command.
+Made ban working with the rulenumbers.
+Fixing the align of the /whois a bit (not done yet tho)
+Using /alts (/clones) now shows if any alt is banned, with using black color.
+Making /whowas same format as /whois
+Fixed a bug where the notes of tempban showed the player using it wrong.
+
+1.9.6.2
+Adding a new design of /whois, /whowas to make it smarter, smaller and giving a better overview.
+Disabled caps in /me command, also disabled color using in /me since it was abused to fake messages.
+Infected messages can now be added in a file called "infectedmessages.txt" in /text/ with usingnamespaces
+(<zombie>, <human>) for players names.
+
+1.9.6.1
+Fixed a bug where you could not use commands with caps letters (which was very bad with commands like /whois CAPSNAME)
+Added red color to /notes so you can see them better.
+Removed the kick for block spam which sometimes kicked people randomly.
+Fixed a bug which caused the server to crash when using an invalid color code (thanks to TheLolMonster)
+
+
+1.9.6.0
+Fixed a bug where the game gets stuck after the round ends.
+Global zombie bans. If someone does really bad things (hack servers, HEAVILY insulting stuff) we are considering a server wide ban, which means they are banned on every server that uses this software.
+This might only take event in a very few cases.
+Removed everything that protected Devs from being banned, kicked, muted.... (same for GlobalModerators)
+Added a protection for /xmute, so there MUST be a time insert.
+Tempban mow works on offline people
+
+1.9.5.4
+Fixed a bug where the blocklimit for zombies was not saved correctely in the properties
+Anti caps lock spam protection.
+People are kicked automatically after they are banned.
+Changing /notes so it does not spam anymore, also showing the number of notes made.
+Added ban to notes.
+
+1.9.5.3
+Logging to normal log files now if a player is accused to block glitch.
+When humans use /buy invisibility, they now dont disappear for referees.
+Changed a capitilization at Offensenotes.
+
+1.9.5.2
+Auto Updater complete, now automatically asks for update when available.
+
+1.9.5.1
+Started to implement an auto-updater.
+Version number count is now changed. Instead of a,b counting we have another number.
+
+1.9.5
+People now cant use $ in titles.
+Changing the way revive works with chances that drop down the more often you use it.
+Fixed a bug where with the referee command a killstreak could be nearly endless.
+Fixed a bug where the game stops working while changing the map (temporary, server restarts).
+Fixed the heartbeat with minecraft, server-url is now shown again
+
+1.9.4a
+Fixed wom which accidentely made the note on the wrong person.
+Changed the key for human/zombie chat to "-" from ":"
+Added a check of memory after each round to automatically restart to prevent lag.
+
+1.9.4
+Redid the foreach loops with a for loop descending, which should fix the error with the wrong numer.
+This will effect the whole zombiegame which was sometimes causing an error when a player dc´d and changed the order of the list. Also this will fix /restart where often an error occured.
+
+
+1.9.3h
+Removed the try and catch, because it leaded to people not being human or zombie
+
+1.9.3g
+Changed the countdown from invisibly to invisibility.
+Also stopped the countdown when you die.
+
+1.9.3f
+Next attempt to detect the error that keeps crashing the server.
+
+1.9.3e
+Reverted the change, made something horrible wrong.
+
+1.9.3d
+Added try and catch to mainloop so it detects the error that keeps crashing the server
+
+1.9.3c
+Removed the Gui options to prevent a bug which made the server not changing levels any more (possibly)
+Added /wom warned player to the offensivenotes from update 1.9.3b
+Added the autolagpillaringkick to the offensivenotes from update 1.9.3b
+Changed the method of the kick of autopillaring
+
+1.9.3b
+Added a text file. If you /warn /kick /tempban people, there will be a file created ("text/offensenotes/playername.txt").
+You can access to this file by the ingame command /notes playername and see what he has been warned, kicked tempbanned for and by whom. Standart permission is operator for this
+Started tracking back errors better.
+
+1.9.3
+Fixed promote, demote, setrank which caused an error when the player was not online.
+Fixed a bug where the round didnt start anymore
+Changed the Server Log for messages that go to zombie/humans.
+Fixed the Server log message because it spammed soemtimes.
+Added a Server log when humans, zombies won and on which map.
+
+1.9.2d
+Blocks are now only decreased when the block is really placed. So it wont count blocks away now if you cant build them in an area. 
+Fixed a bug where sometimes the color went crazy when /promote was used. (same with demote and setrank)
+Disabled color codes in title name.
+
+1.9.2c
+Changed the name invisibly to invisibility. 
+When you kick someone @rulenumber (warn tempban...) the color from the rules will be removed. 
+Added zombie and humanchat to logfile
+The first player chosen as a zombie now should be more random ( it happened that people were zombie starters 4 times in a row)
+Random messages were changed and now appear every 3 minutes instead of 5.
+
+1.9.2b
+Added information to invsibly (/item invisibly) 
+Added shortcut for /buy invisibly (/w)
+Referees can see chat from both teams (zombies and humans) and if they use : message they send it to both 
+Added new killmessages (about 8)
+Fixed a bug where people could get color in their name with /buy title ...
+
+1.9.2
+Added invisibly to the /buy menu. You can still be infected but cannot be seen by zombies or humans. The price is 3 cookies and it can only be used when there is more than 1 minute of time left.
+Added zombie and human chat. If you type : in front of your message it will be sent to zombies or humans regarding what you are. 
+Added new /eat messages.
+Lowered the price of revive to 7 cookies. But you can also only use it when there is more than 1 minute of the current roundtime left.
+
+1.9.1
+Properties File to change every setting very quick.
+Fixing tempban, instead of erroring it gives back a message that no reason was entered.
+Fixed /warn /tempban and /kick , reading the real rules, instead of posting premade rules.
+Some smaller fixes.
+
+1.8.2
+New command for operator+: /legal - sends a global messsage that the last ones are legal, with a very nice formatted text.
+The Blockglitchdetection has been improved. Before it only sent 1 warning per life time when someone glitched to prevent spam. Now it pauses the detection for 5sec when someone glitched, and then sends again.
+We fixed an error that is caused when too many guests try to log in which caused the server to be slow and crash.
+Teams have been changed back to a price of 250 cookies.
+
+1.8.1b
+Fixed /hide and /xhide, automatically turns you into referee mode and makes you speak /opchat or /adminchat.
+
+1.8.1
+Now /tempban <who> <min> <reason> should work with the reason.
+Now /banlist should show correctely all people that are banned.
+Now /baninfo should work (case insensitive)
+Some minor bug fixes.
+New shortcut for /item: /shop
+
+1.8.0b
+It shouldnt spam a message anymore if someone is block glitching.
+
+1.8.0
+We added the time left for the last player.
+We made the code better visible and created new function, but that should not bother you as a normal player.
+
+1.7.6
+We removed the kick for respawn since it triggered too many errors when the server is laggy. Also some functions became unusable but instead we did another system.
+If a player respawns and is inside a block a warning to him will be sent and operators that are online will be informed.
+
+1.7.5c
+Fixed a bug where /aka kicked you out of the game.
+
+1.7.5b
+Decreased the respawn kick sensitivity.
+Fixed kill messages.
+
+1.7.5
+We added a badword filter so bad words now get cencored.
+We added a respawn kick. After hitting the respawn button in 1 round for 3-4 times it kicks you with the message that respawning is forbitten. We do need this to prevent people to block glitch and we know its bad cause you accidantely hit respawn sometimes. The respawn counter is reset after each round has ended and is active. Respawnkick is active from the time that the counter tells 30 until the time that zombies or human won.
+We added new kill messages
+
+1.7.4
+This does not effect a single player rank etc but the whole server.
+Until yet all players ever logged in had their own .txt file for their login message which was pretty unnecessary in my opinion, because it was mostly default "joined the server". I changed it so only those who edited their loginmessage with /buy loginmsg are saved to a .txt files. So we now decreased the loginfiles from about 30k to about 50. This may improve the server performance a bit.
+The same thing also happened for every logout message of corse.
+
+1.7.3
+We added a anti-team-spleef protection, meaning that zombies can now only spleef humans and not zombies and humans can only spleef zombies and not humans.
+
+1.7.2
+We fixed /afk which made it possible for people to influence map votings.
+We automatically added the voice status to every trusted+ that logs in.
+We fixed /baninfo, which had problems with some capital letters.
+We fixed a bug where /t or /ztime sometimes displayed over 60 minutes.
+
+1.7.1
+We added a new colorsystem to the server which makes it easy to see whos zombie or not, but server staff will be still easy to recognize.
+
+1.7.0
+Made Teams
+Features:
+Make teams
+List of teams
+List of teammembers
+Teamchat
+Kick players out of teams
+Leave teams
+Invite players to teams
+Delete teams
+Have team prefix in front of your name while talking in chat.
+
+Commands:
+ /team create <teamname>
+ /team invite <playername>
+ /team kick <playername>
+ /team join
+ /team decline
+ /team list
+ /team leave
+ /team members <teamname>
+ /team del
+
+Note that /team create costs 300 cookies.
+Some other small bugfixes and improvements:
+When using /aka now it tells you what you have toggeled on or off for example: Aka is now ON/OFF.
+
+1.6.5
+We edited the permission of adminium back, because it has more disadvantages than advantages.
+
+1.6.4
+We changed the permission of adminium. This means operator+ ranks can now use adminium/bedrock when they turn referee mode on and even break the blocks.
+
+1.6.3
+We added the command /buy to the /help player command.
+We changed the price of rankup from 300 cookies down to 250 cookies meaning to get highest buyable rank will now consume 750 cookies instead of 6
+
+1.6.2
+We fixed a bug where /afk doesnt work as it is supposed to be.
+We fixed some colors that gone wrong with new map vote.
+
+1.6.1
+The levels in mapvoting now have colors.
+/fly works now on every level.
+
+1.6.0
+We changed the price of blocks to 0.1 per block. Blocks can only be bought in stacks of 10 pieces. So if you type /buy blocks 2 it will give you 20 blocks for a price of 2 cookies.
+We changed /wom so it will automatically send a message to all online ops, that you warned someone that is using wom (only effects lowop+)
+We changed /tempban so there could now be a reason why a person is tempbanned. For example: /tempban void_public 3 @2 (@2 means rule:2, reason can also be entered mannually)
+We also added rule 7 which is do not use glitches to /kick, /warn and /tempban.
+We fixed a bug where /infect did not find the person.
+
+1.5.2
+/wom <playername> - new command to freeze and warm wom users.
+Break between the levels have been increased to 20 sec.
+Some code optimization, edited /buy.
+We added new sayings when people get eaten (around 4)
+
+1.5.1
+We have redone the /help command. So if you use /help <yourrank> you will see the commands available for that rank.
+We changed the list of the online players of /who so it appears clearer.
+We changed the design a bit
+We added a short break (10 seconds) where people can type /g <newlvl> by themselves, we hope to decrease lag with that. People that dont type that will be transfered as usual.
+We added 2 new messages when people get eaten.
+
+1.5.0
+Fixed a bug when someone logs in and a player is in /referee mode that he can be seen.
+Fixed a bug when someone logs in that he sees real names like if he had /aka on.
+
+1.4.1
+Fixed /queue zombie <playername>
+
+1.4.0
+The command /aka has been fixed and is available for every player now to see zombies realnames.
+Some other small bugs have been fixed.
+
+1.3.6
+We also fixed a bug when zombies win and 2 players got the same amount of highest kill that only 1 was displayed.
+
+1.3.5
+Referees can only teleport now, when they are referee.
+If a referee uses /ref to play again, while a zombie game is in process, he will be forced to the spawn.
+When zombies win, the zombie with the highest kills is announced.
+
+1.3.4b
+Now you can /eat. This will make you loose 1 cookie and a random funny message.
+Example: <playername> just ate a cookie.
+
+1.3.4
+/money can be used on players that are offline, but still only if they got a less rank.
+We also decreased the amount of cookies you get with infect combos. So you only get 2 times the amount of infect combo you got, because we thought it was really imbalanced. Players that had 3 combo kills got more money than those, that survive. So we balanced it so players that do 5 combo kills (which is not that easy) get 10 cookies.
+
+1.3.3
+Changed shortcut from /ztime (/left) to /t
+Fixed and redone /whowas
+Added top players command. Use with /top
+As usual some minor bug fixes
+
+1.3.1
+fixed /afk bug which allowed people to influence voting
+fixed minor bugs
+
+1.3.0
+The roundssurvived and playersinfected will be stored to the database.
+
+1.2.7
+Fixed bug where humans were stuck on other maps.
+Fixed some small display bugs.
+Added new items to buy:
+/buy loginmsg <message>
+/buy logoutmsg <message>
+
+

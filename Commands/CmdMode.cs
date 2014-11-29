@@ -1,0 +1,102 @@
+/*
+	Copyright 2011 MCForge
+		
+	Dual-licensed under the	Educational Community License, Version 2.0 and
+	the GNU General Public License, Version 3 (the "Licenses"); you may
+	not use this file except in compliance with the Licenses. You may
+	obtain a copy of the Licenses at
+	
+	http://www.opensource.org/licenses/ecl2.php
+	http://www.gnu.org/licenses/gpl-3.0.html
+	
+	Unless required by applicable law or agreed to in writing,
+	software distributed under the Licenses are distributed on an "AS IS"
+	BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
+	or implied. See the Licenses for the specific language governing
+	permissions and limitations under the Licenses.
+*/
+using System;
+using System.IO;
+
+
+namespace MCForge.Commands
+{
+    public class CmdMode : Command
+    {
+        public override string name { get { return "mode"; } }
+        public override string shortcut { get { return ""; } }
+        public override string type { get { return "operator"; } }
+        public override bool museumUsable { get { return false; } }
+        public override LevelPermission defaultRank { get { return LevelPermission.Guest; } }
+        public CmdMode() { }
+
+        public override void Use(Player p, string message)
+        {
+            if (!p.referee)
+            {
+                Player.SendMessage(p, c.red + "Sorry this is a referee only command");
+                return;
+            }
+            if (message == "")
+            {
+                if (p.modeType != 0)
+                {
+                    Player.SendMessage(p, "&b" + Block.Name(p.modeType)[0].ToString().ToUpper() + Block.Name(p.modeType).Remove(0, 1).ToLower() + Server.DefaultColor + " mode: &cOFF");
+                    p.modeType = 0;
+                    p.BlockAction = 0;
+                    p.modemode = false;
+                    ushort x = (ushort)((p.pos[0]));
+                    ushort y = (ushort)((p.pos[1]));
+                    ushort z = (ushort)((p.pos[2]));
+                    p.SendUserMOTD();
+                    Player.GlobalDie(p, false);
+                    if(!p.referee) Player.GlobalSpawn(p, x, y, z, p.level.rotx, p.level.roty, true);
+                }
+                else
+                {
+                    Help(p); return;
+                }
+            }
+            else
+            {
+                byte b = Block.Byte(message);
+                if (b == Block.Zero) { Player.SendMessage(p, "Could not find block given."); return; }
+                if (b == Block.air) { Player.SendMessage(p, "Cannot use Air Mode."); return; }
+                        
+                if (!Block.canPlace(p, b) && !p.referee) { Player.SendMessage(p, "Cannot place this block."); return; }
+
+                if (p.modeType == b)
+                {
+                    Player.SendMessage(p, "&b" + Block.Name(p.modeType)[0].ToString().ToUpper() + Block.Name(p.modeType).Remove(0, 1).ToLower() + Server.DefaultColor + " mode: &cOFF");
+                    p.modeType = 0;
+                    p.BlockAction = 0;
+                    p.modemode = false;
+                    ushort x = (ushort)((p.pos[0]));
+                    ushort y = (ushort)((p.pos[1]));
+                    ushort z = (ushort)((p.pos[2]));
+                    p.SendUserMOTD();
+                    Player.GlobalDie(p, false);
+                    if(!p.referee) Player.GlobalSpawn(p, x, y, z, p.level.rotx, p.level.roty, true);
+                }
+                else
+                {
+                    p.BlockAction = 6;
+                    p.modeType = b;
+                    Player.SendMessage(p, "&b" + Block.Name(p.modeType)[0].ToString().ToUpper() + Block.Name(p.modeType).Remove(0, 1).ToLower() + Server.DefaultColor + " mode: &aON");
+                    p.modemode = true;
+                    ushort x = (ushort)((p.pos[0]));
+                    ushort y = (ushort)((p.pos[1]));
+                    ushort z = (ushort)((p.pos[2]));
+                    p.SendUserMOTD();
+                    Player.GlobalDie(p, false);
+                    if(!p.referee) Player.GlobalSpawn(p, x, y, z, p.level.rotx, p.level.roty, true);
+                }
+            }
+        }
+        public override void Help(Player p)
+        {
+            Player.SendMessage(p, "/mode [block] - Makes every block placed into [block].");
+            Player.SendMessage(p, "/[block] also works");
+        }
+    }
+}
