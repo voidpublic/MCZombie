@@ -1,8 +1,8 @@
 todo:
 Synch /realname <mojang account> for both servers.
 Add achievements for whowas	
-
 Error: #025
+
 2.0.1.7
 Referees can now build on non-buildable maps, but are not able to break adminium. In case a map has a bug they can fix it on the fly.
 All levels added are now in lower case to prevent permission problems.

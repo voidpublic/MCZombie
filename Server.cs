@@ -601,9 +601,11 @@ namespace MCForge
                 Database.executeQuery(string.Format("CREATE TABLE if not exists Playercmds (ID INTEGER {0}AUTO{1}INCREMENT NOT NULL, Time DATETIME, Name TEXT, Rank VARCHAR(20), Mapname VARCHAR(40), Cmd VARCHAR(40), Cmdmsg VARCHAR(40){2});", (useMySQL ? "" : "PRIMARY KEY "), (useMySQL ? "_" : ""), (Server.useMySQL ? ", PRIMARY KEY (ID)" : "")));
                 Database.executeQuery(string.Format("CREATE TABLE if not exists Achievements (ID INTEGER {0}AUTO{1}INCREMENT NOT NULL, name TEXT, description TEXT{2});", (useMySQL ? "" : "PRIMARY KEY "), (useMySQL ? "_" : ""), (Server.useMySQL ? ", PRIMARY KEY (ID)" : "")));
                 Database.executeQuery("CREATE TABLE if not exists levelinfo (ID INTEGER PRIMARY KEY AUTO_INCREMENT NOT NULL, name TEXT, creator TEXT, likes INT, dislikes INT, humanswon INT, zombieswon INT, perbuild VARCHAR(15), roundtime INT);");
+                Database.executeQuery("CREATE TABLE if not exists serverstatus (number INTEGER PRIMARY KEY AUTO_INCREMENT NOT NULL, name TEXT, status TEXT, players INT);");
                 DataTable achievements1 = Database.fillData("SELECT * FROM achievements");
                 s.amountofachievements = achievements1.Rows.Count;
                 achievements1.Dispose();
+                //to be compatible with older databases
                 if (!File.Exists("extra/alter.txt"))
                 {
                     Database.executeQuery("ALTER TABLE Players MODIFY name TEXT");
@@ -657,12 +659,19 @@ namespace MCForge
                         MySQL.executeQuery("INSERT INTO achievements (name, description) VALUES ('Deja Vu', 'Kill the same player twice in one round')");
                         MySQL.executeQuery("INSERT INTO achievements (name, description) VALUES ('Second Chance', 'Survive a round after using revive')");
                         MySQL.executeQuery("INSERT INTO achievements (name, description) VALUES ('Bear Grylls', 'Survive 5 rounds in a row')");
-                        MySQL.executeQuery("INSERT INTO achievements (name, description) VALUES ('Lucky Number 7', 'Win the lottery with 77+ cookies')");
-                        MySQL.executeQuery("INSERT INTO achievements (name, description) VALUES ('Impossible', 'Survive on a map with a win chance smaller than 5%')");
+                        MySQL.executeQuery("INSERT INTO achievements (name, description) VALUES ('Lucky Number 7', 'Win the lottery with 7 players in')");
+                        MySQL.executeQuery("INSERT INTO achievements (name, description) VALUES ('Impossible', 'Survive on a map with a win chance smaller than 10%')");
                         MySQL.executeQuery("INSERT INTO achievements (name, description) VALUES ('Dream Destroyer', 'Kill a human with a golden star')");
                         MySQL.executeQuery("INSERT INTO achievements (name, description) VALUES ('Unlucky', 'Get killed in the last 5 seconds of a round')");
                         MySQL.executeQuery("INSERT INTO achievements (name, description) VALUES ('Assassin', 'Lick the brain of an auto-afk human')");
                         MySQL.executeQuery("INSERT INTO achievements (name, description) VALUES ('Chuck Norris', 'Kill 10 humans in a row')");
+                    }
+                    DataTable serverstatus = MySQL.fillData("SELECT * from zombiesurvivaltest.serverstatus WHERE name='zombie'");
+                    if (serverstatus.Rows.Count == 0)
+                    {
+                        MySQL.executeQuery("INSERT INTO serverstatus (name, status, players) VALUES ('zombie', 'offline' , '0')");
+                        MySQL.executeQuery("INSERT INTO serverstatus (name, status, players) VALUES ('build', 'offline' , '0')");
+                        MySQL.executeQuery("INSERT INTO serverstatus (name, status, players) VALUES ('premium', 'offline' , '0')");
                     }
 
                 }
@@ -864,8 +873,7 @@ namespace MCForge
                 messageTimer.Elapsed += delegate
                 {
                     RandomMessage();
-                    //MySQL.executeQuery("UPDATE serverstatus set players="+Player.players.Count.ToString()+" where name='zombie'");
-                    //Table doesn't necessarily exist
+                    MySQL.executeQuery("UPDATE serverstatus set players="+Player.players.Count.ToString()+" where name='zombie'");
                 };
                 messageTimer.Start();
 
