@@ -864,7 +864,8 @@ namespace MCForge
                 messageTimer.Elapsed += delegate
                 {
                     RandomMessage();
-                    MySQL.executeQuery("UPDATE serverstatus set players="+Player.players.Count.ToString()+" where name='zombie'");
+                    //MySQL.executeQuery("UPDATE serverstatus set players="+Player.players.Count.ToString()+" where name='zombie'");
+                    //Table doesn't necessarily exist
                 };
                 messageTimer.Start();
 
