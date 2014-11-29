@@ -211,7 +211,7 @@ namespace MCForge.Commands
                     p.blockCount += (amount * 10);
                     p.money -= amount * price;
                     Player.SendMessage(p,"Congratulations, you have just purchased: " + c.aqua + amount * 10 + "%e extra blocks");
-                    Player.SendMessage(p,"for a price of: " + c.lime + (amount * price) + " " Server.DefaultColor + Server.moneys);
+                    Player.SendMessage(p,"for a price of: " + c.lime + (amount * price) + " " + Server.DefaultColor + Server.moneys);
                     Player.SendMessage(p,"Your total blocks left are now: "+ c.aqua + p.blockCount);
                     return;
                 }
