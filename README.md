@@ -1,7 +1,9 @@
-MCForge Classic
+MCZombie
 ===============
 
 Minecraft Classic Custom Server Software
+This software is based on quite an old version of MCForge (5.5.0.1)
+It is developed by void_public and open to everyone.
 
 About MCForge Classic
 ---------------------
