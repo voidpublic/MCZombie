@@ -113,8 +113,8 @@ namespace MCForge.Commands
                     else
                     {
                         p.money = p.money - price - p.invisiblyused * 2;
-                        if (p.invisiblyused == 5)
-                            p.Achieve("Ghost");
+                        /*if (p.invisiblyused == 5)
+                            p.Achieve("Ghost");*/
                         Player.GlobalMessage(p.group.color + p.name + c.green + " just disappeared. POOF");
                         if (p.invisiblyused == 6) Player.SendMessage(p, c.yellow + "Warning, you have used your last invisibility potion");
                         System.Timers.Timer invisibilitytimer = new System.Timers.Timer(1000);
@@ -148,7 +148,7 @@ namespace MCForge.Commands
                                 Player.SendMessage(p, c.red + "You got infected, you are %bvisible %cagain");
                                 invisibilitytimer.Stop();
                                 p.invisible = false;
-                                Player.Find(p.infectedfrom).Achieve("The Sixth Sense");
+                                //Player.Find(p.infectedfrom).Achieve("The Sixth Sense");
                                 return;
                             }
                         };
