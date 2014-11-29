@@ -2,6 +2,7 @@ todo:
 Synch /realname <mojang account> for both servers.
 Add achievements for whowas	
 Make paths variable for /level
+Need to fix restart when on console and app is called different
 Error: #025
 
 2.0.1.8
