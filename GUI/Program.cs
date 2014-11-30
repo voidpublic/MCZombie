@@ -429,9 +429,11 @@ namespace MCForge_.Gui
                             {
                                 ConsoleColor prevColor = Console.ForegroundColor;
                                 Console.ForegroundColor = ConsoleColor.Red;
-                                Console.WriteLine("An update was found!");
+                                /*Console.WriteLine("An update was found!");
                                 Console.WriteLine("Update using the file at " + DLLLocation + " and placing it over the top of your current MCForge_.dll!");
-                                Console.WriteLine("Also update using the file at " + EXELocation + " and placing it over the top of your current MCForge.exe");
+                                Console.WriteLine("Also update using the file at " + EXELocation + " and placing it over the top of your current MCForge.exe");*/
+                                Console.WriteLine("An update was found, the server will now close and restart");
+                                PerformUpdate();
                                 Console.ForegroundColor = prevColor;
                             }
                         }
@@ -545,13 +547,13 @@ namespace MCForge_.Gui
                     foreach (Player pl in Player.players) pl.save();
                 
                // File.WriteAllBytes("Updater.exe", MCForge.Properties.Resources.Updater);
-                if (!usingConsole)
+                //if (usingConsole)
                     Process.Start("Updater.exe", "securitycheck10934579068013978427893755755270374" + parent);
-                else
+                /*else
                 {
                     Process.Start("mono", parentfullpathdir + "/Updater.exe securitycheck10934579068013978427893755755270374" + parent);
-                }
-                ExitProgram(false);
+                }*/
+                ExitProgram(true);
             }
             catch (Exception e) { Server.ErrorLog(e); }
         }

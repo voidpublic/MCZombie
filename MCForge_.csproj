@@ -104,6 +104,7 @@
     <Compile Include="Commands\CmdLegal.cs" />
     <Compile Include="Commands\CmdLevel.cs" />
     <Compile Include="Commands\CmdLike.cs" />
+    <Compile Include="Commands\CmdLocation.cs" />
     <Compile Include="Commands\CmdLottery.cs" />
     <Compile Include="Commands\CmdMynotes.cs" />
     <Compile Include="Commands\CmdMyreferences.cs" />

@@ -128,14 +128,15 @@ namespace Updater
                 Console.WriteLine("MCForge successfully updated.  Starting MCForge...");
                 try
                 {
-                    if (!usingConsole)
+                    Process.Start(args[0]);
+                    /*if (!usingConsole)
                     {
                         Process.Start(args[0]);
                     }
                     else
                     {
                         Process.Start("mono", parentfullpathdir + "/" + args[0]);
-                    }
+                    }*/
                 }
                 catch (Exception)
                 {
