@@ -39,7 +39,7 @@ namespace MCForge.Commands
                 ushort x = (ushort)((p.pos[0]));
                 ushort y = (ushort)((p.pos[1]));
                 ushort z = (ushort)((p.pos[2]));
-                p.SendMap();
+                p.SendUserMOTD();
                 p.SendUserMOTD();
                 p.SendMap();
                 Player.GlobalDie(p, false);
@@ -78,7 +78,7 @@ namespace MCForge.Commands
                 ushort x = (ushort)((p.pos[0]));
                 ushort y = (ushort)((p.pos[1]));
                 ushort z = (ushort)((p.pos[2]));
-                p.SendMap();
+                p.SendUserMOTD();
                 p.SendUserMOTD();
                 p.SendMap();
                 Player.GlobalDie(p, false);
