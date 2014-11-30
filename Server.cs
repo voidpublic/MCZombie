@@ -221,18 +221,20 @@ namespace MCForge
         //Zombie Properties:
         public static int blocklimithuman = 50;
         public static int blocklimitzombies = 3;
-        public static int roundtime1 = 6;
-        public static int roundtime2 = 8;
+        //public static int roundtime1 = 6;
+        //public static int roundtime2 = 8;
+        //no longer in use as roundtime is dynamic
         public static string humanprefix = "H";
         public static string zombieprefix = "Z";
         public static string refprefix = "REF";
+        public static string zombielevelpath = "levels/";
+        public static string zombiedefaultlevelpath = "standartlevels/";
+        public static string buildlevelpath = "C:/Users/Zombie/Desktop/Build Server/levels/";
         //Shop Prices:
-        public static List<String> buyableitems = new List<String>(){"title","tcolor","revive","blocks","rankup","loginmsg","logoutmsg"};
+        public static List<String> buyableitems = new List<String>(){"title","tcolor","revive","10blocks","rankup","loginmsg","logoutmsg","invisibility", "queuelevel"};
         public static List<String> buyableranks = new List<String>();
-        public static List<Int32> itemprices = new List<Int32>(){400,300,50,1,300,350,350};
-
-
-
+        public static List<Int32> itemprices = new List<Int32>(){100,100,7,1,100,100,100,3,200};
+        
         // Lava Survival
         public static LavaSurvival lava;
 

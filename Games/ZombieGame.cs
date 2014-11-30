@@ -570,10 +570,10 @@ namespace MCForge
         }
         public void CopyStandartLevel(string lvlname)
         {
-            if (!Directory.Exists("standartlevels")) Directory.CreateDirectory("standartlevels");
-            if (!File.Exists("standartlevels/" + lvlname + ".lvl")) { Server.s.Log("The standartlevel " + lvlname + " doesnt exist!"); return; }
-            string from = "standartlevels/" + lvlname + ".lvl";
-            string to = "levels/" + lvlname + ".lvl";
+            if (!Directory.Exists(Server.zombiedefaultlevelpath)) Directory.CreateDirectory(Server.zombiedefaultlevelpath);
+            if (!File.Exists(Server.zombiedefaultlevelpath + lvlname + ".lvl")) { Server.s.Log("The standartlevel " + lvlname + " doesnt exist!"); return; }
+            string from = Server.zombiedefaultlevelpath + lvlname + ".lvl";
+            string to = Server.zombielevelpath + lvlname + ".lvl";
             File.Copy(from, to, true);
         }
         public void ChangeLevel()
@@ -590,7 +590,7 @@ namespace MCForge
                     if (Server.ChangeLevels)
                     {
                         ArrayList al = new ArrayList();
-                        DirectoryInfo di = new DirectoryInfo("levels/");
+                        DirectoryInfo di = new DirectoryInfo(Server.zombielevelpath);
                         FileInfo[] fi = di.GetFiles("*.lvl");
                         foreach (FileInfo fil in fi)
                         {

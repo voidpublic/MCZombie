@@ -41,7 +41,7 @@ namespace MCForge
                                     catch { Server.s.Log("invalid blocklimit-zombies"); Server.blocklimitzombies = 3; }
                                     break;
                                 //------------------------------------------------------------------------------------
-                                case "round-time1":
+                                /*case "round-time1":
                                     try { Server.roundtime1 = Convert.ToInt32(obj); }
                                     catch { Server.s.Log("invalid round time1"); Server.roundtime1 = 6; }
                                     break;
@@ -49,7 +49,8 @@ namespace MCForge
                                 case "round-time2":
                                     try { Server.roundtime2 = Convert.ToInt32(obj); }
                                     catch { Server.s.Log("invalid round time2"); Server.roundtime2 = 8; }
-                                    break;
+                                    break;*/
+                                // roundtime is no longer in use as this is dynamic depending on winchance
                                 //------------------------------------------------------------------------------------
                                 case "zombie-name-while-infected":
                                     if (obj != "")
@@ -94,6 +95,18 @@ namespace MCForge
                                 case "referee-prefix":
                                     if (obj != "")
                                         Server.refprefix = obj;
+                                    break;
+                                case "zombielevelpath":
+                                    if (obj != "")
+                                        Server.zombielevelpath = obj;
+                                    break;
+                                case "zombiedefaultlevelpath":
+                                    if(obj != "")
+                                        Server.zombiedefaultlevelpath = obj;
+                                    break;
+                                case "buildlevelpath":
+                                    if(obj != "")
+                                        Server.buildlevelpath = obj;
                                     break;
                                 //------------------------------------------------------------------------------------
                                 case "title":
@@ -262,8 +275,9 @@ namespace MCForge
                         w.WriteLine("#Welcome to the void_public Zombie Surival Properties File!");
                         w.WriteLine("#Blocklimit-Human= int: sets the blocklimit for humans.");
                         w.WriteLine("#Blocklimit-Zombie= int: sets the blocklimit for zombies.");
-                        w.WriteLine("#round-time1= int: sets the minimum round time.");
-                        w.WriteLine("#round-time2= int: sets the maxmimum round time.");
+                        //w.WriteLine("#round-time1= int: sets the minimum round time.");
+                        //w.WriteLine("#round-time2= int: sets the maxmimum round time.");
+                        //roundtime is no longer in use as this is dynamic depending on the winchance
                         w.WriteLine("#zombie-name-while-infected = string: sets the name of the zombie, sets skin.");
                         w.WriteLine("#no-respawning-during-zombie = bool: toggles anti respawn");
                         w.WriteLine("#no-pillaring-during-zombie = bool: toggles anti pillaring");
@@ -273,6 +287,9 @@ namespace MCForge
                         w.WriteLine("#human-prefix = string: sets the prefix for humans");
                         w.WriteLine("#zombie-prefix = string: sets the prefix for zombies");
                         w.WriteLine("#referee-prefix = string: sets the prefix for referees");
+                        w.WriteLine("#zombielevelpath = string: sets the path from where zombie levels are taken");
+                        w.WriteLine("#zombiedefaultlevelpath = string: sets the path where level files should be restored from");
+                        w.WriteLine("#buildlevelpath = string: sets the path where level files are being added by /level");
                         w.WriteLine("#title= bool: triggers if /buy title can be used");
                         w.WriteLine("#titlep= int: sets the price for title.");
                         w.WriteLine("#tcolor= bool: triggers if /buy tcolor can be used");
@@ -289,17 +306,19 @@ namespace MCForge
                         w.WriteLine("#loginmsgp= int: sets the price for loginmsg.");
                         w.WriteLine("#logoutmsg= bool: triggers if /buy logoutmsg can be used");
                         w.WriteLine("#logoutmsgp= int: sets the price for logoutmsg.");
-                        //w.WriteLine("#invisibly= bool: triggers if /buy invisibility can be used");
-                        //w.WriteLine("#invisiblyp= int: sets the price for invisibility.");
+                        w.WriteLine("#invisibly= bool: triggers if /buy invisibility can be used");
+                        w.WriteLine("#invisiblyp= int: sets the price for invisibility.");
                         w.WriteLine("");
                         w.WriteLine("");
-                        w.WriteLine("");
+                        w.WriteLine("#--------------------------------------------------------------------");
+                        //Here the actual settings being
                         w.WriteLine("#General settings:");
                         w.WriteLine("");
                         w.WriteLine("blocklimithuman = " + Server.blocklimithuman);
                         w.WriteLine("blocklimitzombie= " + Server.blocklimitzombies);
-                        w.WriteLine("round-time1 = " + Server.roundtime1);
-                        w.WriteLine("round-time2 = " + Server.roundtime2);
+                        //w.WriteLine("round-time1 = " + Server.roundtime1);
+                        //w.WriteLine("round-time2 = " + Server.roundtime2);
+                        //roundtime is dynamic depending on the winchance, therefor this is no longer in use
                         w.WriteLine("zombie-name-while-infected = " + Server.ZombieName);
                         w.WriteLine("no-respawning-during-zombie = " + Server.noRespawn);
                         w.WriteLine("no-pillaring-during-zombie = " + Server.noPillaring);
@@ -309,6 +328,9 @@ namespace MCForge
                         w.WriteLine("human-prefix = " + Server.humanprefix);
                         w.WriteLine("zombie-prefix = " + Server.zombieprefix);
                         w.WriteLine("referee-prefix = " + Server.refprefix);
+                        w.WriteLine("zombielevelpath = " + Server.zombielevelpath);
+                        w.WriteLine("zombiedefaultlevelpath = " + Server.zombiedefaultlevelpath);
+                        w.WriteLine("buildlevelpath = " + Server.buildlevelpath);
                         w.WriteLine("");
                         w.WriteLine("#Shop");
                         w.WriteLine("");

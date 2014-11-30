@@ -17,14 +17,9 @@ namespace MCForge.Commands
 
         public override void Use(Player p, string message)
         {
-            if (!Server.name.ToLower().Contains("minemaniacs"))
-            {
-                Player.SendMessage(p,"This is a minemaniacs only command");
-                return;
-            }
-            string zombielevelpath = "C:/Users/Zombie/Desktop/Zombie Survival/levels/";
-            string zombiestandartlevelpath = "C:/Users/Zombie/Desktop/Zombie Survival/standartlevels/";
-            string buildlevelpath = "C:/Users/Zombie/Desktop/Build Server/levels/";
+            string zombielevelpath = Server.zombielevelpath;
+            string zombiestandartlevelpath = Server.zombiedefaultlevelpath; 
+            string buildlevelpath = Server.buildlevelpath;
             if (!Directory.Exists(zombielevelpath)) Directory.CreateDirectory(zombielevelpath);
             if (!Directory.Exists(zombiestandartlevelpath)) Directory.CreateDirectory(zombiestandartlevelpath);
             if (!Directory.Exists(buildlevelpath)) Directory.CreateDirectory(buildlevelpath);
