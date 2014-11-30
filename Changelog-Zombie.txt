@@ -9,6 +9,7 @@ Added command /location (headop) to track down a players location.
 Fixed updating on console mode on windows (this will break updating on linux)
 Fixed restart not working properly (leaving old window open as not killing process correctly)
 Added offline golden profile for all achievements in /whowas
+Fixed not allowing developer rank.
 
 2.0.1.7
 Referees can now build on non-buildable maps, but are not able to break adminium. In case a map has a bug they can fix it on the fly.
