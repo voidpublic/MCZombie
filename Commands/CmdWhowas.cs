@@ -51,30 +51,59 @@ namespace MCForge.Commands
             DataTable playerDb = Database.fillData("SELECT * FROM Players WHERE Name=@Name");
             string FoundRank = Group.findPlayer(message.ToLower()); 
             if (playerDb.Rows.Count == 0) { Player.SendMessage(p, Group.Find(FoundRank).color + message + Server.DefaultColor + " has the rank of " + Group.Find(FoundRank).color + FoundRank); return; }
-
-            Player.SendMessage(p, c.white + "-------------------------------------------");
-            Player.SendMessage(p, String.Format("{0,-13}{1,-15}{2,-12}{3,-15}", c.white + "Name:", message, c.white + "Rank:",  Group.Find(FoundRank).color + FoundRank));
-            Player.SendMessage(p, String.Format("{0,-13}{1,-15}{2,-12}{3,-15}", c.white + "Logins:", c.teal + playerDb.Rows[0]["totalLogin"], c.white + "Time:", c.teal + TotalTime(playerDb.Rows[0]["TimeSpent"].ToString())));
-            Player.SendMessage(p, String.Format("{0,-13}{1,-15}", c.white + "Lastlogin:", c.teal + playerDb.Rows[0]["LastLogin"])); 
-            Player.SendMessage(p, String.Format("{0,-13}{1,-15}", c.white + "FirstLogin: ", c.teal + playerDb.Rows[0]["FirstLogin"]));
-            Player.SendMessage(p, String.Format("{0,-13}{1,-15}{2,-12}{3,-15}", c.white + "Survived:", c.lime + playerDb.Rows[0]["roundssurvived"], c.white + "Infected:", c.red + playerDb.Rows[0]["playersinfected"]));
-            Player.SendMessage(p, String.Format("{0,-13}{1,-15}{2,-12}{3,-15}", c.white + "MaxSurvived:", c.green + playerDb.Rows[0]["maximumsurvived"], c.white + "MaxInfected:", c.maroon + playerDb.Rows[0]["maximuminfected"])); 
-            Player.SendMessage(p, c.white + "Wealth: " + c.teal + playerDb.Rows[0]["money"]);
-            bool skip = false;
-            if (p != null) if ((int)p.group.Permission <= CommandOtherPerms.GetPerm(this)) skip = true;
-            if (!skip)
+            int number = playerDb.Rows[0]["achievements"].ToString().Split(',').Length -1;
+            if (number >= Server.s.amountofachievements)
             {
-                string givenIP;
-                if (Server.bannedIP.Contains((string)playerDb.Rows[0]["IP"])) givenIP = c.black + (string)playerDb.Rows[0]["IP"] + ", which is banned";
-                else givenIP = (string)playerDb.Rows[0]["IP"];
-                Player.SendMessage(p, c.white + "IP: " + c.blue + givenIP);
-                /*if (!Player.IPInPrivateRange(givenIP))
+                Player.SendMessage(p, c.gold + "-------------------------------------------");
+                Player.SendMessage(p, String.Format("{0,-13}{1,-15}{2,-12}{3,-15}", c.gold + "Name:", message, c.gold + "Rank:", Group.Find(FoundRank).color + FoundRank));
+                Player.SendMessage(p, String.Format("{0,-13}{1,-15}{2,-12}{3,-15}", c.gold + "Logins:", c.teal + playerDb.Rows[0]["totalLogin"], c.gold + "Time:", c.teal + TotalTime(playerDb.Rows[0]["TimeSpent"].ToString())));
+                Player.SendMessage(p, String.Format("{0,-13}{1,-15}", c.gold + "Lastlogin:", c.teal + playerDb.Rows[0]["LastLogin"]));
+                Player.SendMessage(p, String.Format("{0,-13}{1,-15}", c.gold + "FirstLogin: ", c.teal + playerDb.Rows[0]["FirstLogin"]));
+                Player.SendMessage(p, String.Format("{0,-13}{1,-15}{2,-12}{3,-15}", c.gold + "Survived:", c.lime + playerDb.Rows[0]["roundssurvived"], c.gold + "Infected:", c.red + playerDb.Rows[0]["playersinfected"]));
+                Player.SendMessage(p, String.Format("{0,-13}{1,-15}{2,-12}{3,-15}", c.gold + "MaxSurvived:", c.green + playerDb.Rows[0]["maximumsurvived"], c.gold + "MaxInfected:", c.maroon + playerDb.Rows[0]["maximuminfected"]));
+                Player.SendMessage(p, c.gold + "Wealth: " + c.teal + playerDb.Rows[0]["money"]);
+                bool skip = false;
+                if (p != null) if ((int)p.group.Permission <= CommandOtherPerms.GetPerm(this)) skip = true;
+                if (!skip)
                 {
-                    string location = Player.GetIPLocation(givenIP);
-                    Player.SendMessage(p, c.white +  "From: " + c.blue + location);
-                }*/
+                    string givenIP;
+                    if (Server.bannedIP.Contains((string)playerDb.Rows[0]["IP"])) givenIP = c.black + (string)playerDb.Rows[0]["IP"] + ", which is banned";
+                    else givenIP = (string)playerDb.Rows[0]["IP"];
+                    Player.SendMessage(p, c.gold + "IP: " + c.blue + givenIP);
+                    /*if (!Player.IPInPrivateRange(givenIP))
+                    {
+                        string location = Player.GetIPLocation(givenIP);
+                        Player.SendMessage(p, c.white +  "From: " + c.blue + location);
+                    }*/
+                }
+                Player.SendMessage(p, c.gold + "-------------------------------------------");
             }
-            Player.SendMessage(p, c.white + "-------------------------------------------");
+            else
+            {
+                Player.SendMessage(p, c.white + "-------------------------------------------");
+                Player.SendMessage(p, String.Format("{0,-13}{1,-15}{2,-12}{3,-15}", c.white + "Name:", message, c.white + "Rank:", Group.Find(FoundRank).color + FoundRank));
+                Player.SendMessage(p, String.Format("{0,-13}{1,-15}{2,-12}{3,-15}", c.white + "Logins:", c.teal + playerDb.Rows[0]["totalLogin"], c.white + "Time:", c.teal + TotalTime(playerDb.Rows[0]["TimeSpent"].ToString())));
+                Player.SendMessage(p, String.Format("{0,-13}{1,-15}", c.white + "Lastlogin:", c.teal + playerDb.Rows[0]["LastLogin"]));
+                Player.SendMessage(p, String.Format("{0,-13}{1,-15}", c.white + "FirstLogin: ", c.teal + playerDb.Rows[0]["FirstLogin"]));
+                Player.SendMessage(p, String.Format("{0,-13}{1,-15}{2,-12}{3,-15}", c.white + "Survived:", c.lime + playerDb.Rows[0]["roundssurvived"], c.white + "Infected:", c.red + playerDb.Rows[0]["playersinfected"]));
+                Player.SendMessage(p, String.Format("{0,-13}{1,-15}{2,-12}{3,-15}", c.white + "MaxSurvived:", c.green + playerDb.Rows[0]["maximumsurvived"], c.white + "MaxInfected:", c.maroon + playerDb.Rows[0]["maximuminfected"]));
+                Player.SendMessage(p, c.white + "Wealth: " + c.teal + playerDb.Rows[0]["money"]);
+                bool skip = false;
+                if (p != null) if ((int)p.group.Permission <= CommandOtherPerms.GetPerm(this)) skip = true;
+                if (!skip)
+                {
+                    string givenIP;
+                    if (Server.bannedIP.Contains((string)playerDb.Rows[0]["IP"])) givenIP = c.black + (string)playerDb.Rows[0]["IP"] + ", which is banned";
+                    else givenIP = (string)playerDb.Rows[0]["IP"];
+                    Player.SendMessage(p, c.white + "IP: " + c.blue + givenIP);
+                    /*if (!Player.IPInPrivateRange(givenIP))
+                    {
+                        string location = Player.GetIPLocation(givenIP);
+                        Player.SendMessage(p, c.white +  "From: " + c.blue + location);
+                    }*/
+                }
+                Player.SendMessage(p, c.white + "-------------------------------------------");
+            }
             playerDb.Dispose();
         }
         public override void Help(Player p)
