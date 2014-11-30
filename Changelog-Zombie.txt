@@ -4,6 +4,7 @@ Error: #025
 Fixes for database if not existant.
 Fixes for zombieproperties file.
 /level now works with all servers, please make sure to fill out the properties file correctly.
+Fixed referee mode for Classicube
 
 2.0.1.7
 Referees can now build on non-buildable maps, but are not able to break adminium. In case a map has a bug they can fix it on the fly.
