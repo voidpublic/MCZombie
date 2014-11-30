@@ -517,13 +517,14 @@ namespace MCForge
             catch (Exception e) { Kick("Login failed!"); Server.ErrorLog(e); }
         }
         public void save()
-        {
+        {/*
             if (this.group.Permission > LevelPermission.Guest && this.totalLogins <= 1 && this.roundssurvived < 3)
             {
                 Server.s.Log("Prevented saving data for " + this.name);
                 Server.s.Log("Error: #021");
                 return;
-            }
+            }*/
+            //This basically causes problems with pre-ranked people that try to logout. 
             string commandString =
                 "UPDATE Players SET rank ='" + group.name + "'" +
                 ", IP='" + ip + "'" +
