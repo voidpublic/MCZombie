@@ -668,7 +668,7 @@ namespace MCForge
                         MySQL.executeQuery("INSERT INTO achievements (name, description) VALUES ('Assassin', 'Lick the brain of an auto-afk human')");
                         MySQL.executeQuery("INSERT INTO achievements (name, description) VALUES ('Chuck Norris', 'Kill 10 humans in a row')");
                     }
-                    DataTable serverstatus = MySQL.fillData("SELECT * from zombiesurvivaltest.serverstatus WHERE name='zombie'");
+                    DataTable serverstatus = MySQL.fillData("SELECT * from serverstatus WHERE name='zombie'");
                     if (serverstatus.Rows.Count == 0)
                     {
                         MySQL.executeQuery("INSERT INTO serverstatus (name, status, players) VALUES ('zombie', 'offline' , '0')");
