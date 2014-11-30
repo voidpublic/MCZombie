@@ -4289,18 +4289,17 @@ catch { }*/
             {
                 direction = stream.ReadToEnd();
             }
-
             //Search for the ip in the html
-            int positioncity = (direction.LastIndexOf("City:</th><td width='60%'>"));
+            int positioncity = (direction.LastIndexOf("City Location:") + 9);
             string temp = direction.Substring(positioncity + 26);
-            int positioncityend = temp.IndexOf("</td></tr>");
+            int positioncityend = temp.IndexOf("</td>");
             string first = temp.Substring(0, positioncityend);
-            int positioncountry = (direction.LastIndexOf("Country:</th><td width='60%'>"));
-            temp = direction.Substring(positioncountry + 29);
-            int positioncountryend = temp.IndexOf("nbsp;&nbsp;<img src='");
+            int positioncountry = (direction.LastIndexOf("Country Location:") + 9);
+            temp = direction.Substring(positioncountry + 30);
+            int positioncountryend = temp.IndexOf("&nbsp;");
             string second = temp.Substring(0, positioncountryend);
             if (first.Length > 20) first = "Unknown";
-            if (second.Length > 20) second = "Unknown";
+            if (second.Length > 5000000) second = "Unknown";
             return first + "/" + second;
         }
         #endregion
