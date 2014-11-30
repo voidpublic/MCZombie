@@ -77,9 +77,9 @@ namespace MCForge_.Gui
         public static void Main(string[] args)
         {
             startTime = DateTime.Now;
-            if (Process.GetProcessesByName("ZombieSurvival").Length != 1)
+            if (Process.GetProcessesByName("MCForge").Length != 1)
             {
-                foreach (Process pr in Process.GetProcessesByName("ZombieSurvival"))
+                foreach (Process pr in Process.GetProcessesByName("MCForge"))
                 {
                     if (pr.MainModule.BaseAddress == Process.GetCurrentProcess().MainModule.BaseAddress)
                         if (pr.Id != Process.GetCurrentProcess().Id)
