@@ -47,17 +47,17 @@ namespace MCForge.Commands
                 return;
             }
 
-            if (p.muted) { Player.SendMessage(p, "You are currently muted and cannot use this command."); return; }
-            if (Server.chatmod && !p.voice) { Player.SendMessage(p, "Chat moderation is on, you cannot emote."); return; }
+            if (p.muted) { Player.SendMessage(p, c.red + "You are currently muted and cannot use this command."); return; }
+            if (Server.chatmod && !p.voice) { Player.SendMessage(p, c.red + "Chat moderation is on, you cannot emote."); return; }
             if (Player.CapsDetection(message))
             {
-                Player.SendMessage(p,"%cToo much caps in your message!");
-                Player.SendMessage(p,"%cPlease do not spam caps");
+                Player.SendMessage(p, c.red + "Too much caps in your message!");
+                Player.SendMessage(p, c.red + "Please do not spam caps");
                 return;
             }
-            if(message.Contains("%")) 
+            if(message.Contains("%") || message.Contains("&")) 
             {
-                Player.SendMessage(p,"%cNo color codes with /me please");
+                Player.SendMessage(p, c.red + "No color codes with /me please");
                 return;
             }
 

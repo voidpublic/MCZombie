@@ -49,7 +49,7 @@ namespace MCForge.Commands
 
                 Database.AddParams("@Name", message); 
                 DataTable FindIP = Database.fillData("SELECT IP FROM Players WHERE Name=@Name");
-                if (FindIP.Rows.Count == 0) { Player.SendMessage(p, "Could not find any player by the name entered."); FindIP.Dispose(); return; }
+                if (FindIP.Rows.Count == 0) { Player.SendMessage(p, c.red + "Could not find any player by the name entered."); FindIP.Dispose(); return; }
 
                 message = FindIP.Rows[0]["IP"].ToString();
                 FindIP.Dispose();
@@ -62,7 +62,7 @@ namespace MCForge.Commands
             Database.AddParams("@IP", message); 
             DataTable Clones = Database.fillData("SELECT Name FROM Players WHERE IP=@IP");
 
-            if (Clones.Rows.Count == 0) { Player.SendMessage(p, "Could not find any record of the player entered."); return; }
+            if (Clones.Rows.Count == 0) { Player.SendMessage(p, c.red + "Could not find any record of the player entered."); return; }
 
             List<string> foundPeople = new List<string>();
             for (int i = 0; i < Clones.Rows.Count; ++i)
@@ -77,10 +77,10 @@ namespace MCForge.Commands
             }
 
             Clones.Dispose();
-            if (foundPeople.Count <= 1) { Player.SendMessage(p, originalName + " has no clones."); return; }
+            if (foundPeople.Count <= 1) { Player.SendMessage(p, c.lime + originalName + " has no clones."); return; }
 
-            Player.SendMessage(p, "These people have the same IP address:");
-            Player.SendMessage(p, string.Join(", ", foundPeople.ToArray()));
+            Player.SendMessage(p, c.lime + "These people have the same IP address:");
+            Player.SendMessage(p, c.lime + string.Join(", ", foundPeople.ToArray()));
         }
 
         public override void Help(Player p)

@@ -20,10 +20,10 @@ namespace MCForge.Commands
         {
             Player who = null;
             who = Player.Find(message);
-            if (who == null) { Player.SendMessage(p,"Player not found"); return; }
+            if (who == null) { Player.SendMessage(p, c.red + "Player not found"); return; }
             if (who.infected)
             {
-                Player.SendMessage(p,"Player is already infected");
+                Player.SendMessage(p, c.red + "Player is already infected");
             }
             else
             {

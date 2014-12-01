@@ -32,7 +32,7 @@ namespace MCForge.Commands
 		{
             if (message == "")
             {
-                Player.SendMessage(p, "You currently have " + p.money + " " + Server.moneys + ".");
+                Player.SendMessage(p, c.lime + "You currently have " + c.aqua + p.money + " " + c.lime + Server.moneys + ".");
             }
             else
             {
@@ -41,7 +41,7 @@ namespace MCForge.Commands
                 {
                     DataTable money = Database.fillData("SELECT Money FROM Players WHERE name='" + message + "'");
                     if (money.Rows.Count == 0)
-                        Player.SendMessage(p,"Player could not be found");
+                        Player.SendMessage(p, c.red + "Player could not be found");
                     else
                         Player.SendMessage(p, message + Server.DefaultColor + " currently has " + money.Rows[0]["Money"] + " " + Server.moneys + ".");
                     money.Dispose();
@@ -49,7 +49,7 @@ namespace MCForge.Commands
                 }
                 if (who.group.Permission >= p.group.Permission)
                 {
-                    Player.SendMessage(p, "Cannot see the money of someone of equal or greater rank.");
+                    Player.SendMessage(p, c.red + "Cannot see the money of someone of equal or greater rank.");
                     return;
                 }
                 Player.SendMessage(p, who.color + who.name + Server.DefaultColor + " currently has " + who.money + " " + Server.moneys + ".");

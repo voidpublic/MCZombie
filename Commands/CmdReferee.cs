@@ -84,7 +84,7 @@ namespace MCForge.Commands
                 Player.GlobalDie(p, false);
                 Player.GlobalSpawn(p, x, y, z, p.level.rotx, p.level.roty, true);
                 //-------------------------------------------------------------------------
-                Player.SendMessage(p, "Referee mode is now %aON");
+                Player.SendMessage(p, "Referee mode is now " + c.lime + "ON");
                 if(!p.hidden) Player.GlobalChat(p, p.group.color + p.name + c.blue + " is now a referee", false);
                 if(!p.hidden) Player.GlobalDie(p, false);
                 p.winstreakcount = 0;

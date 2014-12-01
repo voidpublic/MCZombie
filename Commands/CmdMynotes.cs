@@ -18,7 +18,7 @@ namespace MCForge.Commands
         {
             if (p == null)
             {
-                Player.SendMessage(p, "Console has no notes derp...");
+                Player.SendMessage(p, c.red + "Console has no notes derp...");
                 return;
             }
             p.ignorePermission = true;

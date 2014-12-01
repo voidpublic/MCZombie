@@ -1056,7 +1056,7 @@ namespace MCForge
             string filter = getrulenumber.Substring(pos + 1).Trim();
             int rulenumber = 0;
             try { rulenumber = Convert.ToInt32(filter); }
-            catch { Player.SendMessage(p,"Unknown rulenumber");  return "0"; }
+            catch { Player.SendMessage(p, c.red + "Unknown rulenumber");  return "0"; }
             if (File.Exists("text/rules.txt"))
             {
                 string[] lines = File.ReadAllLines("text/rules.txt");
@@ -1071,7 +1071,7 @@ namespace MCForge
                     }
                     return toreturn;
                 }
-                catch { Player.SendMessage(p,"Your entered rulenumber does not exist"); return "0"; }
+                catch { Player.SendMessage(p, c.red + "Your entered rulenumber does not exist"); return "0"; }
             }
             else return "0";
         }
@@ -1080,13 +1080,13 @@ namespace MCForge
             string levelname = p.level.name.ToLower();
             if (levelname == p.recentlevelvote)
             {
-                Player.SendMessage(p,"%cYou cannot vote for the same level twice in a round");
+                Player.SendMessage(p, c.red + "You can only vote once per round for a level");
                 return;
             }
             p.recentlevelvote = levelname;
             if (truefalse) p.level.likes++;
             else p.level.dislikes++;
-            Player.SendMessage(p,"%aThank you for voting for this level");
+            Player.SendMessage(p, c.lime + "Thank you for voting for this level");
             Level.SaveSettings(p.level);
         }
         /*

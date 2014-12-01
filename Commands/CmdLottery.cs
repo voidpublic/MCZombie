@@ -29,7 +29,7 @@ namespace MCForge.Commands
                 Server.zombie.lottery.Add(p);
                 p.money -= 10;
                 Player.SendMessage(p, c.lime + "Succesfully joined the lottery. The winner will be chosen at the end of the round");
-                Player.GlobalMessage(p.name + " has joined the lottery");
+                Player.GlobalMessage(p.group.color + p.name + Server.DefaultColor + " has joined the lottery");
 
             }
             else

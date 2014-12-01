@@ -37,7 +37,7 @@ namespace MCForge.Commands
         public override void Use(Player p, string message)
         {
             if (message == "") { Help(p); return; }
-            if (message.IndexOf("'") != -1) { Player.SendMessage(p, "Cannot parse request."); return; }
+            if (message.IndexOf("'") != -1) { Player.SendMessage(p, c.red + "Cannot parse request."); return; }
             Database.AddParams("@IP", message); 
             DataTable playerDb = Database.fillData("SELECT Name FROM Players WHERE IP=@IP");
             if (playerDb.Rows.Count == 0) { Player.SendMessage(p, "Could not find anyone with this IP"); return; }

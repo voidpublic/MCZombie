@@ -45,7 +45,7 @@ namespace MCForge.Commands
                 return; 
             }
 
-            if (message.IndexOf("'") != -1) { Player.SendMessage(p, "Cannot parse request."); return; }
+            if (message.IndexOf("'") != -1) { Player.SendMessage(p, c.red + "Cannot parse request."); return; }
 
             Database.AddParams("@Name", message); 
             DataTable playerDb = Database.fillData("SELECT * FROM Players WHERE Name=@Name");

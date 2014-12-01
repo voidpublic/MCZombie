@@ -23,13 +23,13 @@ namespace MCForge.Commands
             string checkname;
             if (checking == null)
             {
-                Player.SendMessage(p, "Player not online, searching for the full name");
+                Player.SendMessage(p, c.red + "Player not online, searching for the full name");
                 if (message.Contains(' ')) checkname = message.Substring(0, message.IndexOf(' '));
                 else checkname = message;
             }
             else checkname = checking.name;
             string path = "text/offensenotes/" + checkname + ".txt";
-            if (!File.Exists(path)) { Player.SendMessage(p, "No notes found for " + checkname); return; }
+            if (!File.Exists(path)) { Player.SendMessage(p, c.red + "No notes found for " + checkname); return; }
             try
             {
                 List<string> l = new List<string>(File.ReadAllLines(path));

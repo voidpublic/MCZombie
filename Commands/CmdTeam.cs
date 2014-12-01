@@ -54,16 +54,16 @@ namespace MCForge.Commands
             switch (action)
             {
                 case "create":
-                    if (todo.Length != 3) { Player.SendMessage(p,"Unallowed length. Must be 3 letters"); return; }
-                    if (todo.Contains("%") || todo.Contains("&")) { Player.SendMessage(p,"Unallowed characters"); return; }
-                    if (File.Exists("teams/" + todo + ".txt")) { Player.SendMessage(p,"Teamname already taken"); return; }
-                    if (p.teamname!="") { Player.SendMessage(p,"You are already in a team."); return; }
-                    if (!p.EnoughMoney(200)) { Player.SendMessage(p,"You havent got 200" + Server.moneys + " to buy a new team"); return; }
+                    if (todo.Length != 3) { Player.SendMessage(p, c.red + "Unallowed length. Must be 3 letters"); return; }
+                    if (todo.Contains("%") || todo.Contains("&")) { Player.SendMessage(p, c.red + "Unallowed characters"); return; }
+                    if (File.Exists("teams/" + todo + ".txt")) { Player.SendMessage(p, c.red + "Teamname already taken"); return; }
+                    if (p.teamname!="") { Player.SendMessage(p,c.red + "You are already in a team."); return; }
+                    if (!p.EnoughMoney(200)) { Player.SendMessage(p, c.red + "You havent got 200" + Server.moneys + " to buy a new team"); return; }
                     StreamWriter newteam = new StreamWriter(File.Create("teams/" + todo + ".txt"));
                     newteam.WriteLine("(TLeader)" + p.name);
                     newteam.Close();
-                    Player.SendMessage(p, "Successfully created a new team!");
-                    Player.GlobalMessage("A team named %a" + todo + Server.DefaultColor + " has just been created!");
+                    Player.SendMessage(p, c.lime + "Successfully created a new team!");
+                    Player.GlobalMessage("A team named " + c.aqua + todo + Server.DefaultColor + " has just been created!");
                     p.money -= 200;
                     p.teamname = todo;
                     p.SetPrefix();
@@ -141,7 +141,7 @@ namespace MCForge.Commands
                     StreamWriter playerjoin = File.AppendText("Teams/" + todo + ".txt");
                     playerjoin.WriteLine("(TMember)" + p.name);
                     playerjoin.Close();
-                    Player.SendMessage(p, "Successfully joined the, " + todo + " team!");
+                    Player.SendMessage(p, c.lime + "Successfully joined the, " + todo + " team!");
                     Player.GlobalMessage(p.color + p.name + Server.DefaultColor + " has joined: %a" + todo + Server.DefaultColor + " team!");
                     p.invitedtoteam = "";
                     p.teamname = todo;
@@ -224,7 +224,7 @@ namespace MCForge.Commands
                             File.WriteAllLines("teams/" + todo + ".txt", l1.ToArray());
                         }
                     }
-                    Player.SendMessage(p,"You have succesfully left your team %a" + todo);
+                    Player.SendMessage(p, c.lime + "You have succesfully left your team %a" + todo);
                     Player.GlobalMessage(p.color + p.name + Server.DefaultColor + " has left: %a" + todo + Server.DefaultColor + " team!");
                     p.teamname = "";
                     p.SetPrefix();
@@ -283,7 +283,7 @@ namespace MCForge.Commands
                             }
                             return;
                         default:
-                            Player.SendMessage(p, "You need to be TCaptain or higher to use this");
+                            Player.SendMessage(p, c.red + "You need to be TCaptain or higher to use this");
                             return;
                     }
                 case "demote":
@@ -318,7 +318,7 @@ namespace MCForge.Commands
                                     demoteplayer.WriteLine("(TMember)" + demote.name);
                                     demoteplayer.Close();
                                     p.SendMessage(c.lime + "Successfully demoted " + demote.name + " to TMember");
-                                    demote.SendMessage(c.lime + "You were demote to TMember");
+                                    demote.SendMessage(c.lime + "You were demoted to TMember");
                                     return;
                                 }
                             }
@@ -342,7 +342,7 @@ namespace MCForge.Commands
                             Player.SendMessage(p, c.red + "Cannot demote " + demote.name + " further");
                             return;
                         default:
-                            Player.SendMessage(p, "You need to be TCaptain or higher to use this");
+                            Player.SendMessage(p, c.red + "You need to be TCaptain or higher to use this");
                             return;
                     }
                     /*
@@ -396,7 +396,7 @@ namespace MCForge.Commands
                                     l.Add("(TLeader)"+newleader.name);
                                     File.WriteAllLines("teams/" + todo + ".txt", l.ToArray());
                                     newleader.SendMessage(c.lime + "You have been promoted to TLeader for team %a" + todo);
-                                    Player.SendMessage(p, "You have successfully promoted %a" + newleader.name + Server.DefaultColor + " to TLeader");
+                                    Player.SendMessage(p, c.lime + "You have successfully promoted %a" + newleader.name + Server.DefaultColor + " to TLeader");
                                 }
                                 if (l[i] == "(TLeader)" + oldleader.name)
                                 {
@@ -427,7 +427,7 @@ namespace MCForge.Commands
                                     l.Remove(l[i]);
                                     l.Add("(TLeader)" + toleader);
                                     File.WriteAllLines("teams/" + todo + ".txt", l.ToArray());
-                                    Player.SendMessage(p, "You have successfully promoted %a" + toleader + Server.DefaultColor + " to TLeader");
+                                    Player.SendMessage(p, c.lime + "You have successfully promoted %a" + toleader + Server.DefaultColor + " to TLeader");
                                     found = true;
                                 }
                             }
@@ -460,7 +460,7 @@ namespace MCForge.Commands
                     {
                         if (p.teamname == tosent.teamname)
                         {
-                            tosent.SendMessage(c.purple + "- to team - " +  p.group.color + p.name + ":" + c.white + " " + message); 
+                            tosent.SendMessage(c.purple + "- to team - " +  p.group.color + p.name + ":" + Server.DefaultColor + " " + message); 
                         }
                     });
                     return;

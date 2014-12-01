@@ -23,7 +23,7 @@ namespace MCForge.Commands
             else { who = Player.Find(message); }
             if (!who.infected || !Server.zombie.GameInProgess())
             {
-                Player.SendMessage(p,"Cannot disinfect player");
+                Player.SendMessage(p, c.red + "Cannot disinfect player");
             }
             else
             {
