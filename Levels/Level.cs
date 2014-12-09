@@ -744,11 +744,11 @@ namespace MCForge
                 DataTable levelDB = Database.fillData("SELECT * FROM level WHERE Name=@levelname");
                 if (levelDB.Rows.Count == 0)
                 {
-                    MySQL.executeQuery("INSERT INTO level (name, creator, roundtime, likes, dislikes, humanswon, zombieswon, perbuild, pervisit, perbuildmax, pervisitmax) VALUES('" + level.name + "','" + level.creator + "'," + level.roundtime + "," + level.likes + "," + level.dislikes + "," + level.humanswon + "," + level.zombieswon + ",'" + level.permissionbuild + "','" + level.permissionvisit + "','" + level.perbuildmax +"','" + level.pervisitmax + "')");
+                    Database.executeQuery("INSERT INTO level (name, creator, roundtime, likes, dislikes, humanswon, zombieswon, perbuild, pervisit, perbuildmax, pervisitmax) VALUES('@levelname','" + level.creator + "'," + level.roundtime + "," + level.likes + "," + level.dislikes + "," + level.humanswon + "," + level.zombieswon + ",'" + level.permissionbuild + "','" + level.permissionvisit + "','" + level.perbuildmax +"','" + level.pervisitmax + "')");
                 }
                 else
                 {
-                    MySQL.executeQuery("UPDATE level SET creator ='" + level.creator + "'"
+                    Database.executeQuery("UPDATE level SET creator ='" + level.creator + "'"
                         + ", roundtime = " + level.roundtime
                         + ", likes = " + level.likes
                         + ", dislikes = " + level.dislikes
@@ -758,7 +758,7 @@ namespace MCForge
                         + ", pervisit = '" + (Group.Exists(PermissionToName(level.permissionvisit).ToLower()) ? PermissionToName(level.permissionvisit).ToLower() : PermissionToName(LevelPermission.Guest)) + "'"
                         + ", perbuildmax = '" + (Group.Exists(PermissionToName(level.perbuildmax).ToLower()) ? PermissionToName(level.perbuildmax).ToLower() : PermissionToName(LevelPermission.Nobody)) + "'"
                         + ", pervisitmax = '" + (Group.Exists(PermissionToName(level.pervisitmax).ToLower()) ? PermissionToName(level.pervisitmax).ToLower() : PermissionToName(LevelPermission.Nobody)) + "'"
-                        + " WHERE name = '" + level.name + "'");
+                        + " WHERE name = '@levelname'");
 
                 }
 

@@ -614,36 +614,7 @@ namespace MCForge
                 if (useMySQL)
                 {
                     // Check if the color column exists.
-
-                    DataTable roundssurvived = MySQL.fillData("SHOW COLUMNS FROM Players WHERE `Field`='roundssurvived'");
-                    if (roundssurvived.Rows.Count == 0)
-                        MySQL.executeQuery("ALTER TABLE Players ADD COLUMN roundssurvived INT AFTER Money");
-                    roundssurvived.Dispose();
-
-                    DataTable playersinfected = MySQL.fillData("SHOW COLUMNS FROM Players WHERE `Field`='playersinfected'");
-                    if (playersinfected.Rows.Count == 0)
-                        MySQL.executeQuery("ALTER TABLE Players ADD COLUMN playersinfected INT AFTER Money");
-                    playersinfected.Dispose();
-
-                    DataTable ranks = MySQL.fillData("SHOW COLUMNS FROM Players WHERE `Field`='rank'");
-                    if (ranks.Rows.Count == 0)
-                        MySQL.executeQuery("ALTER TABLE Players ADD COLUMN rank VARCHAR(20) NOT NULL DEFAULT '" + Server.defaultRank.ToLower() +"' AFTER ID");
-                    ranks.Dispose();
-
-                    DataTable maximuminfects = MySQL.fillData("SHOW COLUMNS FROM Players WHERE `Field`='maximuminfected'"); 
-                    if (maximuminfects.Rows.Count == 0)
-                        MySQL.executeQuery("ALTER TABLE Players ADD COLUMN maximuminfected SMALLINT AFTER playersinfected");
-                    maximuminfects.Dispose();
-
-                    DataTable maximumsurvives = MySQL.fillData("SHOW COLUMNS FROM Players WHERE `Field`='maximumsurvived'");
-                    if (maximumsurvives.Rows.Count == 0)
-                        MySQL.executeQuery("ALTER TABLE Players ADD COLUMN maximumsurvived SMALLINT AFTER roundssurvived");
-                    maximumsurvives.Dispose();
-
-                    DataTable achievements = MySQL.fillData("SHOW COLUMNS FROM Players WHERE `Field`='achievements'");
-                    if (achievements.Rows.Count == 0)
-                        MySQL.executeQuery("ALTER TABLE Players ADD COLUMN achievements TEXT AFTER title_color");
-                    achievements.Dispose();
+                    
                     if (s.amountofachievements == 0)
                     {
                         MySQL.executeQuery("INSERT INTO achievements (name, description) VALUES ('Cant touch this', 'Be the only human which won the round')");
