@@ -39,9 +39,9 @@ namespace MCForge
 		public static CommandList core = new CommandList();
 		public static void InitAll()
 		{
-            all.Add(new CmdAchievements());
-            all.Add(new CmdLike());
-            all.Add(new CmdDislike());
+                        all.Add(new CmdAchievements());
+            		all.Add(new CmdLike());
+        		all.Add(new CmdDislike());
 			all.Add(new CmdAbort());
 			all.Add(new CmdAdminChat());
 			//all.Add(new CmdAllowGuns());
@@ -59,7 +59,7 @@ namespace MCForge
 			all.Add(new CmdBlocks());
 			all.Add(new CmdBlockSet());
 			all.Add(new CmdBlockSpeed());
-            all.Add(new CmdBuy());
+            		all.Add(new CmdBuy());
 			all.Add(new CmdCalculate());
 			all.Add(new CmdChain());
 			all.Add(new CmdChangeLog());
@@ -80,7 +80,7 @@ namespace MCForge
 			all.Add(new CmdDescend());
 			all.Add(new CmdDisInfect());
 			all.Add(new CmdDraw());
-            all.Add(new CmdEat());
+            		all.Add(new CmdEat());
 			all.Add(new CmdEmote());
 			all.Add(new CmdEndRound());
 			all.Add(new CmdFakePay());
@@ -94,11 +94,11 @@ namespace MCForge
 			all.Add(new CmdFly());
 			//all.Add(new CmdFollow());
 			all.Add(new CmdFreeze());
-            all.Add(new CmdLottery());
+            		all.Add(new CmdLottery());
 			all.Add(new CmdGarbage());
-            //all.Add(new CmdGcaccept());
-            //all.Add(new CmdGcrules());
-            //all.Add(new CmdGcbanlistupdate());
+            		//all.Add(new CmdGcaccept());
+            		//all.Add(new CmdGcrules());
+            		//all.Add(new CmdGcbanlistupdate());
 			//all.Add(new CmdGifToCin());
 			all.Add(new CmdGive());
 			all.Add(new CmdGoto());
@@ -111,7 +111,7 @@ namespace MCForge
 			all.Add(new CmdHide());
 			all.Add(new CmdHigh5());
 			//all.Add(new CmdHighlight());
-            all.Add(new CmdHitbox());
+            		all.Add(new CmdHitbox());
 			//all.Add(new CmdHollow());
 			all.Add(new CmdHost());
 			all.Add(new CmdIgnore());
@@ -123,7 +123,7 @@ namespace MCForge
 			all.Add(new CmdInfected());
 			all.Add(new CmdInfo());
 			//all.Add(new CmdInvincible());
-            all.Add(new CmdInvisibility());
+        		all.Add(new CmdInvisibility());
 			//all.Add(new CmdJail());
 			//all.Add(new CmdJoker());
 			all.Add(new CmdKick());
@@ -132,16 +132,16 @@ namespace MCForge
 			all.Add(new CmdKill());
 			all.Add(new CmdKillPhysics());
 			all.Add(new CmdLastCmd());
-            all.Add(new CmdLastLevels());
+            		all.Add(new CmdLastLevels());
 			//all.Add(new CmdLavaSurvival());
-            all.Add(new CmdLegal());
-            all.Add(new CmdLevel());
-            all.Add(new CmdLevelCreator());
+            		all.Add(new CmdLegal());
+            		all.Add(new CmdLevel());
+            		all.Add(new CmdLevelCreator());
 			all.Add(new CmdLevels());
 			all.Add(new CmdLimit());
 			//all.Add(new CmdLine());
 			all.Add(new CmdLoad());
-            all.Add(new CmdLocation());
+            		all.Add(new CmdLocation());
 			all.Add(new CmdLockdown());
 			all.Add(new CmdLoginMessage());
 			all.Add(new CmdLogoutMessage());
@@ -161,10 +161,10 @@ namespace MCForge
 			all.Add(new CmdMoveAll());
 			//all.Add(new CmdMuseum());
 			all.Add(new CmdMute());
-            all.Add(new CmdMynotes());
+            		all.Add(new CmdMynotes());
 			all.Add(new CmdNewLvl());
 			all.Add(new CmdNews());
-            all.Add(new CmdNotes());
+            		all.Add(new CmdNotes());
 			//all.Add(new CmdNyan());
 			all.Add(new CmdOHide());
 			all.Add(new CmdOpChat());
@@ -210,9 +210,9 @@ namespace MCForge
 			all.Add(new CmdRedo());
 			all.Add(new CmdReload());
 			all.Add(new CmdReferee());
-            all.Add(new CmdReference());
-            all.Add(new CmdReferences());
-            all.Add(new CmdMyreferences());
+            		all.Add(new CmdReference());
+            		all.Add(new CmdReferences());
+            		all.Add(new CmdMyreferences());
 			all.Add(new CmdRenameLvl());
 			all.Add(new CmdRepeat());
 			all.Add(new CmdReplace());
@@ -227,15 +227,15 @@ namespace MCForge
 			all.Add(new CmdRetrieve());
 			all.Add(new CmdReveal());
 			//all.Add(new CmdReview());
-            all.Add(new CmdRevive());
+            		all.Add(new CmdRevive());
 			//all.Add(new CmdRide());
-            all.Add(new CmdRoll());
-            all.Add(new CmdRule());
-            all.Add(new CmdRules());
+        		 all.Add(new CmdRoll());
+            		all.Add(new CmdRule());
+            		all.Add(new CmdRules());
 			all.Add(new CmdSave());
 			all.Add(new CmdSay());
 			//all.Add(new CmdSCinema());
-            all.Add(new CmdSearch());
+            		all.Add(new CmdSearch());
 			all.Add(new CmdSeen());
 			all.Add(new CmdSend());
 			all.Add(new CmdSendCmd());
@@ -243,9 +243,9 @@ namespace MCForge
 			all.Add(new CmdServer());
 			all.Add(new CmdSetPass());
 			all.Add(new CmdSetRank());
-            all.Add(new CmdSetspawn());
-            all.Add(new CmdShop());
-            all.Add(new CmdShowQueue());
+            		all.Add(new CmdSetspawn());
+        		 all.Add(new CmdShop());
+            		all.Add(new CmdShowQueue());
 			all.Add(new CmdShutdown());
 			all.Add(new CmdSlap());
 			all.Add(new CmdSpawn());
@@ -253,13 +253,13 @@ namespace MCForge
 			//all.Add(new CmdSpin());
 			//all.Add(new CmdSPlace());
 			//all.Add(new CmdStairs());
-            all.Add(new CmdStars());
+            		all.Add(new CmdStars());
 			all.Add(new CmdStatic());
 			//all.Add(new CmdStore());
 			all.Add(new CmdSummon());
 			all.Add(new CmdTake());
 			all.Add(new CmdTColor());
-            all.Add(new CmdTeam());
+            		all.Add(new CmdTeam());
 			all.Add(new CmdTempBan());
 			all.Add(new CmdTempRank());
 			all.Add(new CmdTempRankInfo());
@@ -300,7 +300,7 @@ namespace MCForge
 			all.Add(new CmdWhoip());
 			all.Add(new CmdWhois());
 			all.Add(new CmdWhowas());
-            all.Add(new CmdWom());
+        		all.Add(new CmdWom());
 			all.Add(new CmdWrite());
 			all.Add(new CmdXban());
 			all.Add(new CmdXhide());
@@ -323,5 +323,5 @@ namespace MCForge
         {
             all.Add(command);
         }
-	}
+    }
 }
