@@ -739,6 +739,37 @@ namespace MCForge
         {
             try
             {
+
+                Database.AddParams("@levelname", level.name);
+                DataTable levelDB = Database.fillData("SELECT * FROM level WHERE Name=@levelname");
+                if (levelDB.Rows.Count == 0)
+                {
+                    MySQL.executeQuery("INSERT INTO level (name, creator, roundtime, likes, dislikes, humanswon, zombieswon, perbuild, pervisit, perbuildmax, pervisitmax) VALUES('" + level.name + "','" + level.creator + "'," + level.roundtime + "," + level.likes + "," + level.dislikes + "," + level.humanswon + "," + level.zombieswon + ",'" + level.permissionbuild + "','" + level.permissionvisit + "','" + level.perbuildmax +"','" + level.pervisitmax + "')");
+                }
+                else
+                {
+                    MySQL.executeQuery("UPDATE level SET creator ='" + level.creator + "'"
+                        + ", roundtime = " + level.roundtime
+                        + ", likes = " + level.likes
+                        + ", dislikes = " + level.dislikes
+                        + ", humanswon = " + level.humanswon
+                        + ", zombieswon = " + level.zombieswon
+                        + ", perbuild = '" + (Group.Exists(PermissionToName(level.permissionbuild).ToLower()) ? PermissionToName(level.permissionbuild).ToLower(): PermissionToName(LevelPermission.Guest)) + "'"
+                        + ", pervisit = '" + (Group.Exists(PermissionToName(level.permissionvisit).ToLower()) ? PermissionToName(level.permissionvisit).ToLower() : PermissionToName(LevelPermission.Guest)) + "'"
+                        + ", perbuildmax = '" + (Group.Exists(PermissionToName(level.perbuildmax).ToLower()) ? PermissionToName(level.perbuildmax).ToLower() : PermissionToName(LevelPermission.Nobody)) + "'"
+                        + ", pervisitmax = '" + (Group.Exists(PermissionToName(level.pervisitmax).ToLower()) ? PermissionToName(level.pervisitmax).ToLower() : PermissionToName(LevelPermission.Nobody)) + "'"
+                        + " WHERE name = '" + level.name + "'");
+
+                }
+
+            }
+            catch (Exception)
+            {
+                Server.s.Log("Failed to save level properties for: " + level.name);
+            }
+            // this is temporary still there to get used to the new level format
+            try
+            {
                 File.Create("levels/level properties/" + level.name + ".properties").Dispose();
                 using (StreamWriter SW = File.CreateText("levels/level properties/" + level.name + ".properties"))
                 {
@@ -1234,6 +1265,25 @@ namespace MCForge
 
                     try
                     {
+
+                        Database.AddParams("@levelname", level.name);
+                        DataTable levelDB = Database.fillData("SELECT * FROM level WHERE Name=@levelname");
+                        if (levelDB.Rows.Count == 0) { Server.s.Log("Level properties from " + level.name + "could not be loaded"); }
+                        else
+                        {
+                            level.creator = (string)levelDB.Rows[0]["creator"];
+                            level.roundtime = int.Parse((string)levelDB.Rows[0]["roundtime"]);
+                            level.likes = int.Parse((string)levelDB.Rows[0]["likes"]);
+                            level.dislikes = int.Parse((string)levelDB.Rows[0]["dislikes"]);
+                            level.humanswon = int.Parse((string)levelDB.Rows[0]["humanswon"]);
+                            level.zombieswon = int.Parse((string)levelDB.Rows[0]["zombieswon"]);
+                            level.permissionbuild = PermissionFromName((string)levelDB.Rows[0]["perbuild"]);
+                            level.permissionvisit = PermissionFromName((string)levelDB.Rows[0]["pervisit"]);
+                            level.perbuildmax = PermissionFromName((string)levelDB.Rows[0]["perbuildmax"]);
+                            level.pervisitmax = PermissionFromName((string)levelDB.Rows[0]["pervisitmax"]);
+
+                        }
+                        //old level stuff - still leaving this here so the old properties get read out until all the new ones are saved.
                         string foundLocation;
                         foundLocation = "levels/level properties/" + level.name + ".properties";
                         if (!File.Exists(foundLocation))

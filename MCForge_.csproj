@@ -109,6 +109,7 @@
     <Compile Include="Commands\CmdMynotes.cs" />
     <Compile Include="Commands\CmdMyreferences.cs" />
     <Compile Include="Commands\CmdNotes.cs" />
+    <Compile Include="Commands\CmdPunch.cs" />
     <Compile Include="Commands\CmdReference.cs" />
     <Compile Include="Commands\CmdReferences.cs" />
     <Compile Include="Commands\CmdRevive.cs" />

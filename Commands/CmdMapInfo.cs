@@ -41,8 +41,8 @@ namespace MCForge.Commands
                 dumplevel = Level.Find(Server.zombie.currentLevelName);
             else
             {
-                Database.AddParams("@Name", message);
-                DataTable playerDb = Database.fillData("SELECT * FROM levelinfo WHERE Name=@Name");
+                Database.AddParams("@levelname", message);
+                DataTable playerDb = Database.fillData("SELECT * FROM level WHERE Name=@levelname");
                 if (playerDb.Rows.Count == 0) { Player.SendMessage(p, c.red + "Level " + message + " not found"); return; }
                 else
                 {

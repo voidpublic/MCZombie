@@ -603,22 +603,13 @@ namespace MCForge
                 Database.executeQuery(string.Format("CREATE TABLE if not exists Playercmds (ID INTEGER {0}AUTO{1}INCREMENT NOT NULL, Time DATETIME, Name TEXT, Rank VARCHAR(20), Mapname VARCHAR(40), Cmd VARCHAR(40), Cmdmsg VARCHAR(40){2});", (useMySQL ? "" : "PRIMARY KEY "), (useMySQL ? "_" : ""), (Server.useMySQL ? ", PRIMARY KEY (ID)" : "")));
                 Database.executeQuery(string.Format("CREATE TABLE if not exists Achievements (ID INTEGER {0}AUTO{1}INCREMENT NOT NULL, name TEXT, description TEXT{2});", (useMySQL ? "" : "PRIMARY KEY "), (useMySQL ? "_" : ""), (Server.useMySQL ? ", PRIMARY KEY (ID)" : "")));
                 Database.executeQuery("CREATE TABLE if not exists levelinfo (ID INTEGER PRIMARY KEY AUTO_INCREMENT NOT NULL, name TEXT, creator TEXT, likes INT, dislikes INT, humanswon INT, zombieswon INT, perbuild VARCHAR(15), roundtime INT);");
+                Database.executeQuery("CREATE TABLE if not exists level (ID INTEGER PRIMARY KEY AUTO_INCREMENT NOT NULL, name TEXT, creator TEXT, roundtime INT, likes INT, dislikes INT, humanswon INT, zombieswon INT, perbuild VARCHAR(15), pervisit VARCHAR(15), perbuildmax VARCHAR(15), pervisitmax VARCHAR(15));");
                 Database.executeQuery("CREATE TABLE if not exists serverstatus (number INTEGER PRIMARY KEY AUTO_INCREMENT NOT NULL, name TEXT, status TEXT, players INT);");
                 DataTable achievements1 = Database.fillData("SELECT * FROM achievements");
                 s.amountofachievements = achievements1.Rows.Count;
                 achievements1.Dispose();
                 //to be compatible with older databases
-                if (!File.Exists("extra/alter.txt"))
-                {
-                    Database.executeQuery("ALTER TABLE Players MODIFY name TEXT");
-                    Database.executeQuery("ALTER TABLE Playercmds MODIFY name TEXT");
-                    File.Create("extra/alter.txt");
-                }   
-                if (!File.Exists("extra/alter2.txt"))
-                {
-                    Database.executeQuery("ALTER TABLE levelinfo ADD roundtime INT");
-                    File.Create("extra/alter2.txt");
-                }
+                //removed as this has to do with old shit where databases were messed up
                 // Here, since SQLite is a NEW thing from 5.3.0.0, we do not have to check for existing tables in SQLite.
                 if (useMySQL)
                 {
