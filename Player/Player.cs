@@ -971,11 +971,11 @@ namespace MCForge
                 SendMessage("Please visit our forum: $website");
 
                 if (Server.useMySQL)
-                    MySQL.executeQuery("INSERT INTO Players (rank, name, IP, firstlogin, lastlogin, totallogin, title, totaldeaths, money, roundssurvived, maximumsurvived, playersinfected, maximuminfected , totalblocks, totalkicked, timespent)" +
+                    Database.executeQuery("INSERT INTO Players (rank, name, IP, firstlogin, lastlogin, totallogin, title, totaldeaths, money, roundssurvived, maximumsurvived, playersinfected, maximuminfected , totalblocks, totalkicked, timespent)" +
                         " VALUES ('" + group.name + "', '" + name + "', '" + ip + "', '" + firstLogin.ToString("yyyy-MM-dd HH:mm:ss") + "', '" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "', " + totalLogins +
                         ", '" + prefix + "', " + overallDeath + ", " + money + ", " + roundssurvived + ", " + maximumsurvived + ", " + playersinfected + ", " + maximuminfected + ", " + loginBlocks + ", " + totalKicked + ", '" + time + "')");
                 else
-                    SQLite.executeQuery("INSERT INTO Players (Name, IP, FirstLogin, LastLogin, totalLogin, Title, totalDeaths, Money, roundssurvived, playersinfected, totalBlocks, totalKicked, TimeSpent)" +
+                    Database.executeQuery("INSERT INTO Players (Name, IP, FirstLogin, LastLogin, totalLogin, Title, totalDeaths, Money, roundssurvived, playersinfected, totalBlocks, totalKicked, TimeSpent)" +
                     " VALUES ('" + name + "', '" + ip + "', '" + firstLogin.ToString("yyyy-MM-dd HH:mm:ss") + "', '" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "', " + totalLogins +
                     ", '" + prefix + "', " + overallDeath + ", " + money + ", " + roundssurvived + ", " + maximumsurvived + ", " + playersinfected + ", " + maximuminfected + ", " + loginBlocks + ", " + totalKicked + ", '" + time + "')");
 
@@ -2634,12 +2634,12 @@ try { SendBlockchange(pos1.x, pos1.y, pos1.z, Block.waterstill); } catch { }
                             {
                                 if (Server.useMySQL)
                                 {
-                                    MySQL.executeQuery("INSERT INTO Playercmds (Time, Name, Rank, Mapname, Cmd, Cmdmsg)" +
+                                    Database.executeQuery("INSERT INTO Playercmds (Time, Name, Rank, Mapname, Cmd, Cmdmsg)" +
                                     " VALUES ('" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "', '" + name + "', '" + group.name + "', '" + level.name + "', '" + cmd + "', '" + message + "')");
                                 }
                                 else
                                 {
-                                    SQLite.executeQuery("INSERT INTO Playercmds (Time, Name, Rank, Mapname, Cmd, Cmdmsg)" +
+                                    Database.executeQuery("INSERT INTO Playercmds (Time, Name, Rank, Mapname, Cmd, Cmdmsg)" +
                                     " VALUES ('" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "', '" + name + "', '" + group.name + "', '" + level.name + "', '" + cmd + "', '" + message + "')");
                                 }
                             }

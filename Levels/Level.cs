@@ -798,14 +798,14 @@ namespace MCForge
                                       ? PermissionToName(level.pervisitmax).ToLower()
                                       : PermissionToName(LevelPermission.Nobody)));
                 }
-                DataTable levelDb = MySQL.fillData("SELECT * FROM levelinfo WHERE name='" + level.name + "'");
+                DataTable levelDb = Database.fillData("SELECT * FROM levelinfo WHERE name='" + level.name + "'");
                 if (levelDb.Rows.Count == 0)
                 {
-                    MySQL.executeQuery("INSERT INTO levelinfo (name, creator, likes, dislikes, humanswon, zombieswon, perbuild, roundtime) VALUES('" + level.name + "','" + level.creator + "'," + level.likes + "," + level.dislikes + "," + level.humanswon + "," + level.zombieswon + ",'" + level.permissionbuild + "'," + level.roundtime+")");
+                    Database.executeQuery("INSERT INTO levelinfo (name, creator, likes, dislikes, humanswon, zombieswon, perbuild, roundtime) VALUES('" + level.name + "','" + level.creator + "'," + level.likes + "," + level.dislikes + "," + level.humanswon + "," + level.zombieswon + ",'" + level.permissionbuild + "'," + level.roundtime + ")");
                 }
                 else
                 {
-                    MySQL.executeQuery("UPDATE levelinfo SET creator ='" + level.creator + "'"
+                    Database.executeQuery("UPDATE levelinfo SET creator ='" + level.creator + "'"
                         + ", likes = " + level.likes 
                         + ", dislikes = " + level.dislikes
                         + ", humanswon = " + level.humanswon

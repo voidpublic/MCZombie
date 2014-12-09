@@ -617,25 +617,25 @@ namespace MCForge
                     
                     if (s.amountofachievements == 0)
                     {
-                        MySQL.executeQuery("INSERT INTO achievements (name, description) VALUES ('Cant touch this', 'Be the only human which won the round')");
-                        MySQL.executeQuery("INSERT INTO achievements (name, description) VALUES ('Finisher', 'Finish off the last human')");
-                        MySQL.executeQuery("INSERT INTO achievements (name, description) VALUES ('Wishes', 'Buy a queuelevel')");
-                        MySQL.executeQuery("INSERT INTO achievements (name, description) VALUES ('Deja Vu', 'Kill the same player twice in one round')");
-                        MySQL.executeQuery("INSERT INTO achievements (name, description) VALUES ('Second Chance', 'Survive a round after using revive')");
-                        MySQL.executeQuery("INSERT INTO achievements (name, description) VALUES ('Bear Grylls', 'Survive 5 rounds in a row')");
-                        MySQL.executeQuery("INSERT INTO achievements (name, description) VALUES ('Lucky Number 7', 'Win the lottery with 7 players in')");
-                        MySQL.executeQuery("INSERT INTO achievements (name, description) VALUES ('Impossible', 'Survive on a map with a win chance smaller than 10%')");
-                        MySQL.executeQuery("INSERT INTO achievements (name, description) VALUES ('Dream Destroyer', 'Kill a human with a golden star')");
-                        MySQL.executeQuery("INSERT INTO achievements (name, description) VALUES ('Unlucky', 'Get killed in the last 5 seconds of a round')");
-                        MySQL.executeQuery("INSERT INTO achievements (name, description) VALUES ('Assassin', 'Lick the brain of an auto-afk human')");
-                        MySQL.executeQuery("INSERT INTO achievements (name, description) VALUES ('Chuck Norris', 'Kill 10 humans in a row')");
+                        Database.executeQuery("INSERT INTO achievements (name, description) VALUES ('Cant touch this', 'Be the only human which won the round')");
+                        Database.executeQuery("INSERT INTO achievements (name, description) VALUES ('Finisher', 'Finish off the last human')");
+                        Database.executeQuery("INSERT INTO achievements (name, description) VALUES ('Wishes', 'Buy a queuelevel')");
+                        Database.executeQuery("INSERT INTO achievements (name, description) VALUES ('Deja Vu', 'Kill the same player twice in one round')");
+                        Database.executeQuery("INSERT INTO achievements (name, description) VALUES ('Second Chance', 'Survive a round after using revive')");
+                        Database.executeQuery("INSERT INTO achievements (name, description) VALUES ('Bear Grylls', 'Survive 5 rounds in a row')");
+                        Database.executeQuery("INSERT INTO achievements (name, description) VALUES ('Lucky Number 7', 'Win the lottery with 7 players in')");
+                        Database.executeQuery("INSERT INTO achievements (name, description) VALUES ('Impossible', 'Survive on a map with a win chance smaller than 10%')");
+                        Database.executeQuery("INSERT INTO achievements (name, description) VALUES ('Dream Destroyer', 'Kill a human with a golden star')");
+                        Database.executeQuery("INSERT INTO achievements (name, description) VALUES ('Unlucky', 'Get killed in the last 5 seconds of a round')");
+                        Database.executeQuery("INSERT INTO achievements (name, description) VALUES ('Assassin', 'Lick the brain of an auto-afk human')");
+                        Database.executeQuery("INSERT INTO achievements (name, description) VALUES ('Chuck Norris', 'Kill 10 humans in a row')");
                     }
-                    DataTable serverstatus = MySQL.fillData("SELECT * from serverstatus WHERE name='zombie'");
+                    DataTable serverstatus = Database.fillData("SELECT * from serverstatus WHERE name='zombie'");
                     if (serverstatus.Rows.Count == 0)
                     {
-                        MySQL.executeQuery("INSERT INTO serverstatus (name, status, players) VALUES ('zombie', 'offline' , '0')");
-                        MySQL.executeQuery("INSERT INTO serverstatus (name, status, players) VALUES ('build', 'offline' , '0')");
-                        MySQL.executeQuery("INSERT INTO serverstatus (name, status, players) VALUES ('premium', 'offline' , '0')");
+                        Database.executeQuery("INSERT INTO serverstatus (name, status, players) VALUES ('zombie', 'offline' , '0')");
+                        Database.executeQuery("INSERT INTO serverstatus (name, status, players) VALUES ('build', 'offline' , '0')");
+                        Database.executeQuery("INSERT INTO serverstatus (name, status, players) VALUES ('premium', 'offline' , '0')");
                     }
 
                 }
@@ -837,7 +837,7 @@ namespace MCForge
                 messageTimer.Elapsed += delegate
                 {
                     RandomMessage();
-                    MySQL.executeQuery("UPDATE serverstatus set players="+Player.players.Count.ToString()+" where name='zombie'");
+                    Database.executeQuery("UPDATE serverstatus set players=" + Player.players.Count.ToString() + " where name='zombie'");
                 };
                 messageTimer.Start();
 
