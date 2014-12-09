@@ -198,6 +198,7 @@ namespace MCForge
 			//all.Add(new CmdPossess());
 			all.Add(new CmdPromote());
 			//all.Add(new CmdPumpkin());
+			all.Add(new CmdPunch());
 			//all.Add(new CmdPUnload());
 			//all.Add(new CmdPyramid());
 			all.Add(new CmdQueue());
