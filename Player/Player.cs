@@ -4028,8 +4028,6 @@ changed |= 4;*/
                 }
                 // FlyBuffer.Clear();
                 disconnected = true;
-                pingTimer.Stop();
-                pingTimer.Dispose();
                 if (File.Exists("ranks/ignore/" + this.name + ".txt"))
                 {
                     try
@@ -4052,19 +4050,22 @@ changed |= 4;*/
                         Server.s.Log("failed to save global ignore list!");
                     }
                 }
+                pingTimer.Stop();
+                pingTimer.Dispose();
                 afkTimer.Stop();
                 afkTimer.Dispose();
                 muteTimer.Stop();
                 muteTimer.Dispose();
                 timespent.Stop();
                 timespent.Dispose();
-                afkCount = 0;
-                afkStart = DateTime.Now;
+                cookietimer.Stop();
+                cookietimer.Dispose();
+                extraTimer.Stop();
+                extraTimer.Dispose();
 
                 if (Server.afkset.Contains(name))
                 {
                     Server.afkset.Remove(name);
-                    autoafk = false;
                 }
 
                 if (kickString == "") kickString = "Disconnected.";
