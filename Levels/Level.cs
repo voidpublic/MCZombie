@@ -1270,7 +1270,7 @@ namespace MCForge
 
                         Database.AddParams("@levelname", level.name);
                         DataTable levelDB = Database.fillData("SELECT * FROM level WHERE Name=@levelname");
-                        if (levelDB.Rows.Count == 0) { Server.s.Log("Level properties from " + level.name + "could not be loaded"); }
+                        if (levelDB.Rows.Count == 0) { Server.s.Log("Level properties from " + level.name + " could not be loaded"); }
                         else
                         {
                             level.creator = (string)levelDB.Rows[0]["creator"];
