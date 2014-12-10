@@ -4,6 +4,7 @@ Error: #025
 Level properties are now in the sql database
 Fixed possible Database injection points
 Removed old MYSQL.Executequery entries and replaced by Database.Executequery
+Fixed restart not working when renaming the .exe
 
 2.0.1.8
 Fixes for database if not existant.

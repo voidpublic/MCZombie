@@ -588,8 +588,8 @@ namespace MCForge_.Gui
                         else
                         {
                             //Process.Start("mono", parentfullpath);
-                            Application.Exit();
                             Application.Restart();
+                            Environment.Exit(0);
                         }
                     }
                 }
