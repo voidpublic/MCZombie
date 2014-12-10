@@ -45,7 +45,7 @@ namespace MCForge_.Gui
         public static string parentfullpathdir = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
         private static string CurrentVersionFile = "https://dl.dropbox.com/u/77098279/currentversion.txt";
         private static string DLLLocation = "https://dl.dropbox.com/u/77098279/MCForge_.dll";
-        private static string ChangelogLocation = "http://www.mcforge.net/changelog.txt";
+        private static string ChangelogLocation = "https://dl.dropboxusercontent.com/u/77098279/Changelog-Zombie.txt";
         private static string EXELocation = "http://www.mcforge.net/ZombieSurvival.exe";
         //private static string RevisionList = "http://www.mcforge.net/revs.txt";
         //private static string HeartbeatAnnounce = "http://www.mcforge.net/hbannounce.php";
@@ -533,8 +533,8 @@ namespace MCForge_.Gui
                 catch { }
                 WebClient Client = new WebClient();
                 Client.DownloadFile(DLLLocation, "MCForge_.update");
+                Client.DownloadFile(ChangelogLocation, "Changelog.txt");
                 //Client.DownloadFile(EXELocation, "MCForge.update");
-                //Client.DownloadFile(ChangelogLocation, "Changelog.txt");
 
                 // Its possible there are no levels or players loaded yet
                 // Only save them if they exist, otherwise we fail-whale
