@@ -2,7 +2,9 @@ Error: #025
 
 2.0.2.0
 Fixes for /xhide crashing CC
-Fixes for /voice allow lower ranks to remove voice from higher ones
+Fixes for /voice allow lower ranks to remove voice from higher ones.
+Fixes for CC Url not being displayed in the server URL
+Fixes for /update.
 
 2.0.1.9
 Level properties are now in the sql database
