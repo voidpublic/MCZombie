@@ -37,6 +37,11 @@ namespace MCForge.Commands
             if (message == "") who = p;
             if (who != null)
             {
+                if (who.group.Permission > p.group.Permission)
+                {
+                    Player.SendMessage(p, "You cannot change the voice status of a higher rank!");
+                    return;
+                }
                 if (who.voice)
                 {
                     who.voice = false;
