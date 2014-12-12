@@ -1267,22 +1267,22 @@ namespace MCForge
 
                     try
                     {
-
+                        
                         Database.AddParams("@levelname", level.name);
                         DataTable levelDB = Database.fillData("SELECT * FROM level WHERE Name=@levelname");
                         if (levelDB.Rows.Count == 0) { Server.s.Log("Level properties from " + level.name + " could not be loaded"); }
                         else
                         {
-                            level.creator = (string)levelDB.Rows[0]["creator"];
-                            level.roundtime = int.Parse((string)levelDB.Rows[0]["roundtime"]);
-                            level.likes = int.Parse((string)levelDB.Rows[0]["likes"]);
-                            level.dislikes = int.Parse((string)levelDB.Rows[0]["dislikes"]);
-                            level.humanswon = int.Parse((string)levelDB.Rows[0]["humanswon"]);
-                            level.zombieswon = int.Parse((string)levelDB.Rows[0]["zombieswon"]);
-                            level.permissionbuild = PermissionFromName((string)levelDB.Rows[0]["perbuild"]);
-                            level.permissionvisit = PermissionFromName((string)levelDB.Rows[0]["pervisit"]);
-                            level.perbuildmax = PermissionFromName((string)levelDB.Rows[0]["perbuildmax"]);
-                            level.pervisitmax = PermissionFromName((string)levelDB.Rows[0]["pervisitmax"]);
+                            level.creator = levelDB.Rows[0]["creator"].ToString();
+                            level.roundtime = int.Parse(levelDB.Rows[0]["roundtime"].ToString());
+                            level.likes = int.Parse(levelDB.Rows[0]["likes"].ToString());
+                            level.dislikes = int.Parse(levelDB.Rows[0]["dislikes"].ToString());
+                            level.humanswon = int.Parse(levelDB.Rows[0]["humanswon"].ToString());
+                            level.zombieswon = int.Parse(levelDB.Rows[0]["zombieswon"].ToString());
+                            level.permissionbuild = PermissionFromName(levelDB.Rows[0]["perbuild"].ToString());
+                            level.permissionvisit = PermissionFromName(levelDB.Rows[0]["pervisit"].ToString());
+                            level.perbuildmax = PermissionFromName(levelDB.Rows[0]["perbuildmax"].ToString());
+                            level.pervisitmax = PermissionFromName(levelDB.Rows[0]["pervisitmax"].ToString());
 
                         }
                         //old level stuff - still leaving this here so the old properties get read out until all the new ones are saved.
@@ -1344,8 +1344,9 @@ namespace MCForge
                             }
                         }
                     }
-                    catch
+                    catch (Exception e)
                     {
+                        Server.ErrorLog(e);
                     }
 
                     Server.s.Log(string.Format("Level \"{0}\" loaded.", level.name));
