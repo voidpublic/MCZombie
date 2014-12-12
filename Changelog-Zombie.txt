@@ -1,7 +1,8 @@
 Error: #025
 
 2.0.2.0
-Fixes for /xhide
+Fixes for /xhide crashing CC
+Fixes for /voice allow lower ranks to remove voice from higher ones
 
 2.0.1.9
 Level properties are now in the sql database

@@ -70,9 +70,9 @@ namespace MCForge
                     MinecraftBeatTimer.Interval = 50000;
                     try
                     {
-                        Pump(new MinecraftBeat());
-                        Pump(new WOMBeat());
                         Pump(new ClassiCubeBeat());
+                        Pump(new MinecraftBeat());
+                        //Pump(new WOMBeat());
                     }
                     catch (Exception e) { Server.ErrorLog(e); }
                 };
@@ -115,26 +115,25 @@ namespace MCForge
                 int totalTries = 0;
                 int totalTriesStream = 0;
 
-            retry: try
+            retry: 
+                try
                 {
                     totalTries++;
                     totalTriesStream = 0;
-
                     beat.Prepare();
                     if (beat.GetType() == typeof(MinecraftBeat))
                         File.WriteAllText("text/heartbeaturl.txt", beat.URL + "?" + beat.Parameters, Encoding.UTF8);
-
-                    // Set all the request settings
-                    //Server.s.Log(beat.Parameters);
+                    if (beat.GetType() == typeof(ClassiCubeBeat))
+                        File.WriteAllText("text/ccheartbeaturl.txt", beat.URL + "?" + beat.Parameters, Encoding.UTF8);
                     request.Method = "POST";
                     request.ContentType = "application/x-www-form-urlencoded";
                     request.UserAgent = "Mozilla/5.0 (compatible; Konqueror/3.5; Windows NT 6.0) KHTML/3.5.6 (like Gecko)";
                     request.CachePolicy = new System.Net.Cache.RequestCachePolicy(System.Net.Cache.RequestCacheLevel.NoCacheNoStore);
                     byte[] formData = Encoding.ASCII.GetBytes(beat.Parameters);
                     request.ContentLength = formData.Length;
-                    request.Timeout = 15000; // 15 seconds
-
-          retryStream: try
+                    request.Timeout = 15000;
+          retryStream: 
+                    try
                     {
                         totalTriesStream++;
                         using (Stream requestStream = request.GetRequestStream())
@@ -183,7 +182,6 @@ namespace MCForge
                             BeatLog(beat, "Stack Trace: " + e.StackTrace);
                         }
                     }
-
                     //if (hash == null)
                     //{
                     using (WebResponse response = request.GetResponse())
@@ -197,8 +195,7 @@ namespace MCForge
 #endif
                                 BeatLog(beat, beattype + " response received at " + DateTime.Now.ToString());
                             }
-
-                            if (String.IsNullOrEmpty(hash) && response.ContentLength > 0)
+                            if (String.IsNullOrEmpty(hash) && response.ContentLength != 0)
                             {
                                 // Instead of getting a single line, get the whole damn thing and we'll strip stuff out
                                 string line = responseReader.ReadToEnd().Trim();
@@ -206,7 +203,6 @@ namespace MCForge
                                 {
                                     BeatLog(beat, "Received: " + line);
                                 }
-
                                 beat.OnPump(line);
                             }
                             else
@@ -329,5 +325,5 @@ namespace MCForge
                                                  '=', '+', '$', ',', '/', '?', '%', '#', '[', ']' };
     }
 
-    public enum BeatType { Minecraft, MCForge }
+    public enum BeatType { Minecraft, MCForge, ClassiCube }
 }

@@ -27,7 +27,7 @@ namespace MCForge
         {
             get
             {
-                return "http://www.classicube.net/heartbeat.jsp";
+                return "https://www.classicube.net/heartbeat.jsp";  
             }
         }
         public string Parameters { get; set; }
@@ -47,7 +47,7 @@ namespace MCForge
                 "&version=7" +
                 "&salt=" + Server.salt2 +
                 "&users=" + Player.players.Count +
-                "&software=ZombieSurivival";
+                "&software=MCZombie";
 
         }
         public void OnPump(string line)
@@ -62,8 +62,8 @@ namespace MCForge
                 if (String.IsNullOrEmpty(Server.Hash) || !newHash.Equals(Server.Hash))
                 {
                     Server.Hash = newHash;
-                    Server.URL = line;
-                    Server.s.UpdateUrl(Server.URL);
+                    Server.CCURL = line;
+                    Server.s.UpdateUrl(Server.CCURL);
                     File.WriteAllText("text/ccexternalurl.txt", Server.CCURL);
                     if (UrlSaid == false)
                     {

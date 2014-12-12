@@ -358,7 +358,7 @@ namespace MCForge
         public static string moneys = "moneys";
         public static LevelPermission opchatperm = LevelPermission.Operator;
         public static LevelPermission adminchatperm = LevelPermission.Admin;
-        public static bool logbeat = false;
+        public static bool logbeat = true;
         public static bool adminsjoinsilent = false;
         public static bool mono { get { return (Type.GetType("Mono.Runtime") != null); } }
         public static string server_owner = "lol";
