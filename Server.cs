@@ -83,6 +83,8 @@ namespace MCForge
         public static string Hash = String.Empty;
         public static string CCURL = String.Empty;
         public static string URL = String.Empty;
+        public static bool urlsaid = false;
+        public static bool ccurlsaid = false; 
         public int amountofachievements = 0;
         public static Socket listen;
         public static System.Diagnostics.Process process = System.Diagnostics.Process.GetCurrentProcess();

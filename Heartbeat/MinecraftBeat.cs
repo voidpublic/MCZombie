@@ -50,7 +50,11 @@ namespace MCForge
                     //serverURL = "http://" + serverURL.Substring(serverURL.IndexOf('.') + 1);
                     Server.s.UpdateUrl(Server.URL);
                     File.WriteAllText("text/externalurl.txt", Server.URL);
-                    Server.s.Log("URL found: " + Server.URL);
+                    if (!Server.urlsaid)
+                    {
+                        Server.urlsaid = true;
+                        Server.s.Log("URL found: " + Server.URL);
+                    }
                 }
             }
         }
