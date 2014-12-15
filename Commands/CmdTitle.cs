@@ -64,7 +64,7 @@ namespace MCForge.Commands
                 newTitle = newTitle.Replace("]", "");
             }
 
-            if (newTitle.Length > 17) { Player.SendMessage(p, "Title must be under 17 letters."); return; }
+            if (newTitle.Length > 20) { Player.SendMessage(p, "Title must be under 20 letters."); return; }
 
 
             /*string title = newTitle.ToLower();

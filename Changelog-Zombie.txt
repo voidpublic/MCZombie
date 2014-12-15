@@ -1,5 +1,8 @@
 Error: #025
 
+2.0.2.1
+Adjusted title lenght from /title to 20 characters. /buy title still at same
+
 2.0.2.0
 Fixes for /xhide crashing CC
 Fixes for /voice allow lower ranks to remove voice from higher ones.
