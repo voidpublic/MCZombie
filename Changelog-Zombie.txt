@@ -2,7 +2,10 @@ Error: #025
 
 2.0.2.1
 Adjusted title lenght from /title to 20 characters. /buy title still at same
-Added new property in zombie properties: skip reference, lets you skip a certain rank for /reference
+Added new property for zombie: skip reference, lets you skip a certain rank for /reference
+Added new property for zombie: Change how often revives can be used
+Added new property for zombie: Change how long revives can be used (time left + after infection)
+Added new property for zombie: Change how many players need to be infected for use
 
 2.0.2.0
 Fixes for /xhide crashing CC

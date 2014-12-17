@@ -205,6 +205,7 @@ namespace MCForge
         public int invisiblyused = 0;
         public bool saferestart = false;
         public bool canrevive = true;
+        public int revivesused = 0;
         public bool modemode = false;
         public DateTime warnedtime = new DateTime();
         public DateTime freezetime = new DateTime();

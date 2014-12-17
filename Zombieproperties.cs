@@ -165,6 +165,22 @@ namespace MCForge
                                     }
                                     catch { Server.s.Log("invalid revive price"); Server.itemprices.Add(7); }
                                     break;
+                                case "revivesperround":
+                                    try{Server.revivesperround = Convert.ToInt32(obj);}
+                                    catch { Server.s.Log("invalid revivesperround"); Server.revivesperround = 1; }
+                                    break;
+                                case "revivetimeleft":
+                                    try { Server.revivetimeleft = Convert.ToInt32(obj); }
+                                    catch { Server.s.Log("invalid revivetimeleft"); Server.revivetimeleft = 2; }
+                                    break;
+                                case "revivetimeinfected":
+                                    try { Server.revivetimeinfected = Convert.ToInt32(obj); }
+                                    catch { Server.s.Log("invalid revivetimeinfected"); Server.revivetimeinfected = 1; }
+                                    break;
+                                case "reviveminimuminfected":
+                                    try { Server.reviveminimuminfected = Convert.ToInt32(obj); }
+                                    catch { Server.s.Log("invalid reviveminimuminfected"); Server.reviveminimuminfected = 1; }
+                                    break;
                                 //------------------------------------------------------------------------------------
                                 case "10blocks":
                                     try { if (obj.ToLower() == "true") Server.buyableitems.Add("10blocks"); }
@@ -325,6 +341,14 @@ namespace MCForge
                         w.WriteLine("revive = " + (Server.buyableitems.Contains("revive") ? true : false));
                         try { w.WriteLine("revivep = " + Server.itemprices[Server.buyableitems.IndexOf("revive")]); }
                         catch { w.WriteLine("revivep = 7"); }
+                        try { w.WriteLine("revivesperround = " + Server.revivesperround.ToString()); }
+                        catch { w.WriteLine("revivesperround = 1"); }
+                        try { w.WriteLine("revivetimeleft = " + Server.revivetimeleft.ToString()); }
+                        catch { w.WriteLine("revivetimeleft = 2"); }
+                        try { w.WriteLine("revivetimeinfected = " + Server.revivetimeinfected.ToString()); }
+                        catch { w.WriteLine("revivetimeinfected = 1"); }
+                        try { w.WriteLine("reviveminimuminfected = " + Server.reviveminimuminfected.ToString()); }
+                        catch { w.WriteLine("reviveminimuminfected = 3"); }
                         //------------------------------------------------------------------------------------------------
                         w.WriteLine("10blocks = " + (Server.buyableitems.Contains("10blocks") ? true : false));
                         try { w.WriteLine("10blocksp = " + Server.itemprices[Server.buyableitems.IndexOf("10blocks")]); }

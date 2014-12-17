@@ -46,15 +46,17 @@ namespace MCForge.Commands
                     if (p.referee) { Player.SendMessage(p,c.red + "Referees cant do that"); return; }
                     else if (!Server.zombie.GameInProgess()) { Player.SendMessage(p, c.red + "No zombie game running at the moment"); return; }
                     else if (!p.infected) { Player.SendMessage(p, c.red + "You are a human already"); return; }
-                    else if (Convert.ToInt32(Server.zombie.GetTimeLeft("minutes")) < 2) { Player.SendMessage(p, c.red + "Its too late to buy a revive"); return; }
+                    else if (Convert.ToInt32(Server.zombie.GetTimeLeft("minutes")) < Server.revivetimeleft) { Player.SendMessage(p, c.red + "Its too late to buy a revive"); return; }
                     else if (!p.EnoughMoney(price)) { Player.SendMessage(p, c.red + "You havent got " + price + " " + Server.moneys + " to buy " + item); return; }
-                    else if ((DateTime.Now - p.infecttime).TotalMinutes > 1) { Player.SendMessage(p, c.red + "You can only revive 1 minute after you got infected"); return; }
-                    else if (!p.canrevive) { Player.SendMessage(p, c.red + "Only 1 revive potion per player allowed in 1 round"); return; }
-                    else if (ZombieGame.infectd.Count < 3) { Player.SendMessage(p, c.red + "A cure has not been found yet"); return; }
+                    else if ((DateTime.Now - p.infecttime).TotalMinutes > Server.revivetimeinfected) { Player.SendMessage(p, c.red + "You can only revive " + Server.revivetimeinfected + " minute(s) after you got infected"); return; }
+                    else if (p.revivesused < Server.revivesperround) { Player.SendMessage(p, c.red + "Only " + Server.revivesperround.ToString() + " revive potion per player allowed in a round"); return; }
+                    else if (ZombieGame.infectd.Count < Server.reviveminimuminfected) { Player.SendMessage(p, c.red + "A cure has not been found yet"); return; }
                     else
                     {
                         p.money -= price;
                         int chance = new Random().Next(0, 11);
+                        p.canrevive = false;
+                        p.revivesused++;
                         switch (chance)
                         {
                             case 1:

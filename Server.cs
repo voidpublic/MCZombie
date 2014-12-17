@@ -237,6 +237,10 @@ namespace MCForge
         public static List<String> buyableitems = new List<String>(){"title","tcolor","revive","10blocks","rankup","loginmsg","logoutmsg","invisibility", "queuelevel"};
         public static List<String> buyableranks = new List<String>();
         public static List<Int32> itemprices = new List<Int32>(){100,100,7,1,100,100,100,3,200};
+        public static int revivesperround = 1;
+        public static int revivetimeleft = 2;
+        public static int revivetimeinfected = 1;
+        public static int reviveminimuminfected = 3;
         
         // Lava Survival
         public static LavaSurvival lava;
