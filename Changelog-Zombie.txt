@@ -6,6 +6,8 @@ Added new property for zombie: skip reference, lets you skip a certain rank for 
 Added new property for zombie: Change how often revives can be used
 Added new property for zombie: Change how long revives can be used (time left + after infection)
 Added new property for zombie: Change how many players need to be infected for use
+Added new property for zombie: Change how long invisiblity potions last
+Added new property for zombie: Change how many invsibilities can be purchased.
 
 2.0.2.0
 Fixes for /xhide crashing CC

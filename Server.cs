@@ -241,6 +241,8 @@ namespace MCForge
         public static int revivetimeleft = 2;
         public static int revivetimeinfected = 1;
         public static int reviveminimuminfected = 3;
+        public static int invisibilityduration = 5;
+        public static int invisiblityperround = 6;
         
         // Lava Survival
         public static LavaSurvival lava;

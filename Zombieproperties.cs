@@ -265,6 +265,14 @@ namespace MCForge
                                     }
                                     catch { Server.s.Log("invalid invisibility price"); Server.itemprices.Add(3); }
                                     break;
+                                case "invisibilityduration":
+                                    try { Server.invisibilityduration = Convert.ToInt32(obj); }
+                                    catch { Server.s.Log("invalid invisibilityduration"); Server.invisibilityduration = 5; }
+                                    break;
+                                case "invisiblityperround":
+                                    try { Server.invisiblityperround = Convert.ToInt32(obj); }
+                                    catch { Server.s.Log("invalid invisiblityperround"); Server.invisiblityperround = 6; }
+                                    break;
                                 //------------------------------------------------------------------------------------
                                 case "queuelevel":
                                     try { if (obj.ToLower() == "true") Server.buyableitems.Add("queuelevel"); }
@@ -371,6 +379,10 @@ namespace MCForge
                         w.WriteLine("invisibility = " + (Server.buyableitems.Contains("invisibility") ? true : false));
                         try { w.WriteLine("invisibilityp = " + Server.itemprices[Server.buyableitems.IndexOf("invisibility")]); }
                         catch { w.WriteLine("invisibilityp = 3"); }
+                        try { w.WriteLine("invisibilityduration = " + Server.invisibilityduration.ToString()); }
+                        catch { w.WriteLine("invisibilityduration = 5"); }
+                        try { w.WriteLine("invisiblityperround = " + Server.invisiblityperround.ToString()); }
+                        catch { w.WriteLine("invisiblityperround = 6"); }
                         //------------------------------------------------------------------------------------------------
                         w.WriteLine("queuelevel = " + (Server.buyableitems.Contains("queuelevel") ? true : false));
                         try { w.WriteLine("queuelevelp = " + Server.itemprices[Server.buyableitems.IndexOf("queuelevel")]); }

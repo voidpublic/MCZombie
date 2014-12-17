@@ -109,7 +109,7 @@ namespace MCForge.Commands
                     else if (!Server.zombie.GameInProgess()) { Player.SendMessage(p,c.red + "No zombie game running at the moment"); return; }
                     else if (p.infected) { Player.SendMessage(p,c.red + "Zombies cant use that item"); return; }
                     else if (p.invisible) { Player.SendMessage(p,c.red + "You are already invisible"); return; }
-                    else if (p.invisiblyused > 6) { Player.SendMessage(p, c.red + "No more invisibility potions left"); return; }
+                    else if (p.invisiblyused > Server.invisiblityperround) { Player.SendMessage(p, c.red + "No more invisibility potions left"); return; }
                     else if (Convert.ToInt32(Server.zombie.GetTimeLeft("minutes")) < 1) { Player.SendMessage(p, c.red + "Its too late to buy invisibility"); return; }
                     else if (!p.EnoughMoney(price + p.invisiblyused * 2)) { Player.SendMessage(p, c.red + "You havent got " + price + " " + Server.moneys + " to buy " + item); return; }
                     else
@@ -135,9 +135,9 @@ namespace MCForge.Commands
                         invisibilitytimer.Elapsed += delegate
                         {
                             count++;
-                            if (count != 5 && count != 1)
-                                Player.SendMessage(p, c.red + "Invisibility ends in %b" + (5 - count));
-                            if (count == 5)
+                            if (count != Server.invisibilityduration && count != 1)
+                                Player.SendMessage(p, c.red + "Invisibility ends in %b" + (Server.invisibilityduration - count));
+                            if (count == Server.invisibilityduration)
                             {
                                 Player.SendMessage(p, c.red + "You are %bvisible %cagain");
                                 Player.GlobalDie(p, false);
