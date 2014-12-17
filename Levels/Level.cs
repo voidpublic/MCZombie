@@ -1283,7 +1283,6 @@ namespace MCForge
                             level.permissionvisit = PermissionFromName(levelDB.Rows[0]["pervisit"].ToString());
                             level.perbuildmax = PermissionFromName(levelDB.Rows[0]["perbuildmax"].ToString());
                             level.pervisitmax = PermissionFromName(levelDB.Rows[0]["pervisitmax"].ToString());
-
                         }
                         //old level stuff - still leaving this here so the old properties get read out until all the new ones are saved.
                         string foundLocation;
@@ -1292,7 +1291,6 @@ namespace MCForge
                         {
                             foundLocation = "levels/level properties/" + level.name;
                         }
-
                         foreach (string line in File.ReadAllLines(foundLocation))
                         {
                             try

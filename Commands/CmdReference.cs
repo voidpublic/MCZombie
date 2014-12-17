@@ -83,7 +83,7 @@ namespace MCForge.Commands
                     Group grp = Group.GroupList[i];
                     if(Server.name.ToLower().Contains("minemaniacs"))
                     {
-                        if (nextOne && grp.name.ToLower() != "respected")
+                        if (nextOne && !Server.skipreference.Contains(grp.name.ToLower()))
                         {
                             if (grp.Permission >= LevelPermission.Nobody) break;
                             nextGroup = grp;
@@ -94,7 +94,7 @@ namespace MCForge.Commands
                     }
                     else
                     {
-                        if (nextOne)
+                        if (nextOne && !Server.skipreference.Contains(grp.name.ToLower()))
                         {
                             if (grp.Permission >= LevelPermission.Nobody) break;
                             nextGroup = grp;

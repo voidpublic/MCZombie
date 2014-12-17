@@ -232,7 +232,8 @@ namespace MCForge
         public static string zombielevelpath = "levels/";
         public static string zombiedefaultlevelpath = "standartlevels/";
         public static string buildlevelpath = "C:/Users/Zombie/Desktop/Build Server/levels/";
-        //Shop Prices:
+        public static List<String> skipreference = new List<String>() {"respected", "donater", "vip"};
+        //Shop:
         public static List<String> buyableitems = new List<String>(){"title","tcolor","revive","10blocks","rankup","loginmsg","logoutmsg","invisibility", "queuelevel"};
         public static List<String> buyableranks = new List<String>();
         public static List<Int32> itemprices = new List<Int32>(){100,100,7,1,100,100,100,3,200};
