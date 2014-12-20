@@ -13,11 +13,11 @@ namespace MCForge.Commands
         public CmdInvisibility() { }
         public override void Use(Player p, string message)
         {
-            //Command.all.Find("buy").Use(p, "invisibility");
+            Command.all.Find("buy").Use(p, "invisibility");
         }
         public override void Help(Player p)
         {
-            //Player.SendMessage(p, "Use /shop invisibility for help");
+            Player.SendMessage(p, "Use /shop invisibility for help");
             Player.SendMessage(p, "No longer in use");
         }
     }
