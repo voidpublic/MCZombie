@@ -638,6 +638,7 @@ namespace MCForge
                         Database.executeQuery("INSERT INTO achievements (name, description) VALUES ('Unlucky', 'Get killed in the last 5 seconds of a round')");
                         Database.executeQuery("INSERT INTO achievements (name, description) VALUES ('Assassin', 'Lick the brain of an auto-afk human')");
                         Database.executeQuery("INSERT INTO achievements (name, description) VALUES ('Chuck Norris', 'Kill 10 humans in a row')");
+                        Database.executeQuery("INSERT INTO achievements (name, description) VALUES ('The Sixth Sense', 'Kill a human while they are invisibile')");
                     }
                     DataTable serverstatus = Database.fillData("SELECT * from serverstatus WHERE name='zombie'");
                     if (serverstatus.Rows.Count == 0)
