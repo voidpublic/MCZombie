@@ -74,7 +74,7 @@ namespace MCForge.Commands
             else if (message == "invisibility")
             {
                 Player.SendMessage(p,"Syntax is:%a /buy invisibility");
-                Player.SendMessage(p,"Makes you invisible for " + Server.invisibilityduration + "sec");
+                Player.SendMessage(p,"Makes you invisible for " + Server.invisibilityduration.ToString() + "sec");
                 Player.SendMessage(p,"You can still get infected");
                 Player.SendMessage(p,"Only available when timeleft is bigger than 1 minute");
                 Player.SendMessage(p,"Only available for humans");

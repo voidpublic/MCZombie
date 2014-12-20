@@ -6,7 +6,7 @@ namespace MCForge.Commands
     public class CmdInvisibility : Command
     {
         public override string name { get { return "invisibility"; } }
-        public override string shortcut { get { return ""; } }
+        public override string shortcut { get { return "w"; } }
         public override string type { get { return ""; } }
         public override bool museumUsable { get { return true; } }
         public override LevelPermission defaultRank { get { return LevelPermission.Banned; } }
