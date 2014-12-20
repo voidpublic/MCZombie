@@ -111,10 +111,10 @@ namespace MCForge.Commands
                     else if (p.invisible) { Player.SendMessage(p,c.red + "You are already invisible"); return; }
                     else if (p.invisiblyused > Server.invisiblityperround) { Player.SendMessage(p, c.red + "No more invisibility potions left"); return; }
                     else if (Convert.ToInt32(Server.zombie.GetTimeLeft("minutes")) < 1) { Player.SendMessage(p, c.red + "Its too late to buy invisibility"); return; }
-                    else if (!p.EnoughMoney(price + p.invisiblyused * 2)) { Player.SendMessage(p, c.red + "You havent got " + price + " " + Server.moneys + " to buy " + item); return; }
+                    else if (!p.EnoughMoney(price)) { Player.SendMessage(p, c.red + "You havent got " + price + " " + Server.moneys + " to buy " + item); return; }
                     else
                     {
-                        p.money = p.money - price - p.invisiblyused * 2;
+                        p.money = p.money - price;
                         /*if (p.invisiblyused == 5)
                             p.Achieve("Ghost");*/
                         Player.GlobalMessage(p.group.color + p.name + c.green + " just disappeared. POOF");
@@ -150,7 +150,7 @@ namespace MCForge.Commands
                                 Player.SendMessage(p, c.red + "You got infected, you are %bvisible %cagain");
                                 invisibilitytimer.Stop();
                                 p.invisible = false;
-                                //Player.Find(p.infectedfrom).Achieve("The Sixth Sense");
+                                Player.Find(p.infectedfrom).Achieve("The Sixth Sense");
                                 return;
                             }
                         };
