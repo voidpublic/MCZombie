@@ -1,5 +1,3 @@
-Error: #025
-
 2.0.2.1
 Adjusted title lenght from /title to 20 characters. /buy title still at same
 Added new property for zombie: skip reference, lets you skip a certain rank for /reference
@@ -8,6 +6,9 @@ Added new property for zombie: Change how long revives can be used (time left + 
 Added new property for zombie: Change how many players need to be infected for use
 Added new property for zombie: Change how long invisiblity potions last
 Added new property for zombie: Change how many invsibilities can be purchased.
+Invisiblity can be used again with /w.
+Achievement "The Sixth sense" is back.
+Price for invisiblity no longer increases the more it's used.
 
 2.0.2.0
 Fixes for /xhide crashing CC
