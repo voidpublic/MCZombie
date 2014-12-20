@@ -70,17 +70,17 @@ namespace MCForge.Commands
                 Player.SendMessage(p,"Minimum Length:%a 2 letters");
                 Player.SendMessage(p,"Maximal Length:%a 25 letters");
                 price = Server.itemprices[6];
-            }/*
+            }
             else if (message == "invisibility")
             {
                 Player.SendMessage(p,"Syntax is:%a /buy invisibility");
-                Player.SendMessage(p,"Makes you invisible for 8 sec");
+                Player.SendMessage(p,"Makes you invisible for " + Server.invisibilityduration + "sec");
                 Player.SendMessage(p,"You can still get infected");
                 Player.SendMessage(p,"Only available when timeleft is bigger than 1 minute");
                 Player.SendMessage(p,"Only available for humans");
                 Player.SendMessage(p,"Shortcut is /w");
                 price = Server.itemprices[7];
-            }*/
+            }
             else if (message == "queuelevel")
             {
                 Player.SendMessage(p, "Syntax is:%a /buy queuelevel <mapname>");
