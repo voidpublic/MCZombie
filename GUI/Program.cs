@@ -185,7 +185,7 @@ namespace MCForge_.Gui
                 case '2': return ConsoleColor.DarkGreen;
                 case '3': return ConsoleColor.DarkCyan;
                 case '4': return ConsoleColor.DarkMagenta;
-                    //No love for purples
+                case '5': return ConsoleColor.Purple;
                 case '7': return ConsoleColor.Gray;
                 case '6': return ConsoleColor.DarkYellow;
                 case '8': return ConsoleColor.DarkGray;
