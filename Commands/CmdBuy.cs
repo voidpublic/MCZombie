@@ -49,7 +49,7 @@ namespace MCForge.Commands
                     else if (Convert.ToInt32(Server.zombie.GetTimeLeft("minutes")) < Server.revivetimeleft) { Player.SendMessage(p, c.red + "Its too late to buy a revive"); return; }
                     else if (!p.EnoughMoney(price)) { Player.SendMessage(p, c.red + "You havent got " + price + " " + Server.moneys + " to buy " + item); return; }
                     else if ((DateTime.Now - p.infecttime).TotalMinutes > Server.revivetimeinfected) { Player.SendMessage(p, c.red + "You can only revive " + Server.revivetimeinfected + " minute(s) after you got infected"); return; }
-                    else if (p.revivesused < Server.revivesperround) { Player.SendMessage(p, c.red + "Only " + Server.revivesperround.ToString() + " revive potion per player allowed in a round"); return; }
+                    else if (p.revivesused >= Server.revivesperround) { Player.SendMessage(p, c.red + "Only " + Server.revivesperround.ToString() + " revive potion per player allowed in a round"); return; }
                     else if (ZombieGame.infectd.Count < Server.reviveminimuminfected) { Player.SendMessage(p, c.red + "A cure has not been found yet"); return; }
                     else
                     {
