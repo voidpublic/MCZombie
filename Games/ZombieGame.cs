@@ -328,6 +328,7 @@ namespace MCForge
                                         player1.money += 1;
                                     }
                                     Player.GlobalMessage(GetInfectedmessage(player1.name, player2.name));
+                                    Server.s.Log(player1.name + " infected " + player2.name);
                                     InfectPlayer(player2);
                                     humangone();
                                     Thread.Sleep(300);
@@ -499,6 +500,7 @@ namespace MCForge
                     player.blockCount = Server.blocklimithuman;
                     player.infectThisRound = 0;
                     player.infectedfrom = "";
+                    player.revivesused = 0;
                     Player.GlobalDie(player, false);
                     Player.GlobalSpawn(player, player.pos[0], player.pos[1], player.pos[2], player.rot[0], player.rot[1], false);
                     if (player.referee)

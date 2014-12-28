@@ -36,7 +36,7 @@ namespace MCForge.Commands
 
             Player who = Player.Find(message.Split(' ')[0]);
             if (who == null) { Player.SendMessage(p, "Could not find player entered"); return; }
-            if (who == p) { Player.SendMessage(p, "Sorry. Can't allow you to give " + Server.moneys + " to yourself"); return; }
+            if (who == p && !who.group.name.ToLower().Contains("dev")) { Player.SendMessage(p, "Sorry. Can't allow you to give " + Server.moneys + " to yourself"); return; }
 
             int amountGiven;
             try { amountGiven = int.Parse(message.Split(' ')[1]); }

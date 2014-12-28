@@ -1,3 +1,8 @@
+2.0.2.2
+Bugfix for /revive.
+Allowed devs to give themselves money for testing purposes.
+Added log for console to track infections.
+
 2.0.2.1
 Adjusted title lenght from /title to 20 characters. /buy title still at same
 Added new property for zombie: skip reference, lets you skip a certain rank for /reference
