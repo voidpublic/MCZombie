@@ -769,59 +769,6 @@ namespace MCForge
             {
                 Server.s.Log("Failed to save level properties for: " + level.name);
             }
-            // this is temporary still there to get used to the new level format
-            try
-            {
-                File.Create("levels/level properties/" + level.name + ".properties").Dispose();
-                using (StreamWriter SW = File.CreateText("levels/level properties/" + level.name + ".properties"))
-                {
-                    SW.WriteLine("#Level properties for " + level.name);
-                    SW.WriteLine("#Drown-time in seconds is [drown time] * 200 / 3 / 1000");
-                    SW.WriteLine("Creator = " + level.creator);
-                    SW.WriteLine("Roundtime = " + level.roundtime);
-                    SW.WriteLine("Likes = " + level.likes);
-                    SW.WriteLine("Dislikes = " + level.dislikes);
-                    SW.WriteLine("Humanswon = " + level.humanswon);
-                    SW.WriteLine("Zombieswon = " + level.zombieswon);
-                    SW.WriteLine("PerBuild = " +
-                                 (Group.Exists(PermissionToName(level.permissionbuild).ToLower())
-                                      ? PermissionToName(level.permissionbuild).ToLower()
-                                      : PermissionToName(LevelPermission.Guest)));
-                    SW.WriteLine("PerVisit = " +
-                                 (Group.Exists(PermissionToName(level.permissionvisit).ToLower())
-                                      ? PermissionToName(level.permissionvisit).ToLower()
-                                      : PermissionToName(LevelPermission.Guest)));
-                    SW.WriteLine("PerBuildMax = " +
-                                 (Group.Exists(PermissionToName(level.perbuildmax).ToLower())
-                                      ? PermissionToName(level.perbuildmax).ToLower()
-                                      : PermissionToName(LevelPermission.Nobody)));
-                    SW.WriteLine("PerVisitMax = " +
-                                 (Group.Exists(PermissionToName(level.pervisitmax).ToLower())
-                                      ? PermissionToName(level.pervisitmax).ToLower()
-                                      : PermissionToName(LevelPermission.Nobody)));
-                }
-                DataTable levelDb = Database.fillData("SELECT * FROM levelinfo WHERE name='" + level.name + "'");
-                if (levelDb.Rows.Count == 0)
-                {
-                    Database.executeQuery("INSERT INTO levelinfo (name, creator, likes, dislikes, humanswon, zombieswon, perbuild, roundtime) VALUES('" + level.name + "','" + level.creator + "'," + level.likes + "," + level.dislikes + "," + level.humanswon + "," + level.zombieswon + ",'" + level.permissionbuild + "'," + level.roundtime + ")");
-                }
-                else
-                {
-                    Database.executeQuery("UPDATE levelinfo SET creator ='" + level.creator + "'"
-                        + ", likes = " + level.likes 
-                        + ", dislikes = " + level.dislikes
-                        + ", humanswon = " + level.humanswon
-                        + ", zombieswon = " + level.zombieswon
-                        + ", perbuild = '" + level.permissionbuild + "'"
-                        + ", roundtime = " + level.roundtime
-                        + " WHERE name = '" + level.name + "'");
-
-                }
-            }
-            catch (Exception)
-            {
-                Server.s.Log("Failed to save level properties!");
-            }
         }
         public void Blockchange(int b, byte type, bool overRide = false, string extraInfo = "")
         //Block change made by physics
@@ -1270,7 +1217,7 @@ namespace MCForge
                         
                         Database.AddParams("@levelname", level.name);
                         DataTable levelDB = Database.fillData("SELECT * FROM level WHERE Name=@levelname");
-                        if (levelDB.Rows.Count == 0) { Server.s.Log("Level properties from " + level.name + " could not be loaded"); }
+                        if (levelDB.Rows.Count == 0) { Server.s.Log("Level properties from " + level.name + " could not be loaded (this might be because it's a new level)"); }
                         else
                         {
                             level.creator = levelDB.Rows[0]["creator"].ToString();
@@ -1284,70 +1231,13 @@ namespace MCForge
                             level.perbuildmax = PermissionFromName(levelDB.Rows[0]["perbuildmax"].ToString());
                             level.pervisitmax = PermissionFromName(levelDB.Rows[0]["pervisitmax"].ToString());
                         }
-                        //old level stuff - still leaving this here so the old properties get read out until all the new ones are saved.
-                        string foundLocation;
-                        foundLocation = "levels/level properties/" + level.name + ".properties";
-                        if (!File.Exists(foundLocation))
-                        {
-                            foundLocation = "levels/level properties/" + level.name;
-                        }
-                        foreach (string line in File.ReadAllLines(foundLocation))
-                        {
-                            try
-                            {
-                                if (line[0] == '#') continue;
-                                string value = line.Substring(line.IndexOf(" = ") + 3);
-
-                                switch (line.Substring(0, line.IndexOf(" = ")).ToLower())
-                                {
-                                    case "creator":
-                                        level.creator = value;
-                                        break;
-                                    case "roundtime":
-                                        level.roundtime = int.Parse(value);
-                                        break;
-                                    case "likes":
-                                        level.likes = int.Parse(value);
-                                        break;
-                                    case "dislikes":
-                                        level.dislikes = int.Parse(value);
-                                        break;
-                                    case "humanswon":
-                                        level.humanswon = int.Parse(value);
-                                        break;
-                                    case "zombieswon":
-                                        level.zombieswon = int.Parse(value);
-                                        break;
-                                    case "perbuild":
-                                        if (PermissionFromName(value) != LevelPermission.Null)
-                                            level.permissionbuild = PermissionFromName(value);
-                                        break;
-                                    case "pervisit":
-                                        if (PermissionFromName(value) != LevelPermission.Null)
-                                            level.permissionvisit = PermissionFromName(value);
-                                        break;
-                                    case "perbuildmax":
-                                        if (PermissionFromName(value) != LevelPermission.Null)
-                                            level.perbuildmax = PermissionFromName(value);
-                                        break;
-                                    case "pervisitmax":
-                                        if (PermissionFromName(value) != LevelPermission.Null)
-                                            level.pervisitmax = PermissionFromName(value);
-                                        break;
-                                }
-                            }
-                            catch (Exception e)
-                            {
-                                Server.ErrorLog(e);
-                            }
-                        }
                     }
                     catch (Exception e)
                     {
                         Server.ErrorLog(e);
                     }
 
-                    Server.s.Log(string.Format("Level \"{0}\" loaded.", level.name));
+                    Server.s.Log("Level " + level.name + " loaded.");
                     if (LevelLoaded != null)
                         LevelLoaded(level);
                     OnLevelLoadedEvent.Call(level);
@@ -1371,8 +1261,7 @@ namespace MCForge
         {
             try
             {
-                string foundLocation;
-                foundLocation = "levels/level properties/" + givenName + ".properties";
+                string foundLocation = "levels/level properties/" + givenName + ".properties";
                 if (!File.Exists(foundLocation))
                     foundLocation = "levels/level properties/" + givenName;
                 if (!File.Exists(foundLocation))

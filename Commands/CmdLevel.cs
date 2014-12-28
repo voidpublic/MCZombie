@@ -85,10 +85,6 @@ namespace MCForge.Commands
                     if (test == null)
                     {
                         File.Delete(zombielevelpath + mapname + ".lvl");
-                        //old level format still to be deleted for now can be removed later
-                        File.Delete(zombielevelpath + "level properties/" + mapname + ".properties");
-                        Database.AddParams("@levelname", mapname);
-                        Database.executeQuery("DELETE FROM levelinfo WHERE name=@levelname;");
                         Database.AddParams("@levelname", mapname);
                         Database.executeQuery("DELETE FROM level WHERE name=@levelname;");
                         Player.SendMessage(p, "Succesfully removed " + mapname + " + all data that has to do with it");

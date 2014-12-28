@@ -2,6 +2,7 @@
 Bugfix for /revive.
 Allowed devs to give themselves money for testing purposes.
 Added log for console to track infections.
+Removed old database stuff in order to move on to switch to database instead of flatfiles.
 
 2.0.2.1
 Adjusted title lenght from /title to 20 characters. /buy title still at same
