@@ -82,7 +82,7 @@ namespace MCForge.Commands
                         }
                         else
                         {
-                            Player.GlobalMessage(p.name + c.red + " tried to revive himself, but the potion was not effective");
+                            Player.GlobalMessage(p.name + c.red + " tried to revive themself, but the potion was not effective");
                             Player.SendMessage(p, c.red + "The revive potion had no effect....");
                             Player.SendMessage(p, "for a price of: " + c.lime + price + " " + Server.DefaultColor + Server.moneys);
                             return;
