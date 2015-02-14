@@ -75,6 +75,8 @@ namespace MCForge.Commands
                     ushort y = (ushort)((p.pos[1]));
                     ushort z = (ushort)((p.pos[2]));
                     p.SendUserMOTD();
+                    p.SendUserMOTD();
+                    p.SendMap();
                     Player.GlobalDie(p, false);
                     Player.GlobalSpawn(p, x, y, z, p.level.rotx, p.level.roty, true);
                     if (p.isFlying) p.isFlying = !p.isFlying;
