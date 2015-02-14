@@ -1,3 +1,7 @@
+2.0.2.3
+Fixes for CC crashes when using /hide to unhide.
+Temporary disabled location lookup for an IP as there is no site.
+
 2.0.2.2
 Bugfix for /revive.
 Allowed devs to give themselves money for testing purposes.

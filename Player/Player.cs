@@ -4284,8 +4284,9 @@ catch { }*/
         }
         public static string GetIPLocation(string IP)
         {
+            return "command not active currently";
             String direction = "";
-            string link = "http://www.ip-tracker.org/ip-to-location.php?ip=" + IP;
+            string link = "http://www.ip-adress.com/ip_tracer/" + IP;
             WebRequest request = WebRequest.Create(link);
             using (WebResponse response = request.GetResponse())
             using (StreamReader stream = new StreamReader(response.GetResponseStream()))
@@ -4293,17 +4294,17 @@ catch { }*/
                 direction = stream.ReadToEnd();
             }
             //Search for the ip in the html
-            int positioncity = (direction.LastIndexOf("City Location:") + 9);
-            string temp = direction.Substring(positioncity + 26);
-            int positioncityend = temp.IndexOf("</td>");
+            /*int positioncity = (direction.LastIndexOf("<th>IP address city:</th>"));
+            string temp = direction.Substring(positioncity + 30);
+            int positioncityend = temp.IndexOf("</td></tr>");
             string first = temp.Substring(0, positioncityend);
-            int positioncountry = (direction.LastIndexOf("Country Location:") + 9);
+            int positioncountry = (direction.LastIndexOf("Country <br><input type=") + 28);
             temp = direction.Substring(positioncountry + 30);
-            int positioncountryend = temp.IndexOf("&nbsp;");
-            string second = temp.Substring(0, positioncountryend);
-            if (first.Length > 20) first = "Unknown";
-            if (second.Length > 5000000) second = "Unknown";
-            return first + "/" + second;
+            int positioncountryend = temp.IndexOf("></p");
+            string second = temp.Substring(0, positioncountryend-1);
+            if (first.Length > 3000000) first = "Unknown";
+            if (second.Length > 3000000) second = "Unknown";
+            return first + "/" + second;*/
         }
         #endregion
         #region == OTHER ==
