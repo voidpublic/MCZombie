@@ -40,7 +40,7 @@ namespace MCForge
         {
            Parameters += "&port=" + Server.port +
                 "&max=" + Server.players +
-                "&name=" + Server.name +
+                "&name=" + Server.name + "(" + Server.zombie.currentLevelName + ")" + 
                 "&public=" + Server.pub +
                 "&version=7" +
                 "&salt=" + Server.salt2 +

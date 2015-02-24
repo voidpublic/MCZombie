@@ -1,3 +1,6 @@
+2.0.2.4
+Added automatic addition of the current map that is being played in the server list.
+
 2.0.2.3
 Fixes for CC crashes when using /hide to unhide.
 Temporary disabled location lookup for an IP as there is no site.

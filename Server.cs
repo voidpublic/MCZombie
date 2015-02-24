@@ -257,7 +257,7 @@ namespace MCForge
         public static string salt = "";
         public static string salt2 = "";
 
-        public static string name = "[MCForge] Default";
+        public static string name = "[MCZombie] Default";
         public static string motd = "Welcome!";
         public static byte players = 12;
         //for the limiting no. of guests:

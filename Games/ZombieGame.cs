@@ -796,6 +796,7 @@ namespace MCForge
             Server.nextLevel = "";
             Command.all.Find("load").Use(null, next.ToLower() + " 0");
             Player.GlobalMessage("The next map has been chosen - " + c.lime + currentLevelName);
+            Heart.Init();
             Level nextlvl = Level.Find(currentLevelName);
             Player.GlobalMessage("It was created by " + c.lime + nextlvl.creator);
             int percentagelike = 0;

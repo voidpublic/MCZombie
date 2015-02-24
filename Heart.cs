@@ -59,7 +59,7 @@ namespace MCForge
             MCForgeBeatTimer = new System.Timers.Timer(1000 + MCForgeBeatSeed.Next(0, 2500));
             DefaultParameters = "port=" + Server.port +
                             "&max=" + Server.players +
-                            "&name=" + UrlEncode(Server.name) +
+                            "&name=" + UrlEncode(Server.name + "(" + Server.zombie.currentLevelName + ")") +
                             "&public=" + Server.pub +
                             "&version=" + Server.version;
 
