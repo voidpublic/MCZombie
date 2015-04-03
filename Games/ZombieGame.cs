@@ -47,6 +47,7 @@ namespace MCForge
         public int aliveCount = 0;
         public DateTime StartTime;
         public string currentLevelName = "";
+        public string lastzombie = "";
         public static List<Player> alive = new List<Player>();
         public static List<Player> infectd = new List<Player>();
         public static List<string> levelsplayed = new List<string>();

@@ -4077,11 +4077,14 @@ changed |= 4;*/
                 catch { }
                 if (Server.zombieRound)
                 {
-                    if (ZombieGame.infectd.Count == 0) 
+                    if (ZombieGame.infectd.Count == 0)
+                    {
                         Server.zombie.firstinfectdc();
+                        Server.zombie.lastzombie = this.name;
+                    }
                     else if (ZombieGame.alive.Count == 0)
                         Server.zombie.HandOutRewards();
-                    else if(!this.infected && ZombieGame.infectd.Contains(this))
+                    else if (!this.infected && ZombieGame.infectd.Contains(this))
                         Server.zombie.humangone();
                 }
                 if (Server.zombie.lottery.Contains(this))
