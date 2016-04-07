@@ -972,11 +972,13 @@ namespace MCForge
                 SendMessage("Please visit our forum: $website");
 
                 if (Server.useMySQL)
-                    Database.executeQuery("INSERT INTO Players (rank, name, IP, firstlogin, lastlogin, totallogin, title, totaldeaths, money, roundssurvived, maximumsurvived, playersinfected, maximuminfected , totalblocks, totalkicked, timespent)" +
+                    Database.executeQuery("INSERT INTO Players (rank, name, IP, firstlogin, lastlogin, totallogin, title, totaldeaths, money, roundssurvived, " +
+                	                      "maximumsurvived, playersinfected, maximuminfected , totalblocks, totalkicked, timespent)" +
                         " VALUES ('" + group.name + "', '" + name + "', '" + ip + "', '" + firstLogin.ToString("yyyy-MM-dd HH:mm:ss") + "', '" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "', " + totalLogins +
                         ", '" + prefix + "', " + overallDeath + ", " + money + ", " + roundssurvived + ", " + maximumsurvived + ", " + playersinfected + ", " + maximuminfected + ", " + loginBlocks + ", " + totalKicked + ", '" + time + "')");
                 else
-                    Database.executeQuery("INSERT INTO Players (Name, IP, FirstLogin, LastLogin, totalLogin, Title, totalDeaths, Money, roundssurvived, playersinfected, totalBlocks, totalKicked, TimeSpent)" +
+                    Database.executeQuery("INSERT INTO Players (Name, IP, FirstLogin, LastLogin, totalLogin, Title, totalDeaths, Money, roundssurvived, " +
+                	                      "maximumsurvived, playersinfected, maximuminfected, totalBlocks, totalKicked, TimeSpent)" +
                     " VALUES ('" + name + "', '" + ip + "', '" + firstLogin.ToString("yyyy-MM-dd HH:mm:ss") + "', '" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "', " + totalLogins +
                     ", '" + prefix + "', " + overallDeath + ", " + money + ", " + roundssurvived + ", " + maximumsurvived + ", " + playersinfected + ", " + maximuminfected + ", " + loginBlocks + ", " + totalKicked + ", '" + time + "')");
 
