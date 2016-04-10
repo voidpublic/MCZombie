@@ -608,11 +608,18 @@ namespace MCForge
                     //process.Kill();
                     return;
                 }
-                Database.executeQuery(string.Format("CREATE TABLE if not exists Players (ID INTEGER {0}AUTO{1}INCREMENT NOT NULL,rank VARCHAR(20) NOT NULL DEFAULT '" + Server.defaultRank.ToLower() + "' , name TEXT, IP CHAR(15), firstlogin DATETIME, lastlogin DATETIME, totallogin MEDIUMINT, title CHAR(20), totaldeaths SMALLINT, money MEDIUMINT UNSIGNED, roundssurvived INT, maximumsurvived SMALLINT, playersinfected INT, maximuminfected SMALLINT, totalblocks BIGINT, totalcuboided BIGINT, totalkicked MEDIUMINT, timespent VARCHAR(20), color VARCHAR(6), title_color VARCHAR(6), achievements TEXT{2});", (useMySQL ? "" : "PRIMARY KEY "), (useMySQL ? "_" : ""), (Server.useMySQL ? ", PRIMARY KEY (ID)" : "")));
-                Database.executeQuery(string.Format("CREATE TABLE if not exists Playercmds (ID INTEGER {0}AUTO{1}INCREMENT NOT NULL, Time DATETIME, Name TEXT, Rank VARCHAR(20), Mapname VARCHAR(40), Cmd VARCHAR(40), Cmdmsg VARCHAR(40){2});", (useMySQL ? "" : "PRIMARY KEY "), (useMySQL ? "_" : ""), (Server.useMySQL ? ", PRIMARY KEY (ID)" : "")));
-                Database.executeQuery(string.Format("CREATE TABLE if not exists Achievements (ID INTEGER {0}AUTO{1}INCREMENT NOT NULL, name TEXT, description TEXT{2});", (useMySQL ? "" : "PRIMARY KEY "), (useMySQL ? "_" : ""), (Server.useMySQL ? ", PRIMARY KEY (ID)" : "")));
-                Database.executeQuery("CREATE TABLE if not exists level (ID INTEGER PRIMARY KEY AUTO_INCREMENT NOT NULL, name TEXT, creator TEXT, roundtime INT, likes INT, dislikes INT, humanswon INT, zombieswon INT, perbuild VARCHAR(15), pervisit VARCHAR(15), perbuildmax VARCHAR(15), pervisitmax VARCHAR(15));");
-                Database.executeQuery("CREATE TABLE if not exists serverstatus (number INTEGER PRIMARY KEY AUTO_INCREMENT NOT NULL, name TEXT, status TEXT, players INT);");
+                string autoInc = useMySQL ? "AUTO_INCREMENT" : "AUTOINCREMENT";
+                Database.executeQuery(string.Format("CREATE TABLE if not exists Players (ID INTEGER {0} " + autoInc + " NOT NULL,rank VARCHAR(20) NOT NULL DEFAULT '" + Server.defaultRank.ToLower() 
+                                                    + "' , name TEXT, IP CHAR(15), firstlogin DATETIME, lastlogin DATETIME, totallogin MEDIUMINT, title CHAR(20), totaldeaths SMALLINT, money MEDIUMINT UNSIGNED, " +
+                                                    "roundssurvived INT, maximumsurvived SMALLINT, playersinfected INT, maximuminfected SMALLINT, totalblocks BIGINT, totalcuboided BIGINT, totalkicked MEDIUMINT, " +
+                                                    "timespent VARCHAR(20), color VARCHAR(6), title_color VARCHAR(6), achievements TEXT{1});", (useMySQL ? "" : "PRIMARY KEY "), (Server.useMySQL ? ", PRIMARY KEY (ID)" : "")));
+                Database.executeQuery(string.Format("CREATE TABLE if not exists Playercmds (ID INTEGER {0}" + autoInc + " NOT NULL, Time DATETIME, Name TEXT, Rank VARCHAR(20), " +
+                                                    "Mapname VARCHAR(40), Cmd VARCHAR(40), Cmdmsg VARCHAR(40){1});", (useMySQL ? "" : "PRIMARY KEY "), (Server.useMySQL ? ", PRIMARY KEY (ID)" : "")));
+                Database.executeQuery(string.Format("CREATE TABLE if not exists Achievements (ID INTEGER {0}" + autoInc + " NOT NULL, name TEXT, description TEXT{1});", 
+                                                    (useMySQL ? "" : "PRIMARY KEY "), (Server.useMySQL ? ", PRIMARY KEY (ID)" : "")));
+                Database.executeQuery("CREATE TABLE if not exists level (ID INTEGER PRIMARY KEY " + autoInc + " NOT NULL, name TEXT, creator TEXT, roundtime INT, likes INT, dislikes INT, humanswon INT, " +
+                                      "zombieswon INT, perbuild VARCHAR(15), pervisit VARCHAR(15), perbuildmax VARCHAR(15), pervisitmax VARCHAR(15));");
+                Database.executeQuery("CREATE TABLE if not exists serverstatus (number INTEGER PRIMARY KEY " + autoInc + " NOT NULL, name TEXT, status TEXT, players INT);");
                 DataTable achievements1 = Database.fillData("SELECT * FROM achievements");
                 s.amountofachievements = achievements1.Rows.Count;
                 achievements1.Dispose();
