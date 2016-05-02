@@ -2625,25 +2625,21 @@ try { SendBlockchange(pos1.x, pos1.y, pos1.z, Block.waterstill); } catch { }
                                 }).Start();
                             }*/
                             // only need to log what commands operators do
-                            if (cmd.ToLower() == "ref" ||
-                                cmd.ToLower() == "notes" ||
-                                cmd.ToLower() == "legal" ||
-                                cmd.ToLower() == "freeze" ||
-                                cmd.ToLower() == "xmute" ||
-                                cmd.ToLower() == "warn" ||
-                                cmd.ToLower() == "kick" ||
-                                cmd.ToLower() == "tempban" ||
-                                cmd.ToLower() == "ban")
+                            if (cmd.ToLower() == "ref" || cmd.ToLower() == "notes" || cmd.ToLower() == "legal" ||
+                                cmd.ToLower() == "freeze" || cmd.ToLower() == "xmute" || cmd.ToLower() == "warn" ||
+                                cmd.ToLower() == "kick" || cmd.ToLower() == "tempban" || cmd.ToLower() == "ban")
                             {
+                                Database.AddParams("@Cmd", cmd);
+                                Database.AddParams("@Args", message);
                                 if (Server.useMySQL)
                                 {
                                     Database.executeQuery("INSERT INTO Playercmds (Time, Name, Rank, Mapname, Cmd, Cmdmsg)" +
-                                    " VALUES ('" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "', '" + name + "', '" + group.name + "', '" + level.name + "', '" + cmd + "', '" + message + "')");
+                                    " VALUES ('" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "', '" + name + "', '" + group.name + "', '" + level.name + "', @Cmd, @Args)");
                                 }
                                 else
                                 {
                                     Database.executeQuery("INSERT INTO Playercmds (Time, Name, Rank, Mapname, Cmd, Cmdmsg)" +
-                                    " VALUES ('" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "', '" + name + "', '" + group.name + "', '" + level.name + "', '" + cmd + "', '" + message + "')");
+                                    " VALUES ('" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "', '" + name + "', '" + group.name + "', '" + level.name + "', @Cmd, @Args)");
                                 }
                             }
                         }
