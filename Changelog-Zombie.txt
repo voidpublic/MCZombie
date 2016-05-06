@@ -1,3 +1,6 @@
+2.0.2.5
+Removed references to minemaniacs and made a property variable for website.
+
 2.0.2.4
 Added automatic addition of the current map that is being played in the server list.
 

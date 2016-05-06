@@ -832,7 +832,7 @@ namespace MCForge
                     {
                         if (!onWhitelist)
                         {
-                            Kick("You are banned! appeal on www.minemaniacs.freeforums.org");
+                            Kick("You are banned! appeal on $website");
                             return;
                         }
                     }
